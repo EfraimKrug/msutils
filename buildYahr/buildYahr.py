@@ -53,6 +53,6 @@ def writeBat(fout):
     fout.write("echo nope! try again...\n")
 
 getExcel()
-f = open("..\\bat\\yahr.bat", "w")
+f = open("..msutils\\bat\\yahr.bat", "w")
 writeBat(f)
 f.close()

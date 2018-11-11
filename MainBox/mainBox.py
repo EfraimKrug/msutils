@@ -1,15 +1,20 @@
 from tkinter import *
+from tkinter import filedialog
 import tkMessageBox
 import subprocess
 import os
 from os import walk
+import shutil
 
-batdir = r'c:\Users\KTM\BAT'
-basedir = r'c:\Users\KTM\python\msutils'
-yahrdir = r'\yahr'
+from profile import *
 
 root = Tk()
 root.geometry('500x500')
+
+def get_file():
+    filename = filedialog.askopenfilename( initialdir=basedir, title="select file", filetypes=(("excel files", "*.xlsx"), ("excel files", "*.xlsx")))
+    if(len(filename) > 3):
+        shutil.copyfile(filename, basedir + "\\yahrzeits.xlsx")
 
 def runYahr():
     subprocess.call([batdir + '\yahr.bat'], shell=False)
@@ -48,9 +53,12 @@ def doYahr01():
     print("doYahr01 - stuff")
 
 frame = Frame(root, width=600, height=400)
-button1 = Button(frame, text='Build monthly yahrzeit list', command=doYahr01)
+button0 = Button(frame, text="Load New Yahrzeit File", command = get_file)
+button1 = Button(frame, text='Build Monthly Yahrzeit List', command=doYahr01)
+button0.pack(side=RIGHT)
 button1.pack(side=RIGHT)
 
+button0.place(x=50, y=50, bordermode=OUTSIDE, height=30, width=300)
 button1.place(x=50, y=100, bordermode=OUTSIDE, height=30, width=300)
 
 frame.pack()

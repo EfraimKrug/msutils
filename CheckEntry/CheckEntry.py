@@ -44,11 +44,19 @@ def loadURLS(checks):
         if init < 1:
             _key = sheet.cell(row=r,column=1).value
         else:
-            _key = sheet.cell(row=r,column=1).value[0:init]
+            _key = sheet.cell(row=r,column=1).value[0:init-1]
         _key2 = sheet.cell(row=r,column=1).value[init:]
         _key2 = _key2.replace(' ','')
 
+        key2_idx = 0
+        while _key in ACCOUNTS:
+            _prev_key = _key
+            _key = _key + _key2[key2_idx]
+            key2_idx = key2_idx + 1
+
+        _key = _prev_key
         if _key in ACCOUNTS:
+            print ("KEY: " + _key + "," + _key2)
             ID = ACCOUNTS[_key]
             URLS.append("https://www.kadimahtorasmoshe.org/admin/transaction_add.php?account_id=" + str(ID) + "&return=account")
 
@@ -61,7 +69,7 @@ def printURLS():
 def processURLS():
     for url in URLS:
         print(url)
-        #webbrowser.get(CHROME_PATH).open(url)
+        webbrowser.get(CHROME_PATH).open(url)
         print("Press enter to continue: ")
         x = raw_input()
 

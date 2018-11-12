@@ -22,10 +22,10 @@ REM ;;      c) doubleclick on your mBox icon
 REM ;;      d) click on the 'build yahrzeits' button
 REM ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-echo batdir r'%cd%' > ..\profile.py
+echo batdir = r'%cd%' > ..\profile.py
 cd ..
-echo basedir r'%cd%' >> profile.py
-echo yahrdir r'\yahr' >> profile.py
+echo basedir = r'%cd%' >> profile.py
+echo yahrdir = r'\yahr' >> profile.py
 
 copy profile.py buildYahr\profile.py
 copy profile.py yahr\profile.py

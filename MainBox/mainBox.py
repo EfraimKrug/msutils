@@ -16,8 +16,11 @@ def get_file():
     if(len(filename) > 3):
         shutil.copyfile(filename, basedir + "\\yahrzeits.xlsx")
 
+def AddChecks():
+    subprocess.call([batdir + '\\addChecks.bat'], shell=False)
+
 def runYahr():
-    subprocess.call([batdir + '\yahr.bat'], shell=False)
+    subprocess.call([batdir + '\\yahr.bat'], shell=False)
 
 def checkOldFile(fname):
     currentFile =str(os.path.getmtime(fname))
@@ -55,11 +58,14 @@ def doYahr01():
 frame = Frame(root, width=600, height=400)
 button0 = Button(frame, text="Load New Yahrzeit File", command = get_file)
 button1 = Button(frame, text='Build Monthly Yahrzeit List', command=doYahr01)
+button2 = Button(frame, text='Add checks', command=AddChecks)
 button0.pack(side=RIGHT)
 button1.pack(side=RIGHT)
+button2.pack(side=RIGHT)
 
 button0.place(x=50, y=50, bordermode=OUTSIDE, height=30, width=300)
 button1.place(x=50, y=100, bordermode=OUTSIDE, height=30, width=300)
+button2.place(x=50, y=150, bordermode=OUTSIDE, height=30, width=300)
 
 frame.pack()
 

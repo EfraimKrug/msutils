@@ -4,7 +4,7 @@ REM  This file checks for the yahrzeit download from shulcloud  ;;
 REM  then, either prompts the user to download it, or reformats ;;
 REM  the file to make it printable and usable by the gabbai     ;;
 REM ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-cd c:\Users\KTM\python\msutils
+cd C:\Users\KTM\python
 del new.xlsx
 
 echo checking for file...

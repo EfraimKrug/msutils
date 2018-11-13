@@ -1,0 +1,43 @@
+                    Reconciliation
+                    ==============
+
+Recon001:
+First, I am going to reconcile the ShulCloud records to the PayPal records.
+
+1) From ShulCloud download the transaction listing:
+  A) Admin menu => transactions
+  B) Start Date/End Date
+  C) Export this view
+  D) Save the spreadsheet to /Reconcile/SCTrans.xlsx
+
+2) From Paypal download the transaction listing:
+  A) Reports
+  B) Activity download
+  C) Set date range
+  D) Create Report
+  E) Make sure you download the file as a CSV file
+  F) Save as PPTrans.xlsx
+
+Paypal lists Name, email address, amount, and paypal transaction number
+ShulCloud lists Name, amount, paypal transaction number, shulcloud account number
+
+Our goal is to find any paypal payments that have not been properly assigned to account numbers.
+
+Recon002:
+Second: Extract all email addresses from ShulCloud and PayPal.
+1) From ShulCloud download the transaction listing:
+  A) Admin menu => people
+  B) Click on "Clear"
+  C) Click on "Export this view"
+  D) Save the spreadsheet to /Reconcile/PeopleSC.xlsx
+
+2) From Paypal download the transaction listing:
+  A) Reports
+  B) Activity download
+  C) Set date range
+  D) Create Report
+  E) Make sure you download the file as a CSV file
+  F) Save as /Reconcile/PeoplePP.xlsx
+
+1) Compare them
+2) List all of them with names (as an email list)

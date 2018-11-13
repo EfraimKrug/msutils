@@ -29,7 +29,9 @@ echo yahrdir = r'\yahr' >> profile.py
 
 copy profile.py buildYahr\profile.py
 copy profile.py yahr\profile.py
+copy profile.py CheckEntry\profile.py
 copy profile.py MainBox\profile.py
+copy profile.py Reconcile\profile.py
 
 cd buildYahr
 dist\buildYahr\buildYahr.exe

@@ -1,6 +1,9 @@
 #yahr.py
 import sys
 import csv
+
+from pyluach import dates, hebrewcal
+
 from datetime import datetime
 from datetime import time
 from datetime import date
@@ -12,17 +15,33 @@ from openpyxl.utils import get_column_letter
 
 from openpyxl.styles.borders import Border, Side
 
+def getNextMonth():
+    month = dates.HebrewDate.today().month + 1
+    if hebrewcal.Year(dates.HebrewDate.today().year).leap:
+        if month > 13:
+            month = month - 13
+    else:
+        if month > 12:
+            month = month - 12
+
+    return month
+
+def getYear():
+    return dates.HebrewDate.today().year
+
+def getNextMonthName():
+    return hebrewcal.Month(getYear(), getNextMonth()).name
 
 def openwb():
-  if(len(sys.argv) < 1):
-      wb = load_workbook('./yahrzeits.xlsx')
-  else:
-      wb = load_workbook('./' + str(sys.argv[1]))
+  #if(len(sys.argv) < 1):
+  wb = load_workbook('..\\shulCloud\\yahrzeits.xlsx')
+  #else:
+  #    wb = load_workbook('./' + str(sys.argv[1]))
   return wb
 
 def fixDays(sheet):
     for r in range(2, sheet.max_row):
-        if(sheet.cell(row=r, column=4).value[1] == ' '):
+        if(len(sheet.cell(row=r, column=4).value.strip()) > 0 and sheet.cell(row=r, column=4).value[1] == ' '):
             sheet.cell(row=r, column=4).value = '0' + sheet.cell(row=r, column=4).value
 
 def swapRows(sheet, r1, r2):
@@ -102,17 +121,22 @@ def splitByGender(wbook):
         sheetG.cell(count, 8).value = sheet.cell(row=r,column=33).value
 
 wbook = openwb()
+stripMonth(wbook)
+
 splitByGender(wbook)
 sheet = wbook['Males']
 fixDays(sheet)
 sortSheet(sheet)
 finishSheet(sheet, "Males")
 addBorderDivisions(sheet)
+print("Males - complete...")
 
 sheet = wbook['Females']
 fixDays(sheet)
 sortSheet(sheet)
 finishSheet(sheet, "Females")
 addBorderDivisions(sheet)
+print("Females - complete...")
+
 #
-wbook.save('new.xlsx')
+wbook.save('..\\shulCloud\\new.xlsx')

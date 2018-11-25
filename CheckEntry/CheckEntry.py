@@ -43,7 +43,7 @@ def loadACCOUNTS(wbook):
     _val = ""
 
     sheet = wbook[wbook.sheetnames[0]]
-    for r in range(1, sheet.max_row+1):
+    for r in range(1, sheet.max_row):
         _key = sheet.cell(row=r,column=1).value[0:str(sheet.cell(row=r,column=1).value).find(',')]
         init = str(sheet.cell(row=r,column=1).value).find(',') + 1
         _key2 = sheet.cell(row=r,column=1).value[init:]
@@ -52,7 +52,6 @@ def loadACCOUNTS(wbook):
         if(countOccurrences(sheet, _key) > 1):
             _key = _key + _key2
             _key = _key.replace(',','')
-
         ACCOUNTS[_key] = sheet.cell(row=r,column=2).value
 
 def loadURLS(checks):
@@ -70,10 +69,12 @@ def loadURLS(checks):
         _key2 = sheet.cell(row=r,column=1).value[init:]
         _key2 = _key2.replace(' ','')
 
-        print("CHECKING: " + _key)
+        #print("CHECKING: " + _key)
+        sent_sw = False
         if _key in ACCOUNTS:
             ID = ACCOUNTS[_key]
             URLS.append("https://" + baseURL + "/admin/transaction_add.php?account_id=" + str(ID) + "&return=account")
+            sent_sw = True
         else:
             _key = _key + _key2
             _key = _key.replace(',','')
@@ -83,7 +84,9 @@ def loadURLS(checks):
                     #print("Found: " + _K)
                     ID = ACCOUNTS[_K]
                     URLS.append("https://" + baseURL + "/admin/transaction_add.php?account_id=" + str(ID) + "&return=account")
-
+                    sent_sw = True
+        if not sent_sw:
+            print(_key + " not sent...")
             #if _key in ACCOUNTS:
             #    ID = ACCOUNTS[_key]
             #    URLS.append("https://" + baseURL + "/admin/transaction_add.php?account_id=" + str(ID) + "&return=account")
@@ -93,11 +96,12 @@ def printURLS():
         print(line)
 
 def processURLS():
+    webbrowser.get(CHROME_PATH).open_new("https://" + baseURL)
     for url in URLS:
         print(url)
-        webbrowser.get(CHROME_PATH).open(url)
-        print("Press enter to continue: ")
-        x = raw_input()
+        webbrowser.get(CHROME_PATH).open_new_tab(url)
+        #print("Press enter to continue: ")
+        #x = raw_input()
 
 def openChecksWB():
   wb = load_workbook(wDir + "\\Checks.xlsx")
@@ -112,8 +116,7 @@ accounts = openwb()
 checks = openChecksWB()
 
 getChrome()
-print (CHROME_PATH)
-
+#print (CHROME_PATH)
 loadACCOUNTS(accounts)
 loadURLS(checks)
 processURLS()

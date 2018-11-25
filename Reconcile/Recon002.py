@@ -15,12 +15,13 @@ URLS = []
 
 wDir = basedir + "\\Reconcile"
 
+
 def openPP():
-  wb = load_workbook(wDir + "\\PeoplePP.xlsx")
+  wb = load_workbook("..\\shulCloud\\PeoplePP.xlsx")
   return wb
 
 def openSC():
-  wb = load_workbook(wDir + "\\PeopleSC.xlsx")
+  wb = load_workbook("..\\shulCloud\\PeopleSC.xlsx")
   return wb
 
 def getPayPal(wbook):
@@ -94,7 +95,7 @@ def getPPnoSC():
     #print (str(noCount) + " Failures to reconcile")
     #print (str(yesCount) + " Reconciliations")
 
-def printEMAIL():
+def printEMAIL(fout):
     temp = dict()
     temp2 = dict()
     print ("*********************************************************")
@@ -109,6 +110,7 @@ def printEMAIL():
 
     for _email in sorted(temp.iterkeys()):
         print "* " + _email + " <" + temp[_email] + ">"
+        fout.write(_email + "," + temp[_email] + "\n")
 
     print ("*********************************************************")
     print ("** Sorted according to names                            *")
@@ -116,11 +118,14 @@ def printEMAIL():
 
     for name in sorted(temp2.iterkeys()):
         print "* " + name + " <" + temp2[name] + ">"
+        fout.write(name + "," + temp2[name] + "\n")
 
     print ("*********************************************************")
 
+f = open(wDir + "\\emailList.csv", "w")
 getPayPal(openPP())
 getSC(openSC())
 
 getPPnoSC()
-printEMAIL()
+printEMAIL(f)
+f.close()

@@ -16,11 +16,11 @@ URLS = []
 wDir = basedir + "\\Reconcile"
 
 def openPP():
-  wb = load_workbook(wDir + "\\PPTrans.xlsx")
+  wb = load_workbook("..\\shulCloud\\PPTrans.xlsx")
   return wb
 
 def openSC():
-  wb = load_workbook(wDir + "\\SCTrans.xlsx")
+  wb = load_workbook("..\\shulCloud\\SCTrans.xlsx")
   return wb
 
 def getPayPal(wbook):

@@ -1,3 +1,3 @@
 @echo off
-cd C:\Users\KTM\python\msutils\MainBox\dist\mainBox 
-mainBox
+cd C:\Users\KTM\python\msutils
+.\py\dist\mainBox\mainBox

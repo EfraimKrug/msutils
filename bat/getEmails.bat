@@ -5,19 +5,29 @@ REM  then, either prompts the user to download it, or reformats ;;
 REM  the file to make it printable and usable by the gabbai     ;;
 REM ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 cd C:\Users\KTM\python\msutils
-del .\shulCloud\new.xlsx
+del .\newFiles\emailList
 
-echo processing 'yahrzeits.xlsx'
-if EXIST .\shulCloud\yahrzeits.xlsx (
-.\py\dist\yahr\yahr .\shulCloud\yahrzeits.xlsx
+:getfilename1
+echo for PayPal processing 'peoplePayPal.xlsx'
+if EXIST .\ShulCloud\peoplePayPal.xlsx (
+goto getfilename2
+)
+
+type .\Reconcile\ReadMe.Me
+goto enderror
+
+:getfilename2
+echo for ShulCloud processing 'people.xlsx'
+if EXIST .\ShulCloud\people.xlsx (
+.\py\dist\getEmails\getEmails > .\newFiles\emailList
 goto endall
 )
 
-echo yahrzeits.xlsx file does not exist in .\shulCloud
+type .\Reconcile\ReadMe.Me
 goto enderror
 
 :endall
-"C:\Program Files\Microsoft Office\Root\Office16\EXCEL.EXE" .\shulCloud\new.xlsx
+"C:\Program Files\Microsoft Office\Root\Office16\WINWORD.EXE" .\newFiles\emailList
 
 :enderror
 echo nope! try again...

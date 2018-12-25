@@ -31,6 +31,7 @@ def getYear():
     return dates.HebrewDate.today().year
 
 def getNextMonthName():
+    #return "Kislev"
     return hebrewcal.Month(getYear(), getNextMonth()).name
 
 def openwb():

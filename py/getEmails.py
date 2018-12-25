@@ -13,15 +13,15 @@ CHECKS = dict()
 #CHROME_PATH = 'C:/Users/KTM/AppData/Local/Google/Chrome/Application/chrome.exe %s'
 URLS = []
 
-wDir = basedir + "\\Reconcile"
+wDir = basedir + "\\newFiles"
 
 
 def openPP():
-  wb = load_workbook("..\\shulCloud\\PeoplePP.xlsx")
+  wb = load_workbook(basedir + "\\shulCloud\\peoplePayPal.xlsx")
   return wb
 
 def openSC():
-  wb = load_workbook("..\\shulCloud\\PeopleSC.xlsx")
+  wb = load_workbook(basedir + "\\shulCloud\\people.xlsx")
   return wb
 
 def getPayPal(wbook):
@@ -109,7 +109,7 @@ def printEMAIL(fout):
         temp2[name] = _email
 
     for _email in sorted(temp.iterkeys()):
-        print "* " + _email + " <" + temp[_email] + ">"
+        print "\t" + _email + " <" + temp[_email] + ">"
         fout.write(_email + "," + temp[_email] + "\n")
 
     print ("*********************************************************")
@@ -117,10 +117,10 @@ def printEMAIL(fout):
     print ("*********************************************************")
 
     for name in sorted(temp2.iterkeys()):
-        print "* " + name + " <" + temp2[name] + ">"
+        print "\t" + name + " <" + temp2[name] + ">"
         fout.write(name + "," + temp2[name] + "\n")
 
-    print ("*********************************************************")
+    #print ("*********************************************************")
 
 f = open(wDir + "\\emailList.csv", "w")
 getPayPal(openPP())

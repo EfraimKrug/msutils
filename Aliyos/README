@@ -1,0 +1,24 @@
+Aliyos.py
+###################################################################
+# This is a python routine, ready for running on a linux machine. #
+# It can not be run on windows if Hebrew is used in some of the   #
+# names. Windows can not seem to handle the discrepency!          #
+#-----------------------------------------------------------------#
+# This does require an excel spread sheet called:                 #
+#         shulCloud\transactions.xlsx and                         #
+#         shulCloud\people.xlsx                                   #
+#-----------------------------------------------------------------#
+#    "Transactions" set up as follows:                            #
+# Column 3:  Account	                                            #
+# Column 8:  Notes		                                            #
+# Column 9:  Charge		                                            #
+# Column 14: Account ID		                                        #
+# ----------------------------------------------------------------#
+#     "people" set up as follows:
+# Column 33: Email address	                                      #
+# Column 74: Primary Name	                                        #
+# Column 75: Primary Email	                                      #
+# Column 78: Secondary Name	                                      #
+# Column 79: Secondary Email	                                    #
+# Column 83: Account ID (matching transactions column 14)	        #
+###################################################################

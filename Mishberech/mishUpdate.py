@@ -15,6 +15,7 @@ from openpyxl.styles.borders import Border, Side
 
 import smtplib
 from profile import *
+from AlefBet import *
 
 fromaddr = 'KadimahTorasMoshe@gmail.com'
 toaddrs  = 'EfraimMKrug@gmail.com'
@@ -69,7 +70,7 @@ def checkDays():
 def writeEmail(account):
     s = ""
     s = "Dear " + account[0] + ",\n\n"
-    s += "We have been saying a mish'berech for " + account[1]
+    s += "We have been saying a mish'berech for " + getUsableWord(account[1])
     s += "\nsince " + str(account[2])[0:10] + ".\n\n"
     s += "Please email us if you would like us to continue mentioning this name in the shul"
     s += "\nmish'berech, otherwise we will be removing the name after this coming Shabbos."

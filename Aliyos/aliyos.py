@@ -15,29 +15,29 @@ from openpyxl.styles.borders import Border, Side
 import smtplib
 from profile import *
 
-#fromaddr = 'KadimahTorasMoshe@gmail.com'
 toaddrs  = 'EfraimMKrug@gmail.com'
-
-####################################################
-#username = 'KadimahTorasMoshe@gmail.com'
-#password = 'August7Brachas'
-####################################################
 
 last = 0
 accountArray = []
 accountArray.append(dict())
 
 def openTrx():
-    wb = load_workbook('..\\shulCloud\\transactions.xlsx')
+    wb = load_workbook('..//shulCloud//transactions.xlsx')
     return wb
 
 def openPPL():
-    wb = load_workbook('..\\shulCloud\\people.xlsx')
+    wb = load_workbook('..//shulCloud//people.xlsx')
     return wb
 
 def getTrx(sheet):
     global last
     for r in range(2, sheet.max_row + 1):
+        if sheet.cell(row=r, column=6).value != "Aliyahs":
+            continue
+
+        if sheet.cell(row=r, column=14).value == 0:
+            continue
+
         if sheet.cell(row=r, column=14).value in accountArray[last]:
             accountArray.append(dict())
             last += 1
@@ -66,14 +66,24 @@ def getEmail(sheet):
 
 def writeEmail(account):
     s = ""
+    if len(account) < 3:
+        return s
     a = account[0].split(',')
-    s = "Dear " + str(a[1]).strip() + ",\n\n"
+    nm = ""
+    if(len(a) > 1):
+        nm = a[1]
+    else:
+        nm = a
+
+    s = "Dear " + str(nm).strip() + ",\n\n"
     s += "We have, in our records, that you pledged "
     if(account[2] == 0):
-        s += "a matanah, customariliy $18, to our shul \nfor the "
+        s += "a matanah, customarily $18, to our shul \nfor the "
     else:
         s += "to give $" + str(account[2]).strip() + ", to our shul \nfor the "
 
+    if account[1] is None:
+        account[1] = "aliya"
     s += account[1].replace('aliaya', 'aliya') + "."
     s += "  We very much appreciate your pledge!\n\nYou can pay online, or, if "
     s += "you prefer, you can send a check to the office at\n\nKadima Toras Moshe\n113 Washington "
@@ -95,6 +105,12 @@ def sendTo(account):
         if (email not in arr2):
             arr2.append(email)
     return arr2
+
+def fire(fromaddr, toaddrs, msg):
+    #server.sendmail(fromaddr, toaddrs, msg)
+    print("#"*45)
+    print(msg)
+    print("#"*45)
 
 def sendItAll():
     global server
@@ -120,9 +136,7 @@ def sendItAll():
                       msgTxt
                       ])
 
-                    #server.sendmail(fromaddr, toaddrs, msg)
-                    #print("Sending to: " + toaddrs)
-                    print("Not sending to: " + toaddrs)
+                    fire(fromaddr, toaddrs, msg)
                     usedAddressList.append(email)
 
 #######################################################

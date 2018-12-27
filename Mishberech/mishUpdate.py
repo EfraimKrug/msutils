@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 import sys
 import csv
+import shutil
+import requests
+
 from datetime import datetime
 from datetime import time
 from datetime import date
@@ -20,13 +23,20 @@ fromaddr = 'KadimahTorasMoshe@gmail.com'
 toaddrs  = 'EfraimMKrug@gmail.com'
 
 ####################################################
-username = 'KadimahTorasMoshe@gmail.com'
-password = 'August7Brachas'
+#username = 'KadimahTorasMoshe@gmail.com'
+#password = 'August7Brachas'
 ####################################################
 
 last = 0
 accountArray = []
 accountArray.append(dict())
+
+def downloadXLSX():
+    url = "https://images.shulcloud.com/616/uploads/mishberech/MishBerech.xlsx"
+    response = requests.get(url, stream=True)
+    with open('MishBerech.xlsx', 'wb') as out_file:
+        shutil.copyfileobj(response.raw, out_file)
+    del response
 
 def openTrx():
     wb = load_workbook('MishBerech.xlsx')
@@ -42,9 +52,11 @@ def fixName(name):
 
 def getTrx(sheet):
     global last
-    for r in range(7, sheet.max_row + 1):
-        if(type(sheet.cell(row=r, column=6).value) != unicode):
+    for r in range(4, sheet.max_row + 1):
+        if(len((str(sheet.cell(row=r, column=2).value)).strip()) < 1 or
+            sheet.cell(row=r, column=6).value is None):
             continue
+
         if sheet.cell(row=r, column=6).value.find("@") > -1:
             accountArray.append(dict())
             last += 1
@@ -106,6 +118,7 @@ def sendItAll():
 
 
 #######################################################\
+downloadXLSX()
 trx = openTrx()
 getTrx(trx[trx.sheetnames[0]])
 checkDays()
@@ -114,4 +127,4 @@ server.ehlo()
 server.starttls()
 server.login(username,password)
 sendItAll()
-#server.quit()
+server.quit()

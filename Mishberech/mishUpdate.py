@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
 import sys
+#########################################################
+# get parent directory...
+sys.path.append(os.getcwd())
+sys.path.append(os.getcwd()[0:os.getcwd().rfind('\\')])
+
 import csv
 import shutil
 import requests
@@ -17,7 +23,7 @@ from openpyxl.utils import get_column_letter
 from openpyxl.styles.borders import Border, Side
 
 import smtplib
-from profile import *
+from Profile import *
 from AlefBet import *
 
 fromaddr = 'KadimahTorasMoshe@gmail.com'

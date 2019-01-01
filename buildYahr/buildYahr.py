@@ -4,7 +4,13 @@
 #   build yahr.bat
 #
 import os
-from profile import *
+import sys
+#########################################################
+# get parent directory...
+sys.path.append(os.getcwd())
+sys.path.append(os.getcwd()[0:os.getcwd().rfind('\\')])
+
+from Profile import *
 import winreg
 
 EXCELEXE = r'C:\Program Files\Microsoft Office\root\Office\EXCEL.EXE'

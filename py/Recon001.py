@@ -1,12 +1,17 @@
 #Recon001.py
 import sys
-#import webbrowser
+import os
+#########################################################
+# get parent directory...
+sys.path.append(os.getcwd())
+sys.path.append(os.getcwd()[0:os.getcwd().rfind('\\')])
+
 import csv
 import datetime
 
 from openpyxl import load_workbook
 import winreg
-from profile import *
+from Profile import *
 
 PP_TRANS = dict()
 SC_TRANS = dict()

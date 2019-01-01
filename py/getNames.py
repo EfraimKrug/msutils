@@ -2,13 +2,19 @@
 #getNames.py
 #
 import sys
+import os
+#########################################################
+# get parent directory...
+sys.path.append(os.getcwd())
+sys.path.append(os.getcwd()[0:os.getcwd().rfind('\\')])
+
 import webbrowser
 import winreg
 
 from openpyxl import load_workbook
 
 from pyluach import dates, hebrewcal
-from profile import *
+from Profile import *
 
 next_next_next_shabbos = ''
 next_next_shabbos = ''

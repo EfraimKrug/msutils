@@ -1,4 +1,10 @@
-#aliyos.py
+import os
+import sys
+#########################################################
+# get parent directory...
+sys.path.append(os.getcwd())
+sys.path.append(os.getcwd()[0:os.getcwd().rfind('\\')])
+
 import sys
 import csv
 from datetime import datetime
@@ -13,35 +19,62 @@ from openpyxl.utils import get_column_letter
 from openpyxl.styles.borders import Border, Side
 
 import smtplib
-from profile import *
+from Profile import *
 
 toaddrs  = 'EfraimMKrug@gmail.com'
 
 last = 0
+notAliyah = 0
+publicLines = 0
+closedLines = 0
+paymentLines = 0
+aliyahCount = 0
+totalLines = 0
+
 accountArray = []
 accountArray.append(dict())
 
 def openTrx():
-    wb = load_workbook('..//shulCloud//transactions.xlsx')
+    wb = load_workbook(basedir + '\\shulCloud\\transactions.xlsx')
     return wb
 
 def openPPL():
-    wb = load_workbook('..//shulCloud//people.xlsx')
+    wb = load_workbook(basedir + '\\shulCloud\\people.xlsx')
     return wb
 
 def getTrx(sheet):
     global last
-    for r in range(2, sheet.max_row + 1):
-        if sheet.cell(row=r, column=6).value != "Aliyahs":
-            continue
+    global notAliyah
+    global publicLines
+    global closedLines
+    global paymentLines
+    global aliyahCount
+    global totalLines
 
+    for r in range(2, sheet.max_row + 1):
+        #must be logged as 'Aliyah'
+        totalLines += 1
+        if sheet.cell(row=r, column=6).value != "Aliyahs":
+            notAliyah += 1
+            continue
+        #skip public accounts...
         if sheet.cell(row=r, column=14).value == 0:
+            publicLines += 1
+            continue
+        #skip if the pledge was already paid
+        if sheet.cell(row=r, column=11).value == "Closed":
+            closedLines += 1
+            continue
+        #skip if the line item is payment
+        if sheet.cell(row=r, column=2).value[0] == "P":
+            paymentLines += 1
             continue
 
         if sheet.cell(row=r, column=14).value in accountArray[last]:
             accountArray.append(dict())
             last += 1
 
+        aliyahCount += 1
         accountArray[last][sheet.cell(row=r, column=14).value] = []
         accountArray[last][sheet.cell(row=r, column=14).value].append(sheet.cell(row=r, column=3).value)  #name
         accountArray[last][sheet.cell(row=r, column=14).value].append(sheet.cell(row=r, column=8).value)  #notes
@@ -50,8 +83,8 @@ def getTrx(sheet):
 def getEmail(sheet):
     for accounts in accountArray:
         for id in accounts:
+            accounts[id].append([])
             for r in range(2, sheet.max_row + 1):
-                accounts[id].append([])
                 if (sheet.cell(row=r, column=83).value == id or sheet.cell(row=r, column=82).value == id):
                     if (sheet.cell(row=r, column=33).value != ""):
                         accounts[id][3].append(sheet.cell(row=r, column=33).value)
@@ -107,7 +140,7 @@ def sendTo(account):
     return arr2
 
 def fire(fromaddr, toaddrs, msg):
-    #server.sendmail(fromaddr, toaddrs, msg)
+    server.sendmail(fromaddr, toaddrs, msg)
     print("#"*45)
     print(msg)
     print("#"*45)
@@ -120,11 +153,13 @@ def sendItAll():
     usedAddressList = []
     for accounts in accountArray:
         for a in accounts:
+            #print(len(accounts[a]))
+            #print(accounts[a])
             msgTxt = writeEmail(accounts[a])
             list = sendTo(accounts[a])
             usedAddressList = []
-            if(len(list) < 1):
-                print("Not Sent: " + str(a))
+            #if(len(list) < 1):
+            #    print("Not Sent: " + str(a))
             for email in list:
                 toaddrs = email
                 if email not in usedAddressList:
@@ -139,6 +174,23 @@ def sendItAll():
                     fire(fromaddr, toaddrs, msg)
                     usedAddressList.append(email)
 
+def printCounts():
+    global notAliyah
+    global publicLines
+    global closedLines
+    global paymentLines
+    global aliyahCount
+
+    print("#############################################################")
+    print("### Counts                                                ###")
+    print("### Lines that were not Aliyah: " + str(notAliyah) + "                ###")
+    print("### Lines that were public: " + str(notAliyah) + "                    ###")
+    print("### Lines that were closed: " + str(notAliyah) + "                    ###")
+    print("### Lines that were payments: " + str(notAliyah) + "                  ###")
+    print("### Lines that were Aliyahs: " + str(notAliyah) + "                   ###")
+    print("### Total: " + str(totalLines) + "                                    ###")
+    print("#############################################################")
+
 #######################################################
 
 trx = openTrx()
@@ -151,3 +203,4 @@ server.starttls()
 server.login(username,password)
 sendItAll()
 server.quit()
+printCounts()

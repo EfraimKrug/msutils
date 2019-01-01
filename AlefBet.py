@@ -83,7 +83,7 @@ def getUsableWord(word):
         wordReturn = wordReturn[::-1]
     else:
         wordReturn = word
-    print ("getUsableWord: " + __name__)
+    #print ("getUsableWord: " + __name__)
     return wordReturn
 
 ###################################################################

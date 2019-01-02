@@ -20,6 +20,7 @@ from openpyxl.styles.borders import Border, Side
 
 import smtplib
 from Profile import *
+from periodProcess import *
 
 toaddrs  = 'EfraimMKrug@gmail.com'
 
@@ -193,14 +194,17 @@ def printCounts():
 
 #######################################################
 
-trx = openTrx()
-ppl = openPPL()
-getTrx(trx[trx.sheetnames[0]])
-getEmail(ppl[ppl.sheetnames[0]])
-server = smtplib.SMTP(smtpvar)
-server.ehlo()
-server.starttls()
-server.login(username,password)
-sendItAll()
-server.quit()
-printCounts()
+def runProcess():
+    trx = openTrx()
+    ppl = openPPL()
+    getTrx(trx[trx.sheetnames[0]])
+    getEmail(ppl[ppl.sheetnames[0]])
+    server = smtplib.SMTP(smtpvar)
+    server.ehlo()
+    server.starttls()
+    server.login(username,password)
+    sendItAll()
+    server.quit()
+    printCounts()
+
+runMonthly(runProcess)

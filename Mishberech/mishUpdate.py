@@ -25,6 +25,7 @@ from openpyxl.styles.borders import Border, Side
 import smtplib
 from Profile import *
 from AlefBet import *
+from periodProcess import *
 
 fromaddr = 'KadimahTorasMoshe@gmail.com'
 toaddrs  = 'EfraimMKrug@gmail.com'
@@ -96,9 +97,9 @@ def writeEmail(account):
     return s
 
 def fire(fromaddr, toaddrs, msg):
-    #server.sendmail(fromaddr, toaddrs, msg)
+    server.sendmail(fromaddr, toaddrs, msg)
     print("#"*45)
-    print(msg)
+    print(str(msg))
     print("#"*45)
 
 
@@ -114,9 +115,10 @@ def sendItAll():
             toaddrs = accounts[a][4]
             if toaddrs.find('@') < 0:
                 continue
+            x = accounts[a][4]
             msg = "\r\n".join([
               "From: " + fromaddr,
-              "To: " + accounts[a][4],
+              "To: " + x.encode('ascii', 'ignore'),
               "Subject: MishBerech list",
               "",
               msgTxt
@@ -125,13 +127,16 @@ def sendItAll():
 
 
 #######################################################\
-downloadXLSX()
-trx = openTrx()
-getTrx(trx[trx.sheetnames[0]])
-checkDays()
-server = smtplib.SMTP(smtpvar)
-server.ehlo()
-server.starttls()
-server.login(username,password)
-sendItAll()
-server.quit()
+def runProcess():
+    downloadXLSX()
+    trx = openTrx()
+    getTrx(trx[trx.sheetnames[0]])
+    checkDays()
+    server = smtplib.SMTP(smtpvar)
+    server.ehlo()
+    server.starttls()
+    server.login(username,password)
+    sendItAll()
+    server.quit()
+
+runMonthly(runProcess)

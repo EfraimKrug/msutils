@@ -1,6 +1,5 @@
-shulCloud\*
-newFiles\*
-build\*
-dist\*
-try\*
-/try2/*
+shulCloud/*
+newFiles/*
+build/*
+dist/*
+*.xlsx

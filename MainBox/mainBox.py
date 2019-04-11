@@ -83,7 +83,7 @@ def leftclick(event):
 
 def doYahr01():
     getFilenames()
-    print("doYahr01 - stuff")
+    #print("doYahr01 - stuff")
 
 frame = Frame(root, width=600, height=500)
 button0 = Button(frame, text="Load New Yahrzeit File", command = get_file_yahr)

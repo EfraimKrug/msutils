@@ -10,7 +10,7 @@ del .\shulCloud\new.xlsx
 echo processing 'yahrzeits.xlsx'
 if EXIST .\shulCloud\yahrzeits.xlsx (
 echo Processing...
-.\py\dist\yahr\yahr .\shulCloud\yahrzeits.xlsx
+.\dist\yahr\yahr .\shulCloud\yahrzeits.xlsx
 goto endall
 )
 

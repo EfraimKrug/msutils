@@ -29,7 +29,7 @@ from periodProcess import *
 
 fromaddr = 'KadimahTorasMoshe@gmail.com'
 toaddrs  = 'EfraimMKrug@gmail.com'
-
+server = ''
 ####################################################
 #username = 'KadimahTorasMoshe@gmail.com'
 #password = 'August7Brachas'
@@ -97,7 +97,11 @@ def writeEmail(account):
     return s
 
 def fire(fromaddr, toaddrs, msg):
-    server.sendmail(fromaddr, toaddrs, msg)
+    global server
+    try:
+        server.sendmail(fromaddr, toaddrs, msg)
+    except:
+        print("#OUCH"*9)
     print("#"*45)
     print(str(msg))
     print("#"*45)
@@ -113,6 +117,7 @@ def sendItAll():
         for a in accounts:
             msgTxt = writeEmail(accounts[a])
             toaddrs = accounts[a][4]
+            #toaddrs = "efraimmkrug@gmail.com"
             if toaddrs.find('@') < 0:
                 continue
             x = accounts[a][4]
@@ -123,11 +128,14 @@ def sendItAll():
               "",
               msgTxt
               ])
+            #print("FROM: " + fromaddr)
+            #print("TO: " + x.encode('ascii', 'ignore'))
             fire(fromaddr, toaddrs, msg)
 
 
 #######################################################\
 def runProcess():
+    global server
     downloadXLSX()
     trx = openTrx()
     getTrx(trx[trx.sheetnames[0]])

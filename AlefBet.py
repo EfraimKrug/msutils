@@ -72,8 +72,15 @@ def soundOut(word):
     return wordE
 
 def isHebrew(letters):
-    if ord(letters.strip()[0]) > 0X5BE and ord(letters.strip()[0]) < 0X5F4:
-        return True
+    #hebrew = set("א‎ב‎ג‎ד‎ה‎ו‎ז‎ח‎ט‎י‎כ‎ך‎ל‎מ‎נ‎ס‎ע‎פ‎צ‎ק‎ר‎ש‎ת‎ם‎ן‎ף‎ץ")
+    for letter in letters:
+        #print(letter)
+        #if letter in hebrew:
+        #    return True
+        if ord(letter) > 0X5BE and ord(letter) < 0X5F4:
+            return True
+    #if ord(letters.strip()[0]) > 0X5BE and ord(letters.strip()[0]) < 0X5F4:
+    #    return True
     return False
 
 def getUsableWord(word):

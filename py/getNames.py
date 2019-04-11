@@ -21,7 +21,6 @@ next_next_shabbos = ''
 next_shabbos = ''
 today = ''
 #shabbos_greg = ''
-
 LINE_WIDTH = 75
 
 def setDates():
@@ -33,8 +32,10 @@ def setDates():
         today = dates.HebrewDate.today()
         remaining = 7 - today.weekday()
         next_shabbos = today + remaining
+        #print("Next Shabbos: " + str(next_shabbos))
         #shabbos_greg = next_shabbos.to_greg()
         next_next_shabbos = today + remaining + 7
+        #print("Next(2) Shabbos: " + str(next_next_shabbos))
         next_next_next_shabbos = today + remaining + 14
 
 def getWorkBook():
@@ -52,15 +53,14 @@ def getMonthNum(dt):
     if(dt.lower().find('heshvan') > -1): return 8
     if(dt.lower().find('islev') > -1): return 9
     if(dt.lower().find('teve') > -1): return 10
-    if(dt.lower().find('shva') > -1): return 11
+    if(dt.lower().find('sheva') > -1): return 11
     if(dt.lower().find('adar') > -1):
-        if(dt.lower().find('II') > -1): return 13
+        if(dt.lower().find('ii') > -1):
+            return 13
         return 12
     return 0
 
 def getDay(dt):
-    #print("[" + str(dt) + "]")
-
     try:
         d = int(dt.strip()[0:dt.find(' ')])
     except ValueError:
@@ -77,12 +77,23 @@ def getHebDate(m, d):
 
     return dates.HebrewDate(today.year, m, d)
 
-def compareDates(dt1, dt2):
-    if dt1 == today:
-        return -2
-    if(dt1 > dt2):
+def compareDates(dt1_in, dt2_in):
+    dt1 = dates.HebrewDate(today.year, dt1_in.month, dt1_in.day)
+    dt2 = dates.HebrewDate(today.year, dt2_in.month, dt2_in.day)
+    #if dt1.day == today.day and dt1.month == today.month:
+    #    return -2
+    if dt1._is_leap(dt1.year):
+        #print ("yup" + str(dt1))
+        if dt1.month == 13 and dt2.month == 1:
+            return 1
+    else:
+        #print ("nope" + str(dt1))
+        if dt1.month == 12 and dt2.month == 1:
+            return 1
+
+    if dt1.month > dt2.month or (dt1.month == dt2.month and dt1.day > dt2.day):
         return -1
-    if(dt2 > dt1):
+    if dt1.month < dt2.month or (dt1.month == dt2.month and dt1.day < dt2.day):
         return 1
     return 0
 
@@ -90,9 +101,11 @@ def getNames(sheet):
     names = []
     i = 1
     for r in range(2, sheet.max_row):
-        dt = str(sheet.cell(row=r,column=8).value)        #print("current: " + str(dt) + "::" + str(getHebDate(getMonthNum(dt), getDay(dt))) )
+        dt = str(sheet.cell(row=r,column=8).value)
         if(compareDates(getHebDate(getMonthNum(dt), getDay(dt)), next_shabbos) in [-1,0]):
-            if(compareDates(getHebDate(getMonthNum(dt), getDay(dt)), next_next_shabbos) in [0, 1]):                #print (str(i) + ") " + str(sheet.cell(row=r,column=2).value + "::" + dt))
+            #print("current: " + str(dt) + "::" + sheet.cell(row=r,column=2).value + "::" + str(getHebDate(getMonthNum(dt), getDay(dt))) )
+            #print (str(getHebDate(getMonthNum(dt), getDay(dt))) + "::" + str(next_shabbos) + "::" + str(next_next_shabbos))
+            if(compareDates(getHebDate(getMonthNum(dt), getDay(dt)), next_next_shabbos) in [0, 1]):
                 names.append(str(sheet.cell(row=r,column=2).value))
                 i+=1
     return names
@@ -159,6 +172,7 @@ def printToFile(names, f):
         return
 
     t = fixLineWidths(s)
+    #print(t)
     f.write(t)
     f.close()
 
@@ -169,6 +183,9 @@ n = getNames(sheet)
 n2 = getNextNames(sheet)
 
 printToFile(n, openFile("NamesWeek01"))
+print("Count: " + str(len(n)))
+print("*********************************")
 printToFile(n2, openFile("NamesWeek02"))
+print("Count: " + str(len(n2)))
 
 #today_dt = str(next_shabbos.to_greg().month) + "-" + str(next_shabbos.to_greg().day) + "-" + str(next_shabbos.to_greg().year)

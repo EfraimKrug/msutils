@@ -21,6 +21,7 @@ from openpyxl.styles import Font, Color
 from openpyxl.utils import get_column_letter
 
 from openpyxl.styles.borders import Border, Side
+adarII = False
 
 def getNextMonth():
     month = dates.HebrewDate.today().month + 1
@@ -128,15 +129,65 @@ def splitByGender(wbook):
         sheetG.cell(count, 7).value = sheet.cell(row=r,column=29).value
         sheetG.cell(count, 8).value = sheet.cell(row=r,column=33).value
 
+def splitByGenderII(wbook):
+    sheet = wbook['OneMonthII']
+    sheetM = wbook.create_sheet(title = 'MalesII')
+    sheetM = wbook.active
+    sheetF = wbook.create_sheet(title = 'FemalesII')
+    sheetF = wbook.active
+    MaleRowCount = 1
+    FemaleRowCount = 1
+
+    for r in range(2, sheet.max_row):
+        if(sheet.cell(row=r,column=6).value == 'Male'):
+            sheetG = wbook['MalesII']
+            MaleRowCount = MaleRowCount + 1
+            count = MaleRowCount
+        else:
+            sheetG = wbook['FemalesII']
+            FemaleRowCount = FemaleRowCount + 1
+            count = FemaleRowCount
+
+        sheetG.cell(count, 1).value = sheet.cell(row=r,column=2).value
+        sheetG.cell(count, 2).value = sheet.cell(row=r,column=5).value
+
+        #if (str(sheet.cell(row=r,column=7).value) == "0000-00-00"):
+        #    sheetG.cell(count, 3).value = ""
+        #else:
+        sheetG.cell(count, 3).value = sheet.cell(row=r,column=24).value
+        sheetG.cell(count, 4).value = sheet.cell(row=r,column=8).value
+        sheetG.cell(count, 5).value = sheet.cell(row=r,column=25).value
+        sheetG.cell(count, 6).value = sheet.cell(row=r,column=28).value
+        sheetG.cell(count, 7).value = sheet.cell(row=r,column=29).value
+        sheetG.cell(count, 8).value = sheet.cell(row=r,column=33).value
+
 def stripMonth(wbook):
+    global adarII
     newRow = 1
+    newRowII = 1
     sheet = wbook[wbook.sheetnames[0]]
     sheetNew = wbook.create_sheet(title = 'OneMonth')
     #sheetNew = wbook.active
     mName = getNextMonthName().lower()
-    if mName[-1] == 't' or mName[-1] == 's':
-        mName = mName[0:-1]
+    if mName.find("adar") > -1:
+        mName = "adar"
+        sheetNewII = wbook.create_sheet(title = 'OneMonthII')
+        adarII = True
+    else:
+        if mName == "shvat":
+            mName = "shevat"
+        else:
+            if mName[-1] == 't' or mName[-1] == 's':
+                mName = mName[0:-1]
+
     for r in range(2, sheet.max_row):
+        if mName.find("adar") > -1:
+            if sheet.cell(row=r,column=8).value.lower().find("ii") > -1:
+                for s in range(1, 40):
+                    sheetNewII.cell(row=newRowII, column=s).value = sheet.cell(row=r,column=s).value
+                newRowII += 1
+                continue
+
         if(sheet.cell(row=r,column=8).value.lower().find(mName) > -1):
             for s in range(1, 40):
                 sheetNew.cell(row=newRow, column=s).value = sheet.cell(row=r,column=s).value
@@ -150,10 +201,25 @@ fixDays(sheet)
 sortSheet(sheet)
 finishSheet(sheet, "Males")
 addBorderDivisions(sheet)
+if adarII:
+    splitByGenderII(wbook)
+    sheet = wbook['MalesII']
+    fixDays(sheet)
+    sortSheet(sheet)
+    finishSheet(sheet, "MalesII")
+    addBorderDivisions(sheet)
 
 sheet = wbook['Females']
 fixDays(sheet)
 sortSheet(sheet)
 finishSheet(sheet, "Females")
 addBorderDivisions(sheet)
+
+if adarII:
+    sheet = wbook['FemalesII']
+    fixDays(sheet)
+    sortSheet(sheet)
+    finishSheet(sheet, "FemalesII")
+    addBorderDivisions(sheet)
+
 wbook.save(basedir + '\\shulCloud\\new.xlsx')

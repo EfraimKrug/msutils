@@ -34,6 +34,7 @@ totalLines = 0
 
 accountArray = []
 accountArray.append(dict())
+server = 0
 
 def openTrx():
     wb = load_workbook(basedir + '\\shulCloud\\transactions.xlsx')
@@ -141,6 +142,7 @@ def sendTo(account):
     return arr2
 
 def fire(fromaddr, toaddrs, msg):
+    global server
     server.sendmail(fromaddr, toaddrs, msg)
     print("#"*45)
     print(msg)
@@ -195,6 +197,7 @@ def printCounts():
 #######################################################
 
 def runProcess():
+    global server
     trx = openTrx()
     ppl = openPPL()
     getTrx(trx[trx.sheetnames[0]])
@@ -207,4 +210,4 @@ def runProcess():
     server.quit()
     printCounts()
 
-runMonthly(runProcess)
+runWhatever(runProcess)

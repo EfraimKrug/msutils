@@ -1,0 +1,18 @@
+###################################################################
+# This is a python routine, ready for running on a linux machine. #
+# It can not be run on windows if Hebrew is used in some of the   #
+# names. Windows can not seem to handle the discrepency!          #
+#-----------------------------------------------------------------#
+# This does require an excel spread sheet called:                 #
+#         MishBerech.xlsx                                         #
+#     set up as follows:                                          #
+# Column 1: Blank                                                 #
+# Column 2: Addressee (email)                                     #
+# Column 3: Person who needs the MishBerech                       #
+# Column 4: Date in dd-MMM-yy format (e.g. 28-Aug-15)             #
+#           We keep this as the 'date requested' and we keep      #
+#           saying the mishBerech for 45 days. Then we send       #
+#           an email to check on the choleh and change the date.  #
+# Column 5: comments (ignored)                                    #
+# Column 6: Email Address                                         #
+###################################################################

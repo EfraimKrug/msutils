@@ -1,10 +1,17 @@
 #Recon001.py
 import sys
-#import webbrowser
+import os
+#########################################################
+# get parent directory...
+sys.path.append(os.getcwd())
+sys.path.append(os.getcwd()[0:os.getcwd().rfind('\\')])
+
 import csv
+import datetime
+
 from openpyxl import load_workbook
 import winreg
-from profile import *
+from Profile import *
 
 PP_TRANS = dict()
 SC_TRANS = dict()
@@ -25,11 +32,15 @@ def openSC():
 
 def getPayPal(wbook):
     _num = ""
+    minDt = ""
+    maxDt = ""
+    currDt = ""
 
     sheet = wbook[wbook.sheetnames[0]]
     for r in range(2, sheet.max_row+1):
         if(sheet.cell(row=r,column=11).value != "office@ktmshul.org"):
             _num = sheet.cell(row=r,column=13).value
+
             PP_TRANS[_num] = dict()
             PP_TRANS[_num]['date'] = str(sheet.cell(row=r,column=1).value)
             PP_TRANS[_num]['time'] = sheet.cell(row=r,column=2).value
@@ -37,9 +48,22 @@ def getPayPal(wbook):
             PP_TRANS[_num]['gross'] = str(sheet.cell(row=r,column=8).value)
             PP_TRANS[_num]['fee'] = sheet.cell(row=r,column=9).value
             PP_TRANS[_num]['email'] = sheet.cell(row=r,column=11).value
+            if r == 3:
+                maxDt = datetime.datetime.strptime(PP_TRANS[_num]['date'],'%Y-%m-%d %H:%M:%S')
+                minDt = datetime.datetime.strptime(PP_TRANS[_num]['date'],'%Y-%m-%d %H:%M:%S')
+
+            currDt = datetime.datetime.strptime(PP_TRANS[_num]['date'],'%Y-%m-%d %H:%M:%S')
+            if currDt > maxDt:
+                maxDt = currDt
+            if currDt < minDt:
+                minDt = currDt
+    print("PayPal from: " + str(minDt) + " to " + str(maxDt))
 
 def getSC(wbook):
     _num = ""
+    minDt = ""
+    maxDt = ""
+    currDt = ""
 
     sheet = wbook[wbook.sheetnames[0]]
     for r in range(2, sheet.max_row+1):
@@ -51,7 +75,23 @@ def getSC(wbook):
             SC_TRANS[_num]['name'] = sheet.cell(row=r,column=3).value
             SC_TRANS[_num]['gross'] = sheet.cell(row=r,column=10).value
             SC_TRANS[_num]['id'] = sheet.cell(row=r,column=14).value
-            #SC_TRANS[_num]['email'] = sheet.cell(row=r,column=11).value
+    #       SC_TRANS[_num]['email'] = sheet.cell(row=r,column=11).value
+    #         print(r)
+    #         if r == 3:
+    #             maxDt = SC_TRANS[_num]['date']
+    #             minDt = SC_TRANS[_num]['date']
+    #             #maxDt = datetime.datetime.strptime(SC_TRANS[_num]['date'],'%Y-%m-%d %H:%M:%S')
+    #             #minDt = datetime.datetime.strptime(SC_TRANS[_num]['date'],'%Y-%m-%d %H:%M:%S')
+    #
+    #         #currDt = datetime.datetime.strptime(SC_TRANS[_num]['date'],'%Y-%m-%d %H:%M:%S')
+    #         currDt = SC_TRANS[_num]['date']
+    #         if currDt > maxDt:
+    #             maxDt = currDt
+    #         if currDt < minDt:
+    #             minDt = currDt
+    #
+    #       print("ShulCloud from: " + str(minDt) + " to " + str(maxDt))
+    #
 
 def printPP():
     for t in PP_TRANS:

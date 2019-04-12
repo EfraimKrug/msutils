@@ -1,11 +1,17 @@
 
 #CheckProcess
 import sys
+import os
+#########################################################
+# get parent directory...
+sys.path.append(os.getcwd())
+sys.path.append(os.getcwd()[0:os.getcwd().rfind('\\')])
+
 import webbrowser
 import csv
 from openpyxl import load_workbook
 import winreg
-from profile import *
+from Profile import *
 
 ACCOUNTS = dict()
 CHECKS = dict()

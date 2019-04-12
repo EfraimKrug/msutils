@@ -1,0 +1,31 @@
+###################################################
+Notice: for this application, I need to use TWILIO...
+###################################################
+pip install twilio
+pip install Flask
+download ngrok (zip) and unzip in ~
+###################################################
+I set up an account: KadimahTorasMoshe@gmail.com
+Password: Efr@imMordechai
+####################################################
+Account Sid: ACc8f50575262d8e2a86a936e9cb31b945
+Auth Token: 89a4ca08b8bacbf420e93e0b6ff60cca
+####################################################
+Your new Phone Number is +17817867591
+####################################################
+The way it works:
+1) Open terminal and run "~/ngrok http 5000"
+2) Open terminal and run "python TWread001.py"
+3) Copy the url in ngrok to "https://www.twilio.com/console/phone-numbers/"
+    * permanent phone numbers don't need this? Or maybe permanent URLs?
+####################################################
+Relevant files:
+TWread001.py  <-- reads and counts in the .count file
+                writes MinyanCount.html
+                fires up firefox
+                kills firefox
+
+TWSend001.py  <-- sends text to the phone...
+
+app.py        <-- sets up server so that i can run a web page that
+                  updates a my .count file

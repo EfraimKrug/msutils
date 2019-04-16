@@ -26,13 +26,15 @@ import smtplib
 from Profile import *
 from AlefBet import *
 from periodProcess import *
+from mishDisplay01 import *
 
 fromaddr = 'KadimahTorasMoshe@gmail.com'
 toaddrs  = 'EfraimMKrug@gmail.com'
 server = ''
+wbook = ''
 ####################################################
-#username = 'KadimahTorasMoshe@gmail.com'
-#password = 'August7Brachas'
+#   This process is the update for the MishBerech
+#   excel spread sheet
 ####################################################
 
 last = 0
@@ -47,8 +49,9 @@ def downloadXLSX():
     del response
 
 def openTrx():
-    wb = load_workbook('MishBerech.xlsx')
-    return wb
+    global wbook
+    wbook = load_workbook('MishBerech.xlsx')
+    return wbook
 
 def fixName(name):
     if ord(name[0]) > 500:
@@ -59,92 +62,93 @@ def fixName(name):
 
 
 def getTrx(sheet):
-    global last
+    global accountArray # array of dict each key is a shul member's name
+                        # accountArray[0]['name'] = [] // array of cholim => [name, date, notes, email]
+                        # i.e. accountArray[0]['name'][0][0] is the name of a chole from date accountArray[0]['name'][0][1]
+    idx = 0
+    hold = dict()
+    track = []
     for r in range(4, sheet.max_row + 1):
-        if(len((str(sheet.cell(row=r, column=2).value)).strip()) < 1 or
-            sheet.cell(row=r, column=6).value is None):
+        if(len(str(sheet.cell(row=r, column=3).value).strip()) < 5):
             continue
 
-        if sheet.cell(row=r, column=6).value.find("@") > -1:
+        hold = dict()
+        if(not str(sheet.cell(row=r, column=2).value).strip() in track):
             accountArray.append(dict())
-            last += 1
+            accountArray[len(accountArray)-1][sheet.cell(row=r, column=2).value] = []
+            track.append(str(sheet.cell(row=r, column=2).value).strip())
 
-        accountArray[last][r] = []
-        accountArray[last][r].append(sheet.cell(row=r, column=2).value)  #name
-        accountArray[last][r].append(fixName(sheet.cell(row=r, column=3).value))
-        accountArray[last][r].append(sheet.cell(row=r, column=4).value)  #date
-        accountArray[last][r].append(sheet.cell(row=r, column=5).value)  #comment
-        accountArray[last][r].append(sheet.cell(row=r, column=6).value)  #email
+        for dct in accountArray:
+            if str(sheet.cell(row=r, column=2).value) in dct:
+                hold = dct
 
-def checkDays():
-    today_dt = datetime.now()
+        hold[sheet.cell(row=r, column=2).value].append([])  #name
+        hold[sheet.cell(row=r, column=2).value][len(hold[sheet.cell(row=r, column=2).value])-1].append(fixName(sheet.cell(row=r, column=3).value))
+        hold[sheet.cell(row=r, column=2).value][len(hold[sheet.cell(row=r, column=2).value])-1].append(sheet.cell(row=r, column=4).value)  #date
+        hold[sheet.cell(row=r, column=2).value][len(hold[sheet.cell(row=r, column=2).value])-1].append(sheet.cell(row=r, column=5).value)  #comment
+        hold[sheet.cell(row=r, column=2).value][len(hold[sheet.cell(row=r, column=2).value])-1].append(sheet.cell(row=r, column=6).value)  #email
 
-    for accounts in accountArray:
-        for id in accounts:
-            line_dt = datetime.strptime(str(accounts[id][2])[0:10], "%Y-%m-%d")
-            dayCount = (today_dt - line_dt).days
-            if dayCount < 45:
-                accounts[id][4] = ""
+def saveData():
+    #print("Saving The Data... as it were")
+    global accountArray # array of dict each key is a shul member's name
+                        # accountArray[0]['name'] = [] // array of cholim => [name, date, notes, email]
+                        # i.e. accountArray[0]['name'][0][0] is the name of a chole from date accountArray[0]['name'][0][1]
+    global newSheet
+    newSheet = wbook['Rebuild']
 
-def writeEmail(account):
-    s = ""
-    s = "Dear " + account[0] + ",\n\n"
-    s += "We have been saying a mish'berech for " + getUsableWord(account[1])
-    s += "\nsince " + str(account[2])[0:10] + ".\n\n"
-    s += "Please email us if you would like us to continue mentioning this name in the shul"
-    s += "\nmish'berech, otherwise we will be removing the name after this coming Shabbos."
-    s += "\n\nThanks so much!\n\nBest and Good Shabbos! "
-    return s
+    newSheet.cell(row=1, column=3).value = "Misheberach List"
 
-def fire(fromaddr, toaddrs, msg):
-    global server
-    try:
-        server.sendmail(fromaddr, toaddrs, msg)
-    except:
-        print("#OUCH"*9)
-    print("#"*45)
-    print(str(msg))
-    print("#"*45)
+    newSheet.cell(row=3, column=2).value = "Person Requesting"
+    newSheet.cell(row=3, column=3).value = "Name and Mother's Name"
+    newSheet.cell(row=3, column=4).value = "Date Added"
+    newSheet.cell(row=3, column=5).value = "Comments"
+    newSheet.cell(row=3, column=6).value = "Email Address"
 
+    row_num = 4
+    for dct in accountArray:
+        for d in dct:
+            #print ("===>" + d)
+            newSheet.cell(row=row_num, column=2).value = d
+            for ent in dct[d]:
+                #print("============> " + ent[0])
+                newSheet.cell(row=row_num, column=3).value = ent[0]
+                newSheet.cell(row=row_num, column=4).value = ent[1]
+                newSheet.cell(row=row_num, column=5).value = ent[2]
+                newSheet.cell(row=row_num, column=6).value = ent[3]
+                row_num += 1
 
-def sendItAll():
-    global server
-    global fromaddr
-    global toaddrs
+    wbook.save('new.xlsx')
 
-    usedAddressList = []
-    for accounts in accountArray:
-        for a in accounts:
-            msgTxt = writeEmail(accounts[a])
-            toaddrs = accounts[a][4]
-            #toaddrs = "efraimmkrug@gmail.com"
-            if toaddrs.find('@') < 0:
-                continue
-            x = accounts[a][4]
-            msg = "\r\n".join([
-              "From: " + fromaddr,
-              "To: " + x.encode('ascii', 'ignore'),
-              "Subject: MishBerech list",
-              "",
-              msgTxt
-              ])
-            #print("FROM: " + fromaddr)
-            #print("TO: " + x.encode('ascii', 'ignore'))
-            fire(fromaddr, toaddrs, msg)
-
-
+def printDisplayAccounts():
+    for d in accountArray:
+        print("#"*50)
+        for x in d:
+            print("Member: " + x)
+            for a in d[x]:
+                print("\tName: " + str(a[0]))
+                print("\tDate: " + str(a[1]))
+                print("\tNotes: " + str(a[2]))
+                print("\tEmail: " + str(a[3]))
 #######################################################\
+
 def runProcess():
     global server
-    downloadXLSX()
-    trx = openTrx()
-    getTrx(trx[trx.sheetnames[0]])
-    checkDays()
-    server = smtplib.SMTP(smtpvar)
-    server.ehlo()
-    server.starttls()
-    server.login(username,password)
-    sendItAll()
-    server.quit()
+    global wbook
 
-runMonthly(runProcess)
+    downloadXLSX()
+    wbook = openTrx()
+    keys = []
+    getTrx(wbook['Updates'])
+    newSheet = wbook.create_sheet(title = 'Rebuild')
+    newSheet = wbook.active
+
+    printDisplayAccounts()
+
+def main():
+    runProcess()
+    root = tk.Tk()
+    app = mishDisplay01(root, accountArray, saveData)
+    root.mainloop()
+
+if __name__ == '__main__':
+    main()

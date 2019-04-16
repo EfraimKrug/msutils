@@ -27,18 +27,15 @@ from functools import partial
 
 import smtplib
 from Profile import *
-from checkDisplay03 import *
-from checkDisplay04 import *
 ####################################################################################################
-class checkDisplay02:
-    def __init__(self, master, oSheetName):
+class checkDisplay04:
+    def __init__(self, master, depositName):
         self.cashcheckSwitch = ''
         self.ds = dict()
-        self.oSheetName = oSheetName
+        self.depositName = depositName
         self.sdata = dict()     # sheet by sheet...
         self.pdata = dict()
         self.cdata = []
-        self.depositName = ''
 
         self.master = master
         self.master.configure(bg="teal", pady=34, padx=17)
@@ -53,7 +50,7 @@ class checkDisplay02:
         self.pages = []
         self.tkvar = ''
 
-        self.runProcess(self.oSheetName)
+        self.runProcess(self.depositName)
 
     def getEachKeyStroke(self, key):
         print("here")
@@ -101,7 +98,6 @@ class checkDisplay02:
         peep = sheet.cell(row=current_row, column=2).value
 
         newRow = [sheet.cell(row=current_row, column=1).value,
-                  self.depositName,
                   sheet.cell(row=current_row, column=3).value,
                   str(sheet.cell(row=current_row, column=4).value)[0:10],
                   str(month) + "-" + str(day),
@@ -134,7 +130,6 @@ class checkDisplay02:
         peep = sheet.cell(row=current_row, column=2).value
 
         newRow = [sheet.cell(row=current_row, column=1).value,
-                  self.depositName,
                   sheet.cell(row=current_row, column=3).value,
                   str(sheet.cell(row=current_row, column=4).value)[0:10],
                   str(month) + "-" + str(day),
@@ -157,18 +152,20 @@ class checkDisplay02:
         self.pdata[peep][sheet.cell(row=current_row, column=2).value] = arr
 
 
-    def getSheet(self, name, sheet):
+    def getSheet(self, name, sheet, depositName):
         (day, month) = self.parseName(name)
         if not name in self.pages:
             self.pages.append(name)
 
-        self.depositName = str(sheet.cell(row=2,column=7).value)
+        if(not sheet.cell(row=2, column=7).value == depositName):
+            return
 
         for r in range(3, sheet.max_row):
             if(str(sheet.cell(row=r,column=1).value).lower() == 'cash'):
                 self.cashcheckSwitch = 'cash'
             if(str(sheet.cell(row=r,column=1).value).lower().find('check') > -1):
                 self.cashcheckSwitch = 'check'
+
 
             if(sheet.cell(row=r, column=2).value and self.cashcheckSwitch.find('check') > -1):
                 self.loadRow(month, day, sheet, r)
@@ -185,16 +182,6 @@ class checkDisplay02:
         total = "Cash: $" + total
         self.label07 = tk.Label(self.frame, text=total, bg="teal", fg="yellow", font='Helvetica 10 bold')
         self.label07.grid(row=1, column=18, padx=4, pady=4, sticky=tk.NW)
-
-    def showPerson(self, name, args):
-        #print(name)
-        self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay03(self.newWindow, name)
-
-    def showDeposit(self, name, args):
-        #print(name)
-        self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay04(self.newWindow, name)
 
 # on change dropdown value
     # def change_dropdown(self, *args):
@@ -220,7 +207,7 @@ class checkDisplay02:
         fileNames = []
 
         row_num = 6
-        self.title = tk.Label(self.frame, text=self.oSheetName, bg="teal", fg="yellow", font='Helvetica 10 bold')
+        self.title = tk.Label(self.frame, text=self.depositName, bg="teal", fg="yellow", font='Helvetica 10 bold')
         self.title.grid(row=1, column=1, padx=4, pady=4, sticky=tk.NW)
 
         self.headline01 = tk.Label(self.frame, text="Name", bg="teal", fg="yellow")
@@ -229,23 +216,20 @@ class checkDisplay02:
         self.headline02 = tk.Label(self.frame, text=" Date ", bg="teal", fg="yellow")
         self.headline02.grid(row=3, column=4, padx=4, pady=2, sticky=tk.W)
 
-        self.headline03 = tk.Label(self.frame, text=" Deposit ", bg="teal", fg="yellow")
+        self.headline03 = tk.Label(self.frame, text="Check #", bg="teal", fg="yellow")
         self.headline03.grid(row=3, column=6, padx=4, pady=2, sticky=tk.W)
 
-        self.headline04 = tk.Label(self.frame, text="Check #", bg="teal", fg="yellow")
+        self.headline04 = tk.Label(self.frame, text="Amount", bg="teal", fg="yellow")
         self.headline04.grid(row=3, column=8, padx=4, pady=2, sticky=tk.W)
-
-        self.headline05 = tk.Label(self.frame, text="Amount", bg="teal", fg="yellow")
-        self.headline05.grid(row=3, column=10, padx=4, pady=2, sticky=tk.W)
 
         #self.headline05 = tk.Label(self.frame, text="Sheet", bg="teal", fg="yellow")
         #self.headline05.grid(row=1, column=10, padx=4, pady=2, sticky=tk.W)
 
         self.headline06 = tk.Label(self.frame, text="Sheet Total", bg="teal", fg="yellow")
-        self.headline06.grid(row=3, column=14, padx=4, pady=2, sticky=tk.W)
+        self.headline06.grid(row=3, column=12, padx=4, pady=2, sticky=tk.W)
 
         self.headline07 = tk.Label(self.frame, text="Image", bg="teal", fg="yellow")
-        self.headline07.grid(row=3, column=16, padx=4, pady=2, sticky=tk.W)
+        self.headline07.grid(row=3, column=14, padx=4, pady=2, sticky=tk.W)
 
 
         sortedKeys = []
@@ -266,38 +250,32 @@ class checkDisplay02:
                 lastName = ent
                 self.label01.append(tk.Label(self.frame, text=pEnt, bg="teal", fg="yellow"))
                 self.label01[len(self.label01)-1].grid(row=row_num, column=2, padx=4, pady=4, sticky=tk.NW)
-                self.label01[len(self.label01)-1].bind("<Button-1>", partial(self.showPerson, pEnt))
 
                 self.label02.append(tk.Label(self.frame, text=e[3], bg="teal", fg="yellow"))
                 self.label02[len(self.label02)-1].grid(row=row_num, column=4, padx=4, pady=4, sticky=tk.NW)
 
-                self.label03.append(tk.Label(self.frame, text=e[1], bg="teal", fg="yellow"))
+                self.label03.append(tk.Label(self.frame, text=e[0], bg="teal", fg="yellow"))
                 self.label03[len(self.label03)-1].grid(row=row_num, column=6, padx=4, pady=4, sticky=tk.NW)
-                self.label03[len(self.label03)-1].bind("<Button-1>", partial(self.showDeposit, e[1]))
 
-                self.label04.append(tk.Label(self.frame, text=e[0], bg="teal", fg="yellow"))
-                self.label04[len(self.label03)-1].grid(row=row_num, column=8, padx=4, pady=4, sticky=tk.NW)
-                #self.label03[len(self.label03)-1].bind("<Button-1>", partial(self.showDeposit, e[1]))
-
-                fAmt = "{:.2f}".format(float(e[5]))
+                fAmt = "{:.2f}".format(float(e[4]))
                 self.label05.append(tk.Label(self.frame, text=fAmt, bg="teal", fg="yellow"))
-                self.label05[len(self.label04)-1].grid(row=row_num, column=10, padx=4, pady=4, sticky=tk.NW)
+                self.label05[len(self.label04)-1].grid(row=row_num, column=8, padx=4, pady=4, sticky=tk.NW)
 
                 #self.label05.append(tk.Label(self.frame, text=e[6], bg="teal", fg="yellow"))
                 #self.label05[len(self.label05)-1].grid(row=row_num, column=10, padx=4, pady=4, sticky=tk.NW)
 
-                if e[7] in totals:
-                    totals[e[7]] = totals[e[7]] + e[5]
+                if e[6] in totals:
+                    totals[e[6]] = totals[e[6]] + e[4]
                 else:
-                    totals[e[7]] = e[5]
+                    totals[e[6]] = e[4]
 
-                fAmt2 = "{:.2f}".format(float(totals[e[7]]))
+                fAmt2 = "{:.2f}".format(float(totals[e[6]]))
                 self.label06.append(tk.Label(self.frame, text="$" + str(fAmt2), bg="teal", fg="yellow"))
-                self.label06[len(self.label06)-1].grid(row=row_num, column=14, padx=4, pady=4, sticky=tk.NW)
+                self.label06[len(self.label06)-1].grid(row=row_num, column=12, padx=4, pady=4, sticky=tk.NW)
 
-                self.button01.append(tk.Button(self.frame, text="View", command=partial(self.show_image, e[6])))
-                self.button01[len(self.button01)-1].grid(row=row_num, column=16, columnspan=2, padx=4, pady=4, sticky=tk.EW)
-                total = total + e[5]
+                self.button01.append(tk.Button(self.frame, text="View", command=partial(self.show_image, e[5])))
+                self.button01[len(self.button01)-1].grid(row=row_num, column=14, columnspan=2, padx=4, pady=4, sticky=tk.EW)
+                total = total + e[4]
                 row_num += 1
                 line = ''
 
@@ -308,10 +286,10 @@ class checkDisplay02:
                 return True
         return False
 
-    def runProcess(self, name):
+    def runProcess(self, depositName):
         dailyLog = self.openDailyLog()
-        #for name in dailyLog.sheetnames:
         self.total = 0
-        self.getSheet(name, dailyLog[name])
-        self.showData()
+        for name in dailyLog.sheetnames:
+            self.getSheet(name, dailyLog[name], depositName)
+            self.showData()
         #print(self.pdata)

@@ -5,8 +5,8 @@ import os
 import sys
 #########################################################
 # get parent directory...
-sys.path.append(os.getcwd())
-sys.path.append(os.getcwd()[0:os.getcwd().rfind('\\')])
+#sys.path.append(os.getcwd())
+#sys.path.append(os.getcwd()[0:os.getcwd().rfind('\\')])
 #######################################################
 import tkinter as tk
 from tkinter import ttk

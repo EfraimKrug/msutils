@@ -31,7 +31,6 @@ def getNextMonth():
     else:
         if month > 12:
             month = month - 12
-
     return month
 
 def getYear():
@@ -169,6 +168,9 @@ def stripMonth(wbook):
     sheetNew = wbook.create_sheet(title = 'OneMonth')
     #sheetNew = wbook.active
     mName = getNextMonthName().lower()
+    if mName == "iyar":
+        mName = "iyyar"
+        
     if mName.find("adar") > -1:
         mName = "adar"
         sheetNewII = wbook.create_sheet(title = 'OneMonthII')

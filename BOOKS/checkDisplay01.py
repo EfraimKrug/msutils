@@ -3,6 +3,7 @@
 import subprocess
 import os
 import sys
+import winreg
 #########################################################
 # get parent directory...
 #sys.path.append(os.getcwd())
@@ -62,9 +63,20 @@ class checkDisplay01:
         self.people = []
         self.pages = []
         self.tkvar = ''
+        self.EXCELEXE = ''
 
         self.dropInit = True
         self.runProcess()
+
+    def getExcel(self):
+        handle = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE,
+            r"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\excel.exe")
+
+        num_values = winreg.QueryInfoKey(handle)[1]
+        for i in range(num_values):
+            for x in winreg.EnumValue(handle, i):
+                if(str(x).find("EXCEL") > -1):
+                    self.EXCELEXE = x
 
     def getEachKeyStroke(self, key):
         print("here")
@@ -103,6 +115,7 @@ class checkDisplay01:
         dt = datetime.today().strftime('%B-%d')
         da = dt.split('-')
         sheetName = da[0] + str(da[1])
+        sheetName = "JUNK1"
 
         dailyLog = self.openDailyLog()
         for name in dailyLog.sheetnames:
@@ -113,9 +126,15 @@ class checkDisplay01:
             return
 
         newSheet = dailyLog.create_sheet(title = sheetName)
+        
         newSheet = dailyLog[sheetName]
         self.buildPage(newSheet)
         dailyLog.save(dailyLogDir + '\\dailyLog.xlsx')
+
+    def openNewSheet(self):
+        self.createSheet()
+        self.getExcel()
+        os.system("start  \"" + self.EXCELEXE + "\" \"" + dailyLogDir + "\\dailyLog.xlsx\"")
 
     def buildPage(self, newSheet):
         al = Alignment(horizontal='center', vertical='center')
@@ -300,7 +319,7 @@ class checkDisplay01:
         #tk.Label(self.frame, text="Choose a dish").grid(row = 1, column = 1)
         #peoplePopup.grid(row = 1, column =2)
         pagesPopup.grid(row = 1, column =4)
-        self.button02 = tk.Button(self.frame, text="New Sheet", command=partial(self.createSheet))
+        self.button02 = tk.Button(self.frame, text="New Sheet", command=partial(self.openNewSheet))
         self.button02.grid(row=1, column=3, columnspan=1, padx=4, pady=4, sticky=tk.EW)
 
         self.responseLabel = tk.Label(self.frame, text="", bg="teal", fg="yellow")

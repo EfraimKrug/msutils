@@ -27,6 +27,8 @@ from functools import partial
 
 import smtplib
 from Profile import *
+from errorDisplay import *
+
 ####################################################################################################
 class checkDisplay03:
     def __init__(self, master, personName):
@@ -73,12 +75,19 @@ class checkDisplay03:
     def new_config_window(self):
         self.newWindow = tk.Toplevel(self.master)
 
+    def error_window(self, message):
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = errorDisplay(self.newWindow, "Crash & Burn: " + message)
+
     def show_image(self, img):
-        fileName = "C:\\Users\\KTM\\Documents\\EMK\\BOOKS\\Checks\\" + img + ".pdf"
-        path_to_pdf = os.path.abspath(fileName)
-        path_to_acrobat = os.path.abspath('C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe')
-        process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
-        process.wait()
+        try:
+            fileName = checkDir + img + ".pdf"
+            path_to_pdf = os.path.abspath(fileName)
+            path_to_acrobat = os.path.abspath(AcrobatPath)
+            process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
+            process.wait()
+        except:
+            self.error_window("Sorry, that file can not be found!")
 
     def openDailyLog(self):
         wb = load_workbook(dailyLogDir + '\\dailyLog.xlsx')

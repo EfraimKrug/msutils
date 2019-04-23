@@ -27,6 +27,8 @@ from functools import partial
 
 import smtplib
 from Profile import *
+from errorDisplay import *
+
 ####################################################################################################
 class checkDisplay04:
     def __init__(self, master, depositName):
@@ -40,7 +42,7 @@ class checkDisplay04:
         self.master = master
         self.master.configure(bg="teal", pady=34, padx=17)
         self.master.geometry('700x700')
-        self.master.title('Edit Your Display Data')
+        self.master.title(depositName)
 
         self.frame = tk.Frame(self.master, width=460, height=360)
         self.frame.configure(bg="teal", pady=2, padx=2)
@@ -49,36 +51,33 @@ class checkDisplay04:
         self.people = []
         self.pages = []
         self.tkvar = ''
+        self.checkTotal = 0
+        self.cashTotal = 0
 
         self.runProcess(self.depositName)
 
-    def getEachKeyStroke(self, key):
-        print("here")
-
-    def setOutlabel(self, newLabel):
-        self.OutLabel['text'] = newLabel
-
-    def upArrow(self, key):
-        print("here")
-
-    def downArrow(self, key):
-        print("here")
-
-    def pre_new_window(self, key):
-        self.new_window()
-
-    def new_empty_window(self):
+    # def setOutlabel(self, newLabel):
+    #     self.OutLabel['text'] = newLabel
+    #
+    # def pre_new_window(self, key):
+    #     self.new_window()
+    #
+    # def new_empty_window(self):
+    #     self.newWindow = tk.Toplevel(self.master)
+    #
+    def error_window(self, message):
         self.newWindow = tk.Toplevel(self.master)
-
-    def new_config_window(self):
-        self.newWindow = tk.Toplevel(self.master)
+        self.app = errorDisplay(self.newWindow, "Crash & Burn: " + message)
 
     def show_image(self, img):
-        fileName = "C:\\Users\\KTM\\Documents\\EMK\\BOOKS\\Checks\\" + img + ".pdf"
-        path_to_pdf = os.path.abspath(fileName)
-        path_to_acrobat = os.path.abspath('C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe')
-        process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
-        process.wait()
+        try:
+            fileName = checkDir + img + ".pdf"
+            path_to_pdf = os.path.abspath(fileName)
+            path_to_acrobat = os.path.abspath(AcrobatPath)
+            process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
+            process.wait()
+        except:
+            self.error_window("Sorry, that file can not be found!")
 
     def openDailyLog(self):
         wb = load_workbook(dailyLogDir + '\\dailyLog.xlsx')
@@ -105,20 +104,7 @@ class checkDisplay04:
                   sheet.cell(row=current_row, column=6).value,
                   name]
 
-        # if not peep in self.people:
-        #     self.people.append(peep)
-
         self.cdata.append(newRow)
-        #print(arr)
-        # self.ds[sheet.cell(row=current_row, column=2).value] = arr
-        # if not name in self.sdata:
-        #     self.sdata[name] = dict()
-        #
-        # self.sdata[name][sheet.cell(row=current_row, column=2).value] = arr
-        # if not peep in self.pdata:
-        #     self.pdata[peep] = dict()
-        #
-        # self.pdata[peep][sheet.cell(row=current_row, column=2).value] = arr
 
 
     def loadRow(self, month, day, sheet, current_row):
@@ -153,12 +139,13 @@ class checkDisplay04:
 
 
     def getSheet(self, name, sheet, depositName):
+
+        if(not sheet.cell(row=2, column=7).value == depositName):
+            return False
+
         (day, month) = self.parseName(name)
         if not name in self.pages:
             self.pages.append(name)
-
-        if(not sheet.cell(row=2, column=7).value == depositName):
-            return
 
         for r in range(3, sheet.max_row):
             if(str(sheet.cell(row=r,column=1).value).lower() == 'cash'):
@@ -166,18 +153,20 @@ class checkDisplay04:
             if(str(sheet.cell(row=r,column=1).value).lower().find('check') > -1):
                 self.cashcheckSwitch = 'check'
 
-
             if(sheet.cell(row=r, column=2).value and self.cashcheckSwitch.find('check') > -1):
                 self.loadRow(month, day, sheet, r)
 
             if(sheet.cell(row=r, column=2).value and self.cashcheckSwitch.find('cash') > -1):
                 self.loadRowCash(month, day, sheet, r)
 
+        return True
 
     def showCash(self):
         total = 0
         for line in self.cdata:
             total += line[4]
+
+        self.cashTotal = total
         total = "{:.2f}".format(float(total))
         total = "Cash: $" + total
         self.label07 = tk.Label(self.frame, text=total, bg="teal", fg="yellow", font='Helvetica 10 bold')
@@ -194,9 +183,13 @@ class checkDisplay04:
     #     print( self.tkvar2.get() )
     #
     # link function to change change_dropdown
-    def showData(self):
+
+    def showData(self, rNum):
         #frame = tk.Frame(self.master, width=700, height=300)
-        total = 0
+        #for x in self.ds:
+        #    print(x)
+        row_num = rNum
+        # total = 0
         self.label01 = []
         self.label02 = []
         self.label03 = []
@@ -206,7 +199,6 @@ class checkDisplay04:
         self.button01 = []
         fileNames = []
 
-        row_num = 6
         self.title = tk.Label(self.frame, text=self.depositName, bg="teal", fg="yellow", font='Helvetica 10 bold')
         self.title.grid(row=1, column=1, padx=4, pady=4, sticky=tk.NW)
 
@@ -225,8 +217,8 @@ class checkDisplay04:
         #self.headline05 = tk.Label(self.frame, text="Sheet", bg="teal", fg="yellow")
         #self.headline05.grid(row=1, column=10, padx=4, pady=2, sticky=tk.W)
 
-        self.headline06 = tk.Label(self.frame, text="Sheet Total", bg="teal", fg="yellow")
-        self.headline06.grid(row=3, column=12, padx=4, pady=2, sticky=tk.W)
+        # self.headline06 = tk.Label(self.frame, text="Sheet Total", bg="teal", fg="yellow")
+        # self.headline06.grid(row=3, column=12, padx=4, pady=2, sticky=tk.W)
 
         self.headline07 = tk.Label(self.frame, text="Image", bg="teal", fg="yellow")
         self.headline07.grid(row=3, column=14, padx=4, pady=2, sticky=tk.W)
@@ -238,10 +230,11 @@ class checkDisplay04:
         sortedKeys.sort()
         lastName = ''
         pEnt = ''
-        totals = dict()
+        # totals = dict()
 
         self.showCash()
 
+        #row_num = 6
         for ent in sortedKeys:
             for e in self.ds[ent]:
                 pEnt = ent
@@ -264,20 +257,22 @@ class checkDisplay04:
                 #self.label05.append(tk.Label(self.frame, text=e[6], bg="teal", fg="yellow"))
                 #self.label05[len(self.label05)-1].grid(row=row_num, column=10, padx=4, pady=4, sticky=tk.NW)
 
-                if e[6] in totals:
-                    totals[e[6]] = totals[e[6]] + e[4]
-                else:
-                    totals[e[6]] = e[4]
+                # if e[6] in totals:
+                #     totals[e[6]] = totals[e[6]] + e[4]
+                # else:
+                #     totals[e[6]] = e[4]
 
-                fAmt2 = "{:.2f}".format(float(totals[e[6]]))
-                self.label06.append(tk.Label(self.frame, text="$" + str(fAmt2), bg="teal", fg="yellow"))
-                self.label06[len(self.label06)-1].grid(row=row_num, column=12, padx=4, pady=4, sticky=tk.NW)
+                self.checkTotal = self.checkTotal + e[4]
+                # fAmt2 = "{:.2f}".format(float(totals[e[6]]))
+                # self.label06.append(tk.Label(self.frame, text="$" + str(fAmt2), bg="teal", fg="yellow"))
+                # self.label06[len(self.label06)-1].grid(row=row_num, column=12, padx=4, pady=4, sticky=tk.NW)
 
                 self.button01.append(tk.Button(self.frame, text="View", command=partial(self.show_image, e[5])))
                 self.button01[len(self.button01)-1].grid(row=row_num, column=14, columnspan=2, padx=4, pady=4, sticky=tk.EW)
-                total = total + e[4]
+                # total = total + e[4]
                 row_num += 1
                 line = ''
+        return row_num
 
     def sheetExists(self, sheet):
         dailyLog = self.openDailyLog()
@@ -289,7 +284,24 @@ class checkDisplay04:
     def runProcess(self, depositName):
         dailyLog = self.openDailyLog()
         self.total = 0
+        row_num = 6
         for name in dailyLog.sheetnames:
             self.getSheet(name, dailyLog[name], depositName)
-            self.showData()
+
+        row_num = self.showData(row_num)
+        row_num = row_num + 3
+
+        # total = "Cash: $" + total
+        # self.label07 = tk.Label(self.frame, text=total, bg="teal", fg="yellow", font='Helvetica 10 bold')
+        # self.label07.grid(row=1, column=18, padx=4, pady=4, sticky=tk.NW)
+
+        fAmt = "Checks: $" + "{:.2f}".format(float(self.checkTotal))
+        fAmtLabel = tk.Label(self.frame, text=fAmt, bg="teal", fg="yellow", font='Helvetica 10 bold')
+        fAmtLabel.grid(row=row_num, column=18, padx=4, pady=4, sticky=tk.NW)
+
+        row_num = row_num + 1
+        fAmt = "Total: $" + "{:.2f}".format(float(self.checkTotal + self.cashTotal))
+        fAmtLabel2 = tk.Label(self.frame, text=fAmt, bg="teal", fg="yellow", font='Helvetica 10 bold')
+        fAmtLabel2.grid(row=row_num, column=18, padx=4, pady=4, sticky=tk.NW)
+
         #print(self.pdata)

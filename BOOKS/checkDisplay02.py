@@ -29,6 +29,7 @@ import smtplib
 from Profile import *
 from checkDisplay03 import *
 from checkDisplay04 import *
+from errorDisplay import *
 ####################################################################################################
 class checkDisplay02:
     def __init__(self, master, oSheetName):
@@ -76,12 +77,19 @@ class checkDisplay02:
     def new_config_window(self):
         self.newWindow = tk.Toplevel(self.master)
 
+    def error_window(self, message):
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = errorDisplay(self.newWindow, "Crash & Burn: " + message)
+
     def show_image(self, img):
-        fileName = "C:\\Users\\KTM\\Documents\\EMK\\BOOKS\\Checks\\" + img + ".pdf"
-        path_to_pdf = os.path.abspath(fileName)
-        path_to_acrobat = os.path.abspath('C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe')
-        process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
-        process.wait()
+        try:
+            fileName = checkDir + img + ".pdf"
+            path_to_pdf = os.path.abspath(fileName)
+            path_to_acrobat = os.path.abspath(AcrobatPath)
+            process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
+            process.wait()
+        except:
+            self.error_window("Sorry, that file can not be found!")
 
     def openDailyLog(self):
         wb = load_workbook(dailyLogDir + '\\dailyLog.xlsx')
@@ -109,20 +117,7 @@ class checkDisplay02:
                   sheet.cell(row=current_row, column=6).value,
                   name]
 
-        # if not peep in self.people:
-        #     self.people.append(peep)
-
         self.cdata.append(newRow)
-        #print(arr)
-        # self.ds[sheet.cell(row=current_row, column=2).value] = arr
-        # if not name in self.sdata:
-        #     self.sdata[name] = dict()
-        #
-        # self.sdata[name][sheet.cell(row=current_row, column=2).value] = arr
-        # if not peep in self.pdata:
-        #     self.pdata[peep] = dict()
-        #
-        # self.pdata[peep][sheet.cell(row=current_row, column=2).value] = arr
 
 
     def loadRow(self, month, day, sheet, current_row):
@@ -180,7 +175,7 @@ class checkDisplay02:
     def showCash(self):
         total = 0
         for line in self.cdata:
-            total += line[4]
+            total += line[5]
         total = "{:.2f}".format(float(total))
         total = "Cash: $" + total
         self.label07 = tk.Label(self.frame, text=total, bg="teal", fg="yellow", font='Helvetica 10 bold')
@@ -208,7 +203,6 @@ class checkDisplay02:
     #
     # link function to change change_dropdown
     def showData(self):
-        #frame = tk.Frame(self.master, width=700, height=300)
         total = 0
         self.label01 = []
         self.label02 = []
@@ -237,9 +231,6 @@ class checkDisplay02:
 
         self.headline05 = tk.Label(self.frame, text="Amount", bg="teal", fg="yellow")
         self.headline05.grid(row=3, column=10, padx=4, pady=2, sticky=tk.W)
-
-        #self.headline05 = tk.Label(self.frame, text="Sheet", bg="teal", fg="yellow")
-        #self.headline05.grid(row=1, column=10, padx=4, pady=2, sticky=tk.W)
 
         self.headline06 = tk.Label(self.frame, text="Sheet Total", bg="teal", fg="yellow")
         self.headline06.grid(row=3, column=14, padx=4, pady=2, sticky=tk.W)
@@ -277,14 +268,10 @@ class checkDisplay02:
 
                 self.label04.append(tk.Label(self.frame, text=e[0], bg="teal", fg="yellow"))
                 self.label04[len(self.label03)-1].grid(row=row_num, column=8, padx=4, pady=4, sticky=tk.NW)
-                #self.label03[len(self.label03)-1].bind("<Button-1>", partial(self.showDeposit, e[1]))
 
                 fAmt = "{:.2f}".format(float(e[5]))
                 self.label05.append(tk.Label(self.frame, text=fAmt, bg="teal", fg="yellow"))
                 self.label05[len(self.label04)-1].grid(row=row_num, column=10, padx=4, pady=4, sticky=tk.NW)
-
-                #self.label05.append(tk.Label(self.frame, text=e[6], bg="teal", fg="yellow"))
-                #self.label05[len(self.label05)-1].grid(row=row_num, column=10, padx=4, pady=4, sticky=tk.NW)
 
                 if e[7] in totals:
                     totals[e[7]] = totals[e[7]] + e[5]
@@ -310,8 +297,6 @@ class checkDisplay02:
 
     def runProcess(self, name):
         dailyLog = self.openDailyLog()
-        #for name in dailyLog.sheetnames:
         self.total = 0
         self.getSheet(name, dailyLog[name])
         self.showData()
-        #print(self.pdata)

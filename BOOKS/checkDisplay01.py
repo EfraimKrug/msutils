@@ -44,6 +44,9 @@ from errorDisplay import *
 #from AlefBet import *
 #from periodProcess import *
 ####################################################################################################
+### This is where the entire application opens - with a list of all deposits tracked so far -
+### in all workbooks in the directory
+####################################################################################################
 class checkDisplay01:
     def __init__(self, master):
         self.cashcheckSwitch = ''
@@ -52,7 +55,7 @@ class checkDisplay01:
         self.pdata = dict()
         self.cdata = []     # cash
         self.searchObj = ''
-        self.depositName = ''
+        self.depositName = []
 
         self.master = master
         self.master.configure(bg="teal", pady=34, padx=17)
@@ -250,11 +253,18 @@ class checkDisplay01:
         if(sheet.cell(row=current_row, column=2).value in self.ds):
             arr = self.ds[sheet.cell(row=current_row, column=2).value]
 
+
         name = month+day
+
+        dName = ''
+        for depArr in self.depositName:
+            if name == depArr[1]:
+                dName = depArr[0]
+
         peep = sheet.cell(row=current_row, column=2).value
 
         newRow = [sheet.cell(row=current_row, column=1).value,
-                  self.depositName,
+                  dName,
                   sheet.cell(row=current_row, column=3).value,
                   str(sheet.cell(row=current_row, column=4).value)[0:10],
                   str(month) + "-" + str(day),
@@ -283,10 +293,16 @@ class checkDisplay01:
             arr = self.ds[sheet.cell(row=current_row, column=2).value]
 
         name = month+day
+
+        dName = ''
+        for depArr in self.depositName:
+            if name == depArr[1]:
+                dName = depArr[0]
+
         peep = sheet.cell(row=current_row, column=2).value
 
         newRow = [sheet.cell(row=current_row, column=1).value,
-                  self.depositName,
+                  dName,
                   sheet.cell(row=current_row, column=3).value,
                   str(sheet.cell(row=current_row, column=4).value)[0:10],
                   str(month) + "-" + str(day),
@@ -296,12 +312,12 @@ class checkDisplay01:
 
         self.cdata.append(newRow)
 
-    def getSheet(self, name, sheet):
+    def getSheet(self, name, sheet, wb):
         (day, month) = self.parseName(name)
         if not name in self.pages:
-            self.pages.append(name)
+            self.pages.append([name, wb])
 
-        self.depositName = str(sheet.cell(row=2,column=7).value)
+        self.depositName.append([str(sheet.cell(row=2,column=7).value), name, wb])
 
         for r in range(3, sheet.max_row):
             if(str(sheet.cell(row=r,column=1).value).lower() == 'cash'):
@@ -325,9 +341,14 @@ class checkDisplay01:
         if self.dropInit:
             self.dropInit = False
             return
+        wb = ""
+        name = self.tkvar2.get()
+        for a in self.pages:
+            if a[0] == name:
+                wb = a[1]
 
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay02(self.newWindow, self.tkvar2.get())
+        self.app = checkDisplay02(self.newWindow, name, wb)
 
     def showCash(self):
         total = 0
@@ -343,8 +364,17 @@ class checkDisplay01:
         self.app = checkDisplay03(self.newWindow, name)
 
     def showDeposit(self, name, args):
+        wb = ""
+        dName = ""
+        sName = ""
+        for depArr in self.depositName:
+            if name == depArr[0]:
+                dName = depArr[0]
+                sName = depArr[1]
+                wb = depArr[2]
+
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay04(self.newWindow, name)
+        self.app = checkDisplay04(self.newWindow, dName, sName, wb)
 
     # link function to change change_dropdown
     def showData(self):
@@ -364,12 +394,15 @@ class checkDisplay01:
         #
         self.tkvar2 = tk.StringVar(self.master)
         self.tkvar2.trace('w', self.change_dropdown2)
-        self.tkvar2.set(self.pages[0]) # set the default option
+        self.tkvar2.set(self.pages[0][0]) # set the default option
 
         # pagesPopup = tk.OptionMenu(self.frame, self.tkvar, *fileList)
         # pagesPopup.grid(row = 1, column =6, padx=10, pady=10, sticky=tk.EW)
+        pages = []
+        for a in self.pages:
+            pages.append(a[0])
 
-        pagesPopup2 = tk.OptionMenu(self.frame, self.tkvar2, *self.pages)
+        pagesPopup2 = tk.OptionMenu(self.frame, self.tkvar2, *pages)
         pagesPopup2.grid(row = 1, column =5, padx=10, pady=10, sticky=tk.EW)
 
         self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.shiftWBook))
@@ -406,5 +439,5 @@ class checkDisplay01:
         for wb in self.workbooks:
             for name in self.workbooks[wb].sheetnames:
                 self.total = 0
-                self.getSheet(name, self.workbooks[wb][name])
+                self.getSheet(name, self.workbooks[wb][name], wb)
         self.showData()

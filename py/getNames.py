@@ -45,6 +45,7 @@ def getWorkBook():
 def getMonthNum(dt):
     if(dt.lower().find('nis') > -1): return 1
     if(dt.lower().find('iyar') > -1): return 2
+    if(dt.lower().find('iyyar') > -1): return 2
     if(dt.lower().find('sivan') > -1): return 3
     if(dt.lower().find('tam') > -1): return 4
     if(dt.lower().find('av') > -1): return 5

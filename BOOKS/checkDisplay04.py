@@ -28,13 +28,16 @@ from functools import partial
 import smtplib
 from Profile import *
 from errorDisplay import *
-
+####################################################################################################
+### Showing the individual deposit - that will probably span across spreadsheets -
 ####################################################################################################
 class checkDisplay04:
-    def __init__(self, master, depositName):
+    def __init__(self, master, depositName, sheet, wb):
         self.cashcheckSwitch = ''
         self.ds = dict()
         self.depositName = depositName
+        self.sheetName = sheet
+        self.wb = wb
         self.sdata = dict()     # sheet by sheet...
         self.pdata = dict()
         self.cdata = []
@@ -80,7 +83,7 @@ class checkDisplay04:
             self.error_window("Sorry, that file can not be found!")
 
     def openDailyLog(self):
-        wb = load_workbook(dailyLogDir + '\\dailyLog.xlsx')
+        wb = load_workbook(dailyLogDir + '\\' + self.wb + '.xlsx')
         return wb
 
     def parseName(self, name):

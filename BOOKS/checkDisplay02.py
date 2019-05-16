@@ -32,10 +32,11 @@ from checkDisplay04 import *
 from errorDisplay import *
 ####################################################################################################
 class checkDisplay02:
-    def __init__(self, master, oSheetName):
+    def __init__(self, master, oSheetName, oWBName):
         self.cashcheckSwitch = ''
         self.ds = dict()
         self.oSheetName = oSheetName
+        self.oWBName = oWBName
         self.sdata = dict()     # sheet by sheet...
         self.pdata = dict()
         self.cdata = []
@@ -92,7 +93,7 @@ class checkDisplay02:
             self.error_window("Sorry, that file can not be found!")
 
     def openDailyLog(self):
-        wb = load_workbook(dailyLogDir + '\\dailyLog.xlsx')
+        wb = load_workbook(dailyLogDir + '\\' + self.oWBName + '.xlsx')
         return wb
 
     def parseName(self, name):
@@ -182,7 +183,6 @@ class checkDisplay02:
         self.label07.grid(row=1, column=18, padx=4, pady=4, sticky=tk.NW)
 
     def showPerson(self, name, args):
-        #print(name)
         self.newWindow = tk.Toplevel(self.master)
         self.app = checkDisplay03(self.newWindow, name)
 

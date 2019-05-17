@@ -19,6 +19,7 @@ import shutil
 import requests
 
 from datetime import datetime
+from datetime import timedelta
 from datetime import time
 from datetime import date
 
@@ -26,6 +27,7 @@ from openpyxl import load_workbook
 from openpyxl.styles import colors
 from openpyxl.styles import Font, Color
 from openpyxl.utils import get_column_letter
+from openpyxl import Workbook
 
 from openpyxl.styles.borders import Border, Side
 from openpyxl.styles import Alignment
@@ -42,6 +44,9 @@ from errorDisplay import *
 #from AlefBet import *
 #from periodProcess import *
 ####################################################################################################
+### This is where the entire application opens - with a list of all deposits tracked so far -
+### in all workbooks in the directory
+####################################################################################################
 class checkDisplay01:
     def __init__(self, master):
         self.cashcheckSwitch = ''
@@ -50,20 +55,24 @@ class checkDisplay01:
         self.pdata = dict()
         self.cdata = []     # cash
         self.searchObj = ''
-        self.depositName = ''
+        self.depositName = []
 
         self.master = master
         self.master.configure(bg="teal", pady=34, padx=17)
-        self.master.geometry('300x300')
+        self.master.geometry('400x300')
         self.master.title('Kadima Toras-Moshe Check Tracking')
 
-        self.frame = tk.Frame(self.master, width=260, height=260)
+        self.frame = tk.Frame(self.master, width=360, height=260)
         self.frame.configure(bg="teal", pady=2, padx=2)
         self.frame.grid(row=1, column=1)
 
         self.people = []
         self.pages = []
-        self.tkvar = ''
+        self.files = []
+        self.workbooks = dict()
+        self.workingFile = 'DailyLog'
+
+        #self.tkvar = ''
         self.EXCELEXE = ''
 
         self.dropInit = True
@@ -93,9 +102,22 @@ class checkDisplay01:
         except:
             self.error_window("Sorry, that file can not be found!")
 
+    def getFiles(self):
+        self.files = []
+        file_list=os.listdir(dailyLogDir)
+        for  fileN in file_list:
+            if fileN.find('xlsx') > 0:
+                self.files.append(fileN[0:-5])
+
+        return self.files
+
+    def getCurrentWorkbook(self):
+        return self.workbooks[self.workingFile]
+
     def openDailyLog(self):
-        wb = load_workbook(dailyLogDir + '\\dailyLog.xlsx')
-        return wb
+        for file in self.files:
+            self.workbooks[file] = load_workbook(dailyLogDir + '\\' + file + '.xlsx')
+        return self.workbooks
 
     def createSheet(self):
         sheetNameNew = True
@@ -103,24 +125,85 @@ class checkDisplay01:
         da = dt.split('-')
         sheetName = da[0] + str(da[1])
 
-        dailyLog = self.openDailyLog()
-        for name in dailyLog.sheetnames:
-            if name == sheetName:
-                sheetNameNew = False
+        #dailyLog = self.openDailyLog()
+        for wb in self.workbooks:
+            for name in self.workbooks[wb].sheetnames:
+                if name == sheetName:
+                    sheetNameNew = False
+
+        # for name in dailyLog.sheetnames:
+        #     if name == sheetName:
+        #         sheetNameNew = False
 
         if not sheetNameNew:
             return
 
-        newSheet = dailyLog.create_sheet(title = sheetName)
+        newSheet = self.getCurrentWorkbook().create_sheet(title = sheetName)
 
-        newSheet = dailyLog[sheetName]
+        newSheet = self.getCurrentWorkbook()[sheetName]
         self.buildPage(newSheet)
-        dailyLog.save(dailyLogDir + '\\dailyLog.xlsx')
+        self.getCurrentWorkbook().save(dailyLogDir + '\\' + self.workingFile + '.xlsx')
 
     def openNewSheet(self):
         self.createSheet()
         self.getExcel()
-        os.system("start  \"" + self.EXCELEXE + "\" \"" + dailyLogDir + "\\dailyLog.xlsx\"")
+        os.system("start  \"" + self.EXCELEXE + "\" \"" + dailyLogDir + "\\" + self.workingFile + ".xlsx\"")
+
+    def shiftWBook(self):
+        sheetNames = []
+        lastThree = []
+        dailyLog = self.openDailyLog()
+        newBookName = ''
+
+        for name in dailyLog.sheetnames:
+            sheetNames.append(name)
+
+        if len(sheetNames) > 4:
+            newBookName = sheetNames[4][0:-2]
+
+        if len(newBookName) < 3:
+            return
+
+        newFileName = dailyLogDir + "\\" + newBookName + '.xlsx'
+        workingFile = dailyLogDir + "\\" + self.workingFile + '.xlsx'
+
+        #for sName in sheetNames:
+        # if datetime.today().day > 25:
+        #     dt = datetime.today() + timedelta(days=10)
+        #     newFileName = dailyLogDir + "\\" + dt.strftime('%B') + '.xlsx'
+        #     print(newFileName)
+        # else:
+        #     return
+
+        try:
+            fh = open(newFileName, 'r')
+            print("Sorry - we have already cycled the files")
+            return
+        except FileNotFoundError:
+            print("Processing new file...")
+
+        #    print(sName)
+
+        for i in range(-3, 0):
+            lastThree.append(sheetNames[i])
+
+        #print("opening workbook")
+        wb = Workbook()
+
+        for sheet in lastThree:
+            newSheet = wb.create_sheet(title = sheet)
+            self.buildPage(newSheet)
+            oldSheet = dailyLog[sheet]
+            for colN in range(1,20):
+                for rowN in range(1,35):
+                    #print(oldSheet.cell(row=rowN, column=colN).value)
+                    newSheet.cell(row=rowN, column=colN).value = oldSheet.cell(row=rowN, column=colN).value
+
+        firstSheet = wb['Sheet']
+        wb.remove_sheet(firstSheet)
+        dailyLog.save(newFileName)
+        wb.save(workingFile)
+
 
     def buildPage(self, newSheet):
         al = Alignment(horizontal='center', vertical='center')
@@ -170,11 +253,18 @@ class checkDisplay01:
         if(sheet.cell(row=current_row, column=2).value in self.ds):
             arr = self.ds[sheet.cell(row=current_row, column=2).value]
 
+
         name = month+day
+
+        dName = ''
+        for depArr in self.depositName:
+            if name == depArr[1]:
+                dName = depArr[0]
+
         peep = sheet.cell(row=current_row, column=2).value
 
         newRow = [sheet.cell(row=current_row, column=1).value,
-                  self.depositName,
+                  dName,
                   sheet.cell(row=current_row, column=3).value,
                   str(sheet.cell(row=current_row, column=4).value)[0:10],
                   str(month) + "-" + str(day),
@@ -203,10 +293,16 @@ class checkDisplay01:
             arr = self.ds[sheet.cell(row=current_row, column=2).value]
 
         name = month+day
+
+        dName = ''
+        for depArr in self.depositName:
+            if name == depArr[1]:
+                dName = depArr[0]
+
         peep = sheet.cell(row=current_row, column=2).value
 
         newRow = [sheet.cell(row=current_row, column=1).value,
-                  self.depositName,
+                  dName,
                   sheet.cell(row=current_row, column=3).value,
                   str(sheet.cell(row=current_row, column=4).value)[0:10],
                   str(month) + "-" + str(day),
@@ -216,12 +312,12 @@ class checkDisplay01:
 
         self.cdata.append(newRow)
 
-    def getSheet(self, name, sheet):
+    def getSheet(self, name, sheet, wb):
         (day, month) = self.parseName(name)
         if not name in self.pages:
-            self.pages.append(name)
+            self.pages.append([name, wb])
 
-        self.depositName = str(sheet.cell(row=2,column=7).value)
+        self.depositName.append([str(sheet.cell(row=2,column=7).value), name, wb])
 
         for r in range(3, sheet.max_row):
             if(str(sheet.cell(row=r,column=1).value).lower() == 'cash'):
@@ -237,19 +333,22 @@ class checkDisplay01:
 
 
 # on change dropdown value
-    def change_dropdown(self, *args):
-        if self.dropInit:
-            return
+    # def change_dropdown(self, *args):
+    #     self.workingFile = self.tkvar.get()
 
-        print( self.tkvar.get() )
 
     def change_dropdown2(self, *args):
         if self.dropInit:
             self.dropInit = False
             return
+        wb = ""
+        name = self.tkvar2.get()
+        for a in self.pages:
+            if a[0] == name:
+                wb = a[1]
 
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay02(self.newWindow, self.tkvar2.get())
+        self.app = checkDisplay02(self.newWindow, name, wb)
 
     def showCash(self):
         total = 0
@@ -265,27 +364,51 @@ class checkDisplay01:
         self.app = checkDisplay03(self.newWindow, name)
 
     def showDeposit(self, name, args):
+        wb = ""
+        dName = ""
+        sName = ""
+        for depArr in self.depositName:
+            if name == depArr[0]:
+                dName = depArr[0]
+                sName = depArr[1]
+                wb = depArr[2]
+
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay04(self.newWindow, name)
+        self.app = checkDisplay04(self.newWindow, dName, sName, wb)
 
     # link function to change change_dropdown
     def showData(self):
         total = 0
         self.label03 = []
-        self.button01 = []
+        #self.button01 = []
 
         self.peepFunctions = []
         self.deposits = []
 
         fileNames = []
 
+        fileList = self.getFiles()
+        # self.tkvar = tk.StringVar(self.master)
+        # self.tkvar.trace('w', self.change_dropdown)
+        # self.tkvar.set(fileList[0]) # set the default option
+        #
         self.tkvar2 = tk.StringVar(self.master)
         self.tkvar2.trace('w', self.change_dropdown2)
-        self.tkvar2.set(self.pages[0]) # set the default option
+        self.tkvar2.set(self.pages[0][0]) # set the default option
 
-        pagesPopup = tk.OptionMenu(self.frame, self.tkvar2, *self.pages)
-        pagesPopup.grid(row = 1, column =5)
-        self.button02 = tk.Button(self.frame, text="New Sheet", command=partial(self.openNewSheet))
+        # pagesPopup = tk.OptionMenu(self.frame, self.tkvar, *fileList)
+        # pagesPopup.grid(row = 1, column =6, padx=10, pady=10, sticky=tk.EW)
+        pages = []
+        for a in self.pages:
+            pages.append(a[0])
+
+        pagesPopup2 = tk.OptionMenu(self.frame, self.tkvar2, *pages)
+        pagesPopup2.grid(row = 1, column =5, padx=10, pady=10, sticky=tk.EW)
+
+        self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.shiftWBook))
+        self.button01.grid(row=1, column=2, columnspan=1, padx=10, pady=10, sticky=tk.EW)
+
+        self.button02 = tk.Button(self.frame, text="Open Excel", command=partial(self.openNewSheet))
         self.button02.grid(row=1, column=3, columnspan=1, padx=10, pady=10, sticky=tk.EW)
 
         row_num = 6
@@ -311,9 +434,10 @@ class checkDisplay01:
         return False
 
     def runProcess(self):
-        dailyLog = self.openDailyLog()
-        for name in dailyLog.sheetnames:
-            self.total = 0
-            self.getSheet(name, dailyLog[name])
+        self.getFiles()
+        self.openDailyLog()
+        for wb in self.workbooks:
+            for name in self.workbooks[wb].sheetnames:
+                self.total = 0
+                self.getSheet(name, self.workbooks[wb][name], wb)
         self.showData()
-        #print(self.pdata)

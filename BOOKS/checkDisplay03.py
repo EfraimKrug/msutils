@@ -35,6 +35,7 @@ class checkDisplay03:
         self.cashcheckSwitch = ''
         self.ds = dict()
         self.personName = personName
+        self.workbooks = dict()
         self.sdata = dict()     # sheet by sheet...
         self.pdata = dict()
         self.cdata = []
@@ -53,6 +54,20 @@ class checkDisplay03:
         self.tkvar = ''
 
         self.runProcess(self.personName)
+
+    def getFiles(self):
+        self.files = []
+        file_list=os.listdir(dailyLogDir)
+        for  fileN in file_list:
+            if fileN.find('xlsx') > 0:
+                self.files.append(fileN[0:-5])
+
+        return self.files
+
+    def openDailyLog3(self):
+        for file in self.files:
+            self.workbooks[file] = load_workbook(dailyLogDir + '\\' + file + '.xlsx')
+        return self.workbooks
 
     def getEachKeyStroke(self, key):
         print("here")
@@ -161,11 +176,11 @@ class checkDisplay03:
         self.pdata[peep][sheet.cell(row=current_row, column=2).value] = arr
 
 
-    def getSheet(self, name, sheet, personName):
+    def getSheet(self, name, sheet, wb, personName):
         (day, month) = self.parseName(name)
         if not name in self.pages:
             self.pages.append(name)
-
+        #print("checking: " + name + "::" + personName)
         for r in range(3, sheet.max_row):
             if(str(sheet.cell(row=r,column=1).value).lower() == 'cash'):
                 self.cashcheckSwitch = 'cash'
@@ -213,7 +228,8 @@ class checkDisplay03:
         self.label06 = []
         self.button01 = []
         fileNames = []
-
+        #fileList = self.getFiles()
+        #print (self.ds)
         row_num = 6
         self.title = tk.Label(self.frame, text=self.personName, bg="teal", fg="yellow", font='Helvetica 10 bold')
         self.title.grid(row=1, column=1, padx=4, pady=4, sticky=tk.NW)
@@ -295,9 +311,14 @@ class checkDisplay03:
         return False
 
     def runProcess(self, personName):
-        dailyLog = self.openDailyLog()
-        self.total = 0
-        for name in dailyLog.sheetnames:
-            self.getSheet(name, dailyLog[name], personName)
-            self.showData()
+        self.getFiles()
+        self.openDailyLog3()
+        self.sdata = dict()
+        for wb in self.workbooks:
+            for name in self.workbooks[wb].sheetnames:
+                self.getSheet(name, self.workbooks[wb][name], wb, personName)
+        self.showData()
+
+
+
         #print(self.pdata)

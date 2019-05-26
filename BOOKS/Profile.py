@@ -8,6 +8,7 @@ password = 'August7Brachas'
 smtpvar = 'smtp.gmail.com:587'
 
 dailyLogDir = r'C:\\Users\\KTM\\Documents\\EMK\\BOOKS'
+depositDir = r'C:\\Users\\KTM\\Documents\\EMK\\BOOKS\\Checks\\Deposits'
 checkDir = "C:\\Users\\KTM\\Documents\\EMK\\BOOKS\\Checks\\"
 AcrobatPath = "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe"
 

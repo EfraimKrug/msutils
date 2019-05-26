@@ -1,35 +1,7 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-import subprocess
-import os
-import sys
-#########################################################
-import tkinter as tk
-from tkinter import ttk
-from tkinter import filedialog
-import tkinter.scrolledtext as tkst
-#######################################################
-import csv
-import shutil
-import requests
-
-from datetime import datetime
-from datetime import time
-from datetime import date
-
-from openpyxl import load_workbook
-from openpyxl.styles import colors
-from openpyxl.styles import Font, Color
-from openpyxl.utils import get_column_letter
-
-from openpyxl.styles.borders import Border, Side
-from functools import partial
-
-import smtplib
-from Profile import *
+from CDCommonCode import *
 from checkDisplay03 import *
 from checkDisplay04 import *
-from errorDisplay import *
+
 ####################################################################################################
 class checkDisplay02:
     def __init__(self, master, oSheetName, oWBName):
@@ -55,51 +27,52 @@ class checkDisplay02:
         self.pages = []
         self.tkvar = ''
 
+        self.CDCommonCode = CDCommonCode()
         self.runProcess(self.oSheetName)
 
-    def getEachKeyStroke(self, key):
-        print("here")
+    # def getEachKeyStroke(self, key):
+    #     print("here")
+    #
+    # def setOutlabel(self, newLabel):
+    #     self.OutLabel['text'] = newLabel
+    #
+    # def upArrow(self, key):
+    #     print("here")
+    #
+    # def downArrow(self, key):
+    #     print("here")
+    #
+    # def pre_new_window(self, key):
+    #     self.new_window()
+    #
+    # def new_empty_window(self):
+    #     self.newWindow = tk.Toplevel(self.master)
+    #
+    # def new_config_window(self):
+    #     self.newWindow = tk.Toplevel(self.master)
+    #
+    # def error_window(self, message):
+    #     self.newWindow = tk.Toplevel(self.master)
+    #     self.app = errorDisplay(self.newWindow, "Crash & Burn: " + message)
+    #
+    # def show_image(self, img):
+    #     try:
+    #         fileName = checkDir + img + ".pdf"
+    #         path_to_pdf = os.path.abspath(fileName)
+    #         path_to_acrobat = os.path.abspath(AcrobatPath)
+    #         process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
+    #         process.wait()
+    #     except:
+    #         self.error_window("Sorry, that file can not be found!")
 
-    def setOutlabel(self, newLabel):
-        self.OutLabel['text'] = newLabel
+    # def openDailyLog(self):
+    #     wb = load_workbook(dailyLogDir + '\\' + self.oWBName + '.xlsx')
+    #     return wb
 
-    def upArrow(self, key):
-        print("here")
-
-    def downArrow(self, key):
-        print("here")
-
-    def pre_new_window(self, key):
-        self.new_window()
-
-    def new_empty_window(self):
-        self.newWindow = tk.Toplevel(self.master)
-
-    def new_config_window(self):
-        self.newWindow = tk.Toplevel(self.master)
-
-    def error_window(self, message):
-        self.newWindow = tk.Toplevel(self.master)
-        self.app = errorDisplay(self.newWindow, "Crash & Burn: " + message)
-
-    def show_image(self, img):
-        try:
-            fileName = checkDir + img + ".pdf"
-            path_to_pdf = os.path.abspath(fileName)
-            path_to_acrobat = os.path.abspath(AcrobatPath)
-            process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
-            process.wait()
-        except:
-            self.error_window("Sorry, that file can not be found!")
-
-    def openDailyLog(self):
-        wb = load_workbook(dailyLogDir + '\\' + self.oWBName + '.xlsx')
-        return wb
-
-    def parseName(self, name):
-        day = name[-2:]
-        month = name[0:-2]
-        return (day, month)
+    # def parseName(self, name):
+    #     day = name[-2:]
+    #     month = name[0:-2]
+    #     return (day, month)
 
     def loadRowCash(self, month, day, sheet, current_row):
         arr = []
@@ -154,7 +127,7 @@ class checkDisplay02:
 
 
     def getSheet(self, name, sheet):
-        (day, month) = self.parseName(name)
+        (day, month) = self.CDCommonCode.parseName(name)
         if not name in self.pages:
             self.pages.append(name)
 
@@ -282,21 +255,21 @@ class checkDisplay02:
                 self.label06.append(tk.Label(self.frame, text="$" + str(fAmt2), bg="teal", fg="yellow"))
                 self.label06[len(self.label06)-1].grid(row=row_num, column=14, padx=4, pady=4, sticky=tk.NW)
 
-                self.button01.append(tk.Button(self.frame, text="View", command=partial(self.show_image, e[6])))
+                self.button01.append(tk.Button(self.frame, text="View", command=partial(self.CDCommonCode.show_image, e[6])))
                 self.button01[len(self.button01)-1].grid(row=row_num, column=16, columnspan=2, padx=4, pady=4, sticky=tk.EW)
                 total = total + e[5]
                 row_num += 1
                 line = ''
 
     def sheetExists(self, sheet):
-        dailyLog = self.openDailyLog()
+        dailyLog = self.CDCommonCode.openOneDailyLog(self.oWBName)
         for name in dailyLog.sheetnames:
             if name == sheet:
                 return True
         return False
 
     def runProcess(self, name):
-        dailyLog = self.openDailyLog()
+        dailyLog = self.CDCommonCode.openOneDailyLog(self.oWBName)
         self.total = 0
         self.getSheet(name, dailyLog[name])
         self.showData()

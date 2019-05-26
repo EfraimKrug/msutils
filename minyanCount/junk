@@ -1,0 +1,1929 @@
+
+
+#######################
+
+
+193 (RFC822 {12365}
+Delivered-To: kadimahtorasmoshe@gmail.com
+Received: by 2002:a2e:4506:0:0:0:0:0 with SMTP id s6-v6csp5674600lja;
+        Tue, 25 Dec 2018 14:36:59 -0800 (PST)
+X-Google-Smtp-Source: AFSGD/VhhlVzA03SjjWUr5+98qg/pfSatcEBHrJ5SbPWe9yR71ASoqj94Lzuk43Usn9aXbwqNakD
+X-Received: by 2002:a62:8a51:: with SMTP id y78mr17810788pfd.35.1545777419498;
+        Tue, 25 Dec 2018 14:36:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1545777419; cv=none;
+        d=google.com; s=arc-20160816;
+        b=D/XcEPbkoVLsCc72ZynTvjsEgVpOE7WspiBZkkD4QIO9HZYVw7bTsX8in+6xtdO5Kj
+         w4pzlMBYM94xphrYml2ZOx5sXu953rhgyRLQ/C/sV84xr7umQvlyAfUeAhaAXu2qK4Da
+         B0v4Po9okVS1fkGlkKyLT45BseWEqNe2synD++iCKsNRH76LODKzruRKNicoHf5Q/7dh
+         Y0bYjKAm8LyTisxcd/O4rZwYshpNM2FvjiFlBOD64RIZmeXGa5vowMPMduR8+Vp+4sgX
+         CvT0QGm6HfyJTbag/NDyKnDYL+vzQRw6X2JbtLtbIbiUQvKod4HC2B/NEJoUMP6hH90x
+         gBhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:sender:date:from:to:message-id;
+        bh=OeCsjnhaowOe6skbnix7AAfExxG5df6ork5y8Gfz7Lo=;
+        b=iDCVotUoeebjacU+WmULOEGyT3sxDWWSVklCCsxai7X2jBbelkDEsXNA6XqseJLZa/
+         vA1Yfi6CPcpQ3sJiP5T3FH46qGArcBy12od7+TXmgVKC/rkySiaU3JoC+7qFbB1r0wYY
+         VM/e3NecIoQJzgLkkfNLHx04qCyypaOPLYPhDazwQ4a7b8Qlz+SrKOsdYCLkNHlAfqDJ
+         52Zs3iaVEi0Xf3kebf2sJq1vgL+We+RsH6kPZvH9aAsybKca9R34J+weGeHHXDw/R8u2
+         iFOpbywNeYSfPqfEsn4RM/1DJpotfRWLIddUe7yAO/9T0crdgTpasQokRmWh9pgmRU4J
+         xgcw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of +16177806984/type=plmn@tmomail.net designates 173.209.217.234 as permitted sender) smtp.mailfrom="+16177806984/TYPE=PLMN@tmomail.net"
+Return-Path: <+16177806984/TYPE=PLMN@tmomail.net>
+Received: from ch3p-tmo-mm3-sfw003.syniverse.com (chi-tmo-mm3.syniverse.com. [173.209.217.234])
+        by mx.google.com with ESMTP id s11si29074581pgk.344.2018.12.25.14.36.58
+        for <kadimahtorasmoshe@gmail.com>;
+        Tue, 25 Dec 2018 14:36:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of +16177806984/type=plmn@tmomail.net designates 173.209.217.234 as permitted sender) client-ip=173.209.217.234;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of +16177806984/type=plmn@tmomail.net designates 173.209.217.234 as permitted sender) smtp.mailfrom="+16177806984/TYPE=PLMN@tmomail.net"
+Message-ID: <5c22b10b.1c69fb81.8f3f6.bdcaSMTPIN_ADDED_BROKEN@mx.google.com>
+X-Google-Original-Message-ID: 20181125223657579049@mavenir.com
+Received: from tmobile.net ([10.166.3.161]) by ch3p-tmo-mm3-sfw003.syniverse.com with ESMTP id aA59VR2MJDjNpS27 for <kadimahtorasmoshe@gmail.com>; Tue, 25 Dec 2018 22:36:57 +0000 (GMT)
+To: kadimahtorasmoshe@gmail.com
+From: +16177806984@tmomail.net
+Content-Type: multipart/related;Type="text/html";boundary="-boundaryRMS123"
+Date: Tue, 25 Dec 2018 22:36:55 GMT
+Sender: +16177806984@tmomail.net
+User-Agent: motoe5play
+X-Mms-Message-ID: mavodi-6-88-2d-5-9d-5c3d2091-26826bdf53d
+X-Mav-Mo-Location: 172.57.34.17
+X-Virus-Scanned: by bsmtpd at syniverse.com
+
+---boundaryRMS123
+Content-ID:<0000>
+Content-Type:text/html
+Content-Location:smil
+Content-Disposition:inline
+Content-Transfer-Encoding:base64
+
+PGh0bWw+PGhlYWQ+PHRpdGxlPlQtTW9iaWxlPC90aXRsZT48L2hlYWQ+PGJvZHkgbWFyZ2lud2lk
+dGg9IjAiIG1hcmdpbmhlaWdodD0iMCIgbGVmdG1hcmdpbj0iMCIgdG9wbWFyZ2luPSIwIiBiZ2Nv
+bG9yPSIjZmZmZmZmIj48dGFibGUgYm9yZGVyPSIwIiB3aWR0aD0iNjAwIiBjZWxsc3BhY2luZz0i
+MCIgY2VsbHBhZGRpbmc9IjAiPjx0cj4KCQkJCSAgICAgPHRkIHdpZHRoPSI2MDAiIGNvbHNwYW49
+IjIiPjxpbWcgc3JjPSJjaWQ6ZG90dGVkbGluZTYwMC5naWYiIHdpZHRoPSI2MDAiPjwvdGQ+CgkJ
+CQkgICAgIDwvdHI+PGJyPjx0cj48dGQgd2lkdGg9IjYwMCIgY29sc3Bhbj0iMiI+PGltZyBzcmM9
+ImNpZDp0bW9iaWxlc3BhY2UuZ2lmIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjIwIj48L3RkPjwvdHI+
+PHRyPjx0cj48dGQgY29sc3Bhbj0iMSIgYWxpZ249ImxlZnQiPll1cDwvdGQ+PC90cj4gPFRSPgog
+ICAgICAgICAgICAgICAgPFREIHdpZHRoPTM1MCBjb2xTcGFuPTE+CiAgICAgICAgICAgICAgICA8
+SU1HIHNyYz0iY2lkOnRtb2JpbGVzcGFjZS5naWYiIHdpZHRoPSIzNTAiIGhlaWdodD0iMzAiPgog
+ICAgICAgICAgICAgICAgPC9URD4KICAgICAgICAgICAgICAgIDwvVFI+CiAgICAgICAgICAgICAg
+ICA8VFI+CiAgICAgICAgICAgICAgICA8L1RSPgogICAgICAgICAgICAgICAgPHRkIHdpZHRoPSIy
+NDAiIGJnY29sb3I9IiNmMmYyZjIiPiZuYnNwOzwvdGQ+CiAgICAgICAgICAgICAgICA8L3RyPjx0
+cj48dGQgd2lkdGg9IjYwMCIgY29sc3Bhbj0iMiI+PGltZyBzcmM9ImNpZDpmb290ZXIuZ2lmIiB3
+aWR0aD0iNjAwIiBoZWlnaHQ9IjEwNSI+PC90ZD48L3RyPjwvdHI+PHRyPjx0ZCB3aWR0aD0iNjAw
+IiBjb2xzcGFuPSIyIj48aW1nIHNyYz0iY2lkOnRtb2JpbGVzcGFjZS5naWYiIHdpZHRoPSI2MDAi
+IGhlaWdodD0iNDAiPjwvdGQ+PC90cj48L3RhYmxlPjwvYm9keT4NCjwvaHRtbD4=
+---boundaryRMS123
+Content-ID:<text0>
+Content-Type:text/plain;Name="text0";Charset="utf-8"
+Content-Location:text0
+Content-Transfer-Encoding:base64
+
+WXVw
+---boundaryRMS123
+Content-Type: image/gif; name=tmobilespace.gif
+Content-ID: <tmobilespace.gif>
+Content-Disposition: inline; filename=tmobilespace.gif
+Content-Transfer-Encoding:base64
+
+R0lGODlhAQABAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgMDAwMDcwKbK8AAAMzMAADMAMwAzMxYWFhwcHCIiIikpKVVVVU1NTUJCQjk5Of98gP9QUNYAk8zs/+/Wxufn1q2pkDP/AGYAAJkAAMwAAAAzADMzAGYzAJkzAMwzAP8zAABmADNmAGZmAJlmAMxmAP9mAACZADOZAGaZAJmZAMyZAP+ZAADMADPMAGbMAJnMAMzMAP/MAGb/AJn/AMz/AAD/MzMA/2YAM5kAM8wAM/8AMwAz/zMzM2YzM5kzM8wzM/8zMwBmMzNmM2ZmM5lmM8xmM/9mMwCZMzOZM2aZM5mZM8yZM/+ZMwDMMzPMM2bMM5nMM8zMM//MMzP/M2b/M5n/M8z/M///MwAAZjMAZmYAZpkAZswAZv8AZgAzZjMzZmYzZpkzZswzZv8zZgBmZjNmZmZmZplmZsxmZgCZZjOZZmaZZpmZZsyZZv+ZZgDMZjPMZpnMZszMZv/MZgD/ZjP/Zpn/Zsz/Zv8AzMwA/wCZmZkzmZkAmcwAmQAAmTMzmWYAmcwzmf8AmQBmmTNmmWYzmZlmmcxmmf8zmTOZmWaZmZmZmcyZmf+ZmQDMmTPMmWbMZpnMmczMmf/MmQD/mTP/mWbMmZn/mcz/mf//mQAAzDMAmWYAzJkAzMwAzAAzmTMzzGYzzJkzzMwzzP8zzABmzDNmzGZmmZlmzMxmzP9mmQCZzDOZzGaZzJmZzMyZzP+ZzADMzDPMzGbMzJnMzMzMzP/MzAD/zDP/zGb/mZn/zMz/zP//zDMAzGYA/5kA/wAzzDMz/2Yz/5kz/8wz//8z/wBm/zNm/2ZmzJlm/8xm//9mzACZ/zOZ/2aZ/5mZ/8yZ//+Z/wDM/zPM/2bM/5nM/8zM///M/zP//2b/zJn//8z///9mZmb/Zv//ZmZm//9m/2b//6UAIV9fX3d3d4aGhpaWlsvLy7KystfX193d3ePj4+
+ rq6vHx8fj4+P/78KCgpICAgP8AAAD/AP//AAAA//8A/wD//////ywAAAAAAQABAAAIBAD/BQQAOw==
+---boundaryRMS123
+Content-Type: image/gif; name=dottedline600.gif
+Content-ID: <dottedline600.gif>
+Content-Disposition: inline; filename=dottedline600.gif
+Content-Transfer-Encoding:base64
+
+R0lGODlhWAIBAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/AP//AAAA//8A/wD//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAAmQAAzAAA/wAzAAAzMwAzZgAzmQAzzAAz/wBmAABmMwBmZgBmmQBmzABm/wCZAACZMwCZZgCZmQCZzACZ/wDMAADMMwDMZgDMmQDMzADM/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMzADMzMzMzZjMzmTMzzDMz/zNmADNmMzNmZjNmmTNmzDNm/zOZADOZMzOZZjOZmTOZzDOZ/zPMADPMMzPMZjPMmTPMzDPM/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YzAGYzM2YzZmYzmWYzzGYz/2ZmAGZmM2ZmZmZmmWZmzGZm/2aZAGaZM2aZZmaZmWaZzGaZ/2bMAGbMM2bMZmbMmWbMzGbM/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5kzAJkzM5kzZpkzmZkzzJkz/5lmAJlmM5lmZplmmZlmzJlm/5mZAJmZM5mZZpmZmZmZzJmZ/5nMAJnMM5nMZpnMmZnMzJnM/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wzAMwzM8wzZswzmcwzzMwz/8xmAMxmM8xmZsxmmcxmzMxm/8yZAMyZM8yZZsyZmcyZzMyZ/8zMAMzMM8zMZszMmczMzMzM/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8zAP8zM/8zZv8zmf8zzP8z//9mAP9mM/9mZv9mmf9mzP9m//+ZAP+ZM/+ZZv+Zmf+ZzP
+ +Z///MAP/MM//MZv/Mmf/MzP/M////AP//M///Zv//mf//zP///yH5BAEAABAALAAAAABYAgEAAAhFAFP9+yeQ4MCCCA8qNMgwYcOFDiNCnPiwokSLFC9qzMgRo8eNHzuCHCmyZMiTJFGaTMlypUuVMFvGfCmzJs2bM3Pa9BgQADs=
+---boundaryRMS123
+Content-Type:image/gif;Name="footer.gif"
+Content-ID:<footer.gif>
+Content-Disposition:inline; filename=footer.gif
+Content-Transfer-Encoding:base64
+
+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
+---boundaryRMS123--
+
+
+
+
+#######################
+
+
+)
+
+
+#######################
+
+
+192 (RFC822 {8636}
+Delivered-To: kadimahtorasmoshe@gmail.com
+Received: by 2002:a2e:4506:0:0:0:0:0 with SMTP id s6-v6csp5624418lja;
+        Tue, 25 Dec 2018 13:04:20 -0800 (PST)
+X-Received: by 2002:adf:ed92:: with SMTP id c18mr16582875wro.194.1545771860630;
+        Tue, 25 Dec 2018 13:04:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1545771860; cv=none;
+        d=google.com; s=arc-20160816;
+        b=TZt64ucy9PsFYfIk7WOjsOClSMf6dMMOVKvdYUE85xtXCdBMrSwQ/+qjXrH+1ojCXT
+         gIJw1h7V9V12PIpjz1IVJzqrnYFpoVGMVgQ8dy/lYR5rS1JPGmM1GYRyG1vgniPDtbNO
+         VsfaRll+TEUJxGGF8cR2162usD5XGDGGHxR9n/UykzW8Ivwmhrq+xIgTyyzNz6zUJpyl
+         VOwuQ0Y7H6mlJU6gNnGR0XWjF9IJrdUMn7/N4ntmNlcXRxKznRNNBjNA/QnOkQbb1Nz6
+         rwxg9WwPDj/2G20fxOHx6KZTeRSawIGIhy31hcpZleoaC5bNEtjnvw/mK0aYSmQcuKLC
+         nK0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Hds44XEKmIM1qlHM3yOrG8mUPMTE4GBwQj2nNqKT1vU=;
+        b=glsZf6rSjvpGK8gtOq8oHAgDq3g2U8Xl2oqEGMzJhztCMGlUPsKG79ztk0/yJiWoSA
+         JPvliKQHk7KUvAZdU4WdtJGyPVYZWg3MqrKT2p0DbMyhggcwo8f+fssI5Ii65EOUuF0b
+         mnxc4kEloMdojIQcs/Q1WuZRfhkegEOjaVELNLyESogcUfdS7hsjon2OiTnOse7p2XUA
+         eXzSPKWKxQmcYmvAvD0sukaxdk63HEA9HEv9iUqcNlnN+U8ZEmYgr88Ck0ghqtEhivgn
+         gaSM+/2qJvvpeIFFnGmUJGvNdY7jSm15Jo212BJHEYlcrNcZHtvyFeKqr422RwM0J1Zq
+         HypA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="HjZTI0R/";
+       spf=pass (google.com: domain of vrflash@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=vrflash@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <vrflash@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id o16sor15609266wrw.36.2018.12.25.13.04.20
+        (Google Transport Security);
+        Tue, 25 Dec 2018 13:04:20 -0800 (PST)
+Received-SPF: pass (google.com: domain of vrflash@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="HjZTI0R/";
+       spf=pass (google.com: domain of vrflash@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=vrflash@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=Hds44XEKmIM1qlHM3yOrG8mUPMTE4GBwQj2nNqKT1vU=;
+        b=HjZTI0R/jGWQkNjHP9njpQFEpIUsN1DZX3xHviCuxifBsQR1MHXRdm7UPh5hyc1UpX
+         BJlY+wzRAeGnnynavLw0ePaj/vWI+ln2MWcr3I6f3Xy+PF+apCUKf5Mqi3Etrqqt+gI8
+         /pviWbQZcWmqfSnDmKhRJUFOG4DFBjvH6DsWIXFcG0L0mX+wXF2HC2xz+2t6Xe7GOPoG
+         YvKfLOmFdsm7fURZ6orGndZs9nTzmL0kb6V/xxOB4Lexp5GDH34UEo/ZM+s0/CDkEaf6
+         Uo82+ay72HDKQw52++7gwZoKSxTSkGfuKAnGSntEMpqnFbS3knNsXcBW0wBFEnxbsIPm
+         kWrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=Hds44XEKmIM1qlHM3yOrG8mUPMTE4GBwQj2nNqKT1vU=;
+        b=my3rOvepT/JigRwqvNtixQcXe04ygzTKYGyT/JEbEg1qsuei/AeAd0//SmSFZymyMK
+         hU3xPcFAPvouBuO4lBzWptKrGRYjULpmP9UBYvKhDgUD1qHJfkrdkP0TAMZnN+8DQ2sO
+         c0PM3IToDfJghWqVRZ6afZ0EirmJd7arpHvNT73ItOVVt/m+ZgE6FRaqDpLlJmh+SiGJ
+         PjgKfSdfw4DCs7xppkXAHUpoDTNSRHhWFPIYOMgkjpjE7xfKqqynTystxFUCclx5U5dS
+         iipfqCX/0yJo43ilaTsO+OAMIRkMNCNj9EnESyBJWK9iMZvhWLl/GaBOfo4HOcGJCqHt
+         G/Pw==
+X-Gm-Message-State: AJcUukf8tHidt0rot7cOhssKRz+/0emurpHpu2wzzuw6YhpoMy7fO3si
+	4GGbD/ZqDlRM/0nwJ0WqeQe6pMcA3Ubn66Hokn8XvGWy
+X-Google-Smtp-Source: ALg8bN4d/FBEmHrbwWooAlgC9yKbUiYLDIrkMkgMHbUNSC2oflu791Q+sw21uY6Xfd3dxSOvyDAo6In2wVE0QWHX21c=
+X-Received: by 2002:a5d:410e:: with SMTP id l14mr16226831wrp.61.1545771859673;
+ Tue, 25 Dec 2018 13:04:19 -0800 (PST)
+MIME-Version: 1.0
+References: <CAJH4dohKjmMj0=BfpuKEqpTaqD075j27-zq6gQ7KtMHEwQ_wTw@mail.gmail.com>
+In-Reply-To: <CAJH4dohKjmMj0=BfpuKEqpTaqD075j27-zq6gQ7KtMHEwQ_wTw@mail.gmail.com>
+From: Mark <vrflash@gmail.com>
+Date: Tue, 25 Dec 2018 16:04:09 -0500
+Message-ID: <CA+2VVxVOPQJmxgcvrKo62St4zsobaLyAqdtX6uqN+TEpNC+3Jg@mail.gmail.com>
+Subject: Re: Bulletin, parshat Shemot...
+To: Kadimah-Toras Moshe <kadimahtorasmoshe@gmail.com>
+Cc: Jason Strauss <rabbi@ktmshul.org>, Sue Miller <SEmiller@informed-solutions.com>, 
+	Chuck Miller <cjmiller@informed-solutions.com>, Ann Geller <anngeller@gmail.com>, 
+	"L. Wallins" <pwallins@aol.com>
+Content-Type: multipart/alternative; boundary="000000000000998707057ddf0eaa"
+
+--000000000000998707057ddf0eaa
+Content-Type: text/plain; charset="UTF-8"
+
+What does it mean "Dov's mother Deena bat Yosif and Rachel?"
+
+Also, you already had "very, very soon" last time. It should be "very,
+very, very soon" now, and "very, very, very, very soon" next time.
+
+Mark
+
+On Mon, Dec 24, 2018 at 11:36 AM Kadimah-Toras Moshe <
+kadimahtorasmoshe@gmail.com> wrote:
+
+> Best,
+> ~Efraim
+>
+> --
+> Congregation Kadimah-Toras Moshe is a vibrant modern Orthodox shul engaged
+> in learning, social action, events, 365-days-of-the-year minyan, and
+> community in the heart of Jewish Brookline/Brighton under the leadership of
+> Rabbi Jason Strauss.
+>
+> Kadimah-Toras Moshe
+> 113 Washington Street
+> Brighton, MA 02135
+> 617-254-1333
+> www.ktmshul.org
+> http://www.facebook.com/CongregationKadimahTorasMoshe
+>
+
+
+-- 
+The author of "My Life at First Try" and the editor of Vestal Review
+magazine.
+
+*http://markbudman.com/ <http://markbudman.com/>*
+
+--000000000000998707057ddf0eaa
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">What does it mean &quot;Dov&#39;s mother Deena bat Yosif a=
+nd Rachel?&quot;<div><br></div><div>Also, you already had &quot;very, very =
+soon&quot; last time. It should be &quot;very, very, very soon&quot; now, a=
+nd &quot;very, very, very, very soon&quot; next time.</div><div><br></div><=
+div>Mark</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr">On Mon,=
+ Dec 24, 2018 at 11:36 AM Kadimah-Toras Moshe &lt;<a href=3D"mailto:kadimah=
+torasmoshe@gmail.com">kadimahtorasmoshe@gmail.com</a>&gt; wrote:<br></div><=
+blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-l=
+eft:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">Best,<br>=
+~Efraim<br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr" class=3D"gm=
+ail-m_-1143186632135470878gmail_signature"><div dir=3D"ltr"><div><div dir=
+=3D"ltr"><span style=3D"font-size:small">Congregation Kadimah-Toras Moshe i=
+s a vibrant modern Orthodox shul engaged in learning, social action, events=
+, 365-days-of-the-year minyan, and community in the heart of Jewish Brookli=
+ne/Brighton under the leadership of Rabbi Jason Strauss.</span><br style=3D=
+"font-size:small"><br style=3D"font-size:small"><span style=3D"font-size:sm=
+all">Kadimah-Toras Moshe</span><br style=3D"font-size:small"><span style=3D=
+"font-size:small">113 Washington Street</span><br style=3D"font-size:small"=
+><span style=3D"font-size:small">Brighton, MA 02135</span><br style=3D"font=
+-size:small"><span style=3D"font-size:small"><span title=3D"Call with Googl=
+e Voice"><span title=3D"Call with Google Voice"><span title=3D"Call with Go=
+ogle Voice">617-254-1333</span></span></span></span><br style=3D"font-size:=
+small"><span style=3D"font-size:small"><a href=3D"http://www.ktmshul.org" t=
+arget=3D"_blank">www.ktmshul.org</a></span><br style=3D"font-size:small"><s=
+pan style=3D"font-size:small"><a href=3D"http://www.facebook.com/Congregati=
+onKadimahTorasMoshe" target=3D"_blank">http://www.facebook.com/Congregation=
+KadimahTorasMoshe</a></span><br></div></div></div></div></div>
+</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
+ class=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=
+=3D"ltr">The author of &quot;My Life at First Try&quot; and the editor of V=
+estal Review magazine.<div><br></div><div><font color=3D"#0000ee"><u><a hre=
+f=3D"http://markbudman.com/" target=3D"_blank">http://markbudman.com/</a></=
+u></font><br></div><div><br></div></div></div></div></div></div>
+
+--000000000000998707057ddf0eaa--
+
+
+
+#######################
+
+
+)
+
+
+#######################
+
+
+191 (RFC822 {24473}
+Delivered-To: kadimahtorasmoshe@gmail.com
+Received: by 2002:a2e:4506:0:0:0:0:0 with SMTP id s6-v6csp5608871lja;
+        Tue, 25 Dec 2018 12:36:17 -0800 (PST)
+X-Google-Smtp-Source: ALg8bN5vwfA51QuK+eX+uHkOryFfBr1RgX2pQtba5TSARd1bZeO+7smyi2mCPU2xUcXDcC8qwsHI
+X-Received: by 2002:a17:902:7614:: with SMTP id k20mr17593076pll.285.1545770177190;
+        Tue, 25 Dec 2018 12:36:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1545770177; cv=none;
+        d=google.com; s=arc-20160816;
+        b=usq+F30HRuw3P6dANx5/re7A3vnprvocz2gsvG/D7Yb/0cpSL97iu6i+xnvxRSCLqy
+         FVqEhZ7IJwk7y4awddmo8GG5mxTmnvlrRy0V7yyi26Kjuov8bnBY3S3Mq4DVGbGTt29D
+         S6hcUt+ZVbzF+n1vkmOwFWDmf23Qhg7sC8Msn2qGF/dlcTmebNQjlZuE2T6t3Dlr2HXV
+         nA+TzPXmUoMMVBf5r3kXyEtzpBLueLe4AnEANV0LqkvZwRotlaTcQP1hX+Y4MBF8KJtT
+         7HHuLmEQjDpEXWgN8Gq5N+wxBfm2F14bgSd6WrtGDjUZYDzGllD2WctoqNyOlg4Mbd2a
+         F5xg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:mime-version:message-id:subject:to:from:reply-to:errors-to
+         :dkim-signature:delivered-to;
+        bh=HRHs8wVLWKvIo3X0MrQpGueQj772gqJhW/boPVfvNts=;
+        b=AUj9hwMhkhXl9KQoPsrQv52IND1P0dReHgcuyyJTTJ6CzwGGYlC3vY613uBYgJQDD4
+         2OMbG8N40vK6i7hfEixrjPtfqmDqj8EzrJMAaKwCXe0y36r3LKo2peDqGDTMFaPCzNAT
+         LPqkGIvwKhv7KB60MO/UC0mJKDT7kibqYf2eud6LloL9Bg+sKFMy+nO8pui0c9Tay4Nz
+         qHwgq3g17INgQvzMOSn7QTAKiTVO/t4MFClBYpGCxawdHEDBFRZG+qqnIOIdY1gb7I9b
+         yZLJP8H08vFJFw170j1KHC4DtJtIBWZ0hBmkFHuSZVKOmM+ZyCu+lVhPXICv1Ra79DQP
+         shuw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@chabad.org header.s=msngr2-0818 header.b=UX8njxAr;
+       spf=pass (google.com: best guess record for domain of x13319044@pdx1-sub0-mail-mx15.g.dreamhost.com designates 64.90.62.164 as permitted sender) smtp.mailfrom=x13319044@pdx1-sub0-mail-mx15.g.dreamhost.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=chabad.org
+Return-Path: <x13319044@pdx1-sub0-mail-mx15.g.dreamhost.com>
+Received: from pdx1-sub0-mail-mx15.g.dreamhost.com (mx2.dreamhost.com. [64.90.62.164])
+        by mx.google.com with ESMTPS id b3si30619365pgh.496.2018.12.25.12.36.16
+        for <kadimahtorasmoshe@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 25 Dec 2018 12:36:17 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of x13319044@pdx1-sub0-mail-mx15.g.dreamhost.com designates 64.90.62.164 as permitted sender) client-ip=64.90.62.164;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@chabad.org header.s=msngr2-0818 header.b=UX8njxAr;
+       spf=pass (google.com: best guess record for domain of x13319044@pdx1-sub0-mail-mx15.g.dreamhost.com designates 64.90.62.164 as permitted sender) smtp.mailfrom=x13319044@pdx1-sub0-mail-mx15.g.dreamhost.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=chabad.org
+Received: by pdx1-sub0-mail-mx15.g.dreamhost.com (Postfix, from userid 13319044)
+	id C5B12932B3; Tue, 25 Dec 2018 12:36:16 -0800 (PST)
+X-Original-To: office@kadimahtorasmoshe.org
+Delivered-To: x13319044@pdx1-sub0-mail-mx15.g.dreamhost.com
+Received: from vade-backend1.dreamhost.com (fltr-in2.mail.dreamhost.com [66.33.205.213])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by pdx1-sub0-mail-mx15.g.dreamhost.com (Postfix) with ESMTPS id 972D4932A7
+	for <office@kadimahtorasmoshe.org>; Tue, 25 Dec 2018 12:36:16 -0800 (PST)
+Received: from listserv.chabad.org (listserv.chabad.org [64.90.177.115])
+	by vade-backend1.dreamhost.com (Postfix) with ESMTP id 0B2984000083D
+	for <office@kadimahtorasmoshe.org>; Tue, 25 Dec 2018 12:36:15 -0800 (PST)
+Authentication-Results: vade-backend1.dreamhost.com; dkim=pass
+	reason="1024-bit key; unprotected key"
+	header.d=chabad.org header.i=@chabad.org header.b=UX8njxAr;
+	dkim-adsp=pass; dkim-atps=neutral
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/simple; d=chabad.org; s=msngr2-0818; h=reply-to:from:to:subject:message-id:mime-version:date:content-type; bh=zzrJtAX19Lw5L88FeDzLKIUFEeA=; b=UX8njxArv4igmxstUGbwUPzNCQOP/6Jo7D4egLAw0THvbzW3Eb0/Tp0PL1BIka+GVGt9HIwE86l3SdNZHJir5fYAeqoLk2BWP6nA51sEbe0KpaIIxJhtKmdIImDGAlLBEfe4XBVj2rZvER6++4VexxJkSluKVD7hWOoSMiZXHbA=
+Received: from mail pickup service by listserv.chabad.org with Microsoft SMTPSVC;
+	 Tue, 25 Dec 2018 15:36:14 -0500
+Errors-To: <subscriptions_1405228_831715@listserv.chabad.org>
+Reply-To: <feedback@chabad.org>
+From: "Chabad.org" <subscriptions@chabad.org>
+To: "office@kadimahtorasmoshe.org" <office@kadimahtorasmoshe.org>
+Subject: We need you now
+Message-ID: <831715_122518-153614_535566_1405228@chabad.org>
+MIME-Version: 1.0
+X-Return-Path: subscriptions_1405228_831715@listserv.chabad.org
+Date: Tue, 25 Dec 2018 15:36:14 -0500
+Content-Type: multipart/alternative; boundary="cdo97ee13ed312c4feba281af04581316fb"
+X-OriginalArrivalTime: 25 Dec 2018 20:36:14.0734 (UTC) FILETIME=[7AF032E0:01D49C91]
+X-VR-STATUS: MCE
+X-VR-SCORE: 17
+X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedtkedrudekfedgudegfecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucggtfgfnhhsuhgsshgtrhhisggvpdfftffgtefojffquffvnecuuegrihhlohhuthemuceftddtnecundfotefknffkpffiucdludejmdenucfjughrpegvrhfhvffukfggffgtsegrtderofdttdejnecuhfhrohhmpedfvehhrggsrggurdhorhhgfdcuoehsuhgsshgtrhhiphhtihhonhhssegthhgrsggrugdrohhrgheqnecuffhomhgrihhnpegthhgrsggrugdrohhrghenucfkphepieegrdeltddrudejjedrudduheenucfrrghrrghmpehmohguvgepshhmthhppdhhvghloheplhhishhtshgvrhhvrdgthhgrsggrugdrohhrghdpihhnvghtpeeigedrledtrddujeejrdduudehpdhrvghtuhhrnhdqphgrthhhpedfvehhrggsrggurdhorhhgfdcuoehsuhgsshgtrhhiphhtihhonhhssegthhgrsggrugdrohhrgheqpdhmrghilhhfrhhomhepshhusghstghrihhpthhiohhnshgpudegtdehvddvkegpkeefudejudehsehlihhsthhsvghrvhdrtghhrggsrggurdhorhhgpdhnrhgtphhtthhopehofhhfihgtvgeskhgrughimhgrhhhtohhrrghsmhhoshhhvgdrohhrghenucevlhhushhtvghrufhiiigvpedt
+X-Loop: office@kadimahtorasmoshe.org 0
+
+
+--cdo97ee13ed312c4feba281af04581316fb
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+DQpCeSB0aGUgR3JhY2Ugb2YgRy1kDQoNCkRlYXIgRnJpZW5kIG9mIENoYWJhZC5vcmcsDQoNCkFz
+IHdlIHJhcGlkbHkgYXBwcm9hY2ggdGhlIGVuZCBvZiB0aGUgMjAxOCB0YXggeWVhciwgd2UgYXJl
+IGdyYXRlZnVsIHRvIEctZCDigJQgYW5kIHRvIG91ciBwYXJ0bmVycyEg4oCUIGZvciBlbmFibGlu
+ZyB1cyB0byBoZWxwIHNvIG1hbnkgcGVvcGxlIHdvcmxkd2lkZSBkaXNjb3ZlciB0aGUgdHJlYXN1
+cmVzIG9mIHRoZSBUb3JhaCwgYWxvbmcgd2l0aCBzbyBtYW55IG90aGVyIEpld2lzaCByZXNvdXJj
+ZXMsIHZpYSB0aGUgd29ybGQncyAjMSBKdWRhaXNtIHdlYnNpdGUsIGtub3duIHNpbXBseSBhcyAi
+Q2hhYmFkLm9yZy4iDQoNClRoZSB0aG91c2FuZHMgb2YgZW1haWxzIHdlIHJlY2VpdmUgZnJvbSBv
+dXIgdXNlcnMgcmV2ZWFsIHRoYXQgQ2hhYmFkLm9yZyBpcyBvZnRlbiB0aGUgZGVjaWRpbmcgZmFj
+dG9yIGluIHRoZSBsaWZlIG9mIGEgdHJvdWJsZWQgdGVlbmFnZXIsIGEgbG9uZWx5IGNvbGxlZ2Ug
+c3R1ZGVudCwgb3IgYSDigJxyZWd1bGFy4oCdIGZhbWlseSBpbiBzb21lIGZvcmxvcm4gY29ybmVy
+IG9mIHRoZSB3b3JsZCB3aXRoIG5vIEpld2lzaCBjb21tdW5pdHkgb3IgZnJpZW5kcy4gDQoNCk5l
+ZWRsZXNzIHRvIHNheSwgd2UgbXVzdCBjb250aW51ZSB0byBzaGFyZSBhbmQgaW5ub3ZhdGUgdW50
+aWwgZXZlcnkgbGFzdCBKZXcgaGFzIHRoZSBvcHBvcnR1bml0eSB0byBsZWFybiBhYm91dCBoaXMg
+b3IgaGVyIGhlcml0YWdlLiANCg0KVG8gZG8gc28gc3VjY2Vzc2Z1bGx5LCBob3dldmVyLCB3ZSBy
+ZWFsbHkgbmVlZCB5b3VyIHBhcnRuZXJzaGlwIQ0KDQpXb3VsZCB5b3UgcGxlYXNlIGhlbHAgdXMg
+b3V0IHdpdGggYSB5ZWFyLWVuZCB0YXgtZGVkdWN0aWJsZSBkb25hdGlvbiB0byBDaGFiYWQub3Jn
+Pw0KDQpodHRwOi8vbGluay5jaGFiYWQub3JnL2dvLmFzcD9saT1DNjg2ODVEQ0QzNjNCOEMyQjM3
+MTY2QUNCRTdFQjQxOSZhbXA7dWk9MzFBOEU5OEQ4RDYwNjU0OEM0QTBDMTZDNzRCMjJBRDImYW1w
+O2VtYWlsPW9mZmljZUBrYWRpbWFodG9yYXNtb3NoZS5vcmcNCg0KIA0KSU1QT1JUQU5UOiBXZSd2
+ZSByZWNlaXZlZCB0aGUgZm9sbG93aW5nIGdlbmVyb3VzIGNoYWxsZW5nZSBmcm9tIG9uZSBvZiBv
+dXIgcGFydG5lcnM6DQoNCkFsbCBkb25hdGlvbnMgd2UgcmVjZWl2ZSBmcm9tIHlvdSBkdXJpbmcg
+dGhlIGZpbmFsIGVpZ2h0IGRheXMgb2YgdGhpcyB5ZWFyLCB1cCB0byBhIGN1bXVsYXRpdmUgdG90
+YWwgb2YgJDc1LDAwMCwgd2lsbCBiZSBtYXRjaGVkIGJ5IG91ciBwYXJ0bmVyIQ0KDQpFdmVyeSBk
+b2xsYXIgeW91IGNvbnRyaWJ1dGUgbm93IGlzIHdvcnRoIHR3byENCg0KWW91IGNhbiBjb250cmli
+dXRlIHNlY3VyZWx5IG9ubGluZSBhdDoNCg0Kd3d3LkNoYWJhZC5vcmcvRG91YmxlDQoNCmh0dHA6
+Ly9saW5rLmNoYWJhZC5vcmcvZ28uYXNwP2xpPUM2ODY4NURDRDM2M0I4QzJCMzcxNjZBQ0JFN0VC
+NDE5JmFtcDt1aT0zMUE4RTk4RDhENjA2NTQ4QzRBMEMxNkM3NEIyMkFEMiZhbXA7ZW1haWw9b2Zm
+aWNlQGthZGltYWh0b3Jhc21vc2hlLm9yZw0KDQpXaGlsZSB0aGVyZSwgcGxlYXNlIGNvbnNpZGVy
+IHNldHRpbmcgdXAgYW4gYXV0b21hdGljIGRvbmF0aW9uIHNjaGVkdWxlIGZvciB0aGUgY29taW5n
+IHllYXIgLSBhdCByZWd1bGFyIGludGVydmFscywgb3IgcGVyaGFwcyB0byBtYXJrIHNwZWNpYWwg
+ZGF0ZXMgaW4geW91ciBmYW1pbHkuIA0KDQpPciBzaW1wbHkgbWFpbCBhIGNoZWNrIHRvOg0KDQpD
+aGFiYWQuT1JHDQo3NzAgRWFzdGVybiBQYXJrd2F5IFN1aXRlIDQwNQ0KQnJvb2tseW4sIE5ZIDEx
+MjEzDQoNCk90aGVyIGRvbmF0aW9uIG9wdGlvbnMgaW5jbHVkZToNCg0KLSBQYXlwYWwNCi0gRS1j
+aGVjayAoQUNIKQ0KLSBCYW5rIHRyYW5zZmVyIC8gd2lyZQ0KDQpQbGVhc2UgYWxzbyByZW1lbWJl
+ciBDaGFiYWQuT1JHIGluIHlvdXIgd2lsbC4gDQoNCkNvbnNpZGVyOiBMZXNzIHRoYW4gMiUgb2Yg
+Q2hhYmFkLm9yZydzIGJ1ZGdldCBpcyBzcGVudCBvbiBhZG1pbmlzdHJhdGl2ZSBjb3N0cyAtIGFu
+ZCB0aGUgcmVzdCBpcyBwb3VyZWQgcmlnaHQgYmFjayBpbnRvIHNlcnZpbmcgdGhlIGdsb2JhbCBK
+ZXdpc2ggY29tbXVuaXR5LiBJdCBpcyB5b3VyIHZpdGFsIHBhcnRuZXJzaGlwIHRoYXQgbWFrZXMg
+dGhlc2Ugc2VydmljZXMgcG9zc2libGUuIFBsZWFzZSBjb250cmlidXRlIGdlbmVyb3VzbHkhDQoN
+CldlIHRoYW5rIHlvdSBpbW1lbnNlbHkgZm9yIHlvdXIgY29udGludWVkIHBhcnRpY2lwYXRpb24g
+YW5kIGJsZXNzIHlvdSB0aGF0IHRoZSBsaWdodCBvZiB0aGUgcmVjZW50bHkgY29tcGxldGVkIENo
+YW51a2FoIGhvbGlkYXkgaWxsdW1pbmF0ZXMgeW91ciBsaWZlIGFuZCB0aGUgbGl2ZXMgb2YgYWxs
+IHRob3NlIGFyb3VuZCB5b3UuIA0KDQpTaW5jZXJlbHksDQoNClRIRSBDSEFCQUQuT1JHIFRFQU0N
+Cg0KaHR0cDovL2xpbmsuY2hhYmFkLm9yZy9nby5hc3A/bGk9QzY4Njg1RENEMzYzQjhDMkIzNzE2
+NkFDQkU3RUI0MTkmYW1wO3VpPTMxQThFOThEOEQ2MDY1NDhDNEEwQzE2Qzc0QjIyQUQyJmFtcDtl
+bWFpbD1vZmZpY2VAa2FkaW1haHRvcmFzbW9zaGUub3JnDQoNClAuUy4g4oCTIFlvdXIgcGFydGlj
+aXBhdGlvbiBjYW4gbWFrZSBhbGwgdGhlIGRpZmZlcmVuY2UuIFBsZWFzZSBqb2luIHRoaXMgeWVh
+ci1lbmQgY2FtcGFpZ24hDQoNCg0KDQotLS0tLS0tLS0tLS0tLS0tLS0NCg0KWW91IGFyZSByZWNl
+aXZpbmcgdGhpcyBlbWFpbCBhdCBvZmZpY2VAa2FkaW1haHRvcmFzbW9zaGUub3JnIGJlY2F1c2Ug
+eW91IGhhdmUgaW5kaWNhdGVkIHRoYXQgeW91IHdvdWxkIGxpa2UgdG8gcmVjZWl2ZSBwZXJpb2Rp
+YyBjb21tdW5pY2F0aW9ucyBmcm9tIENoYWJhZC5vcmcsIG9yIGhhdmUgcmVjZW50bHkgdXNlZCBv
+bmUgb2Ygb3VyIHNlcnZpY2VzLiBHbyBoZXJlIGlmIHlvdSB3aXNoIHRvIGJlIHJlbW92ZWQ6DQpo
+dHRwOi8vbGluay5jaGFiYWQub3JnL2dvLmFzcD9saT0yRUQwQjg2OEFCMDlCNUJBNEQ3MUIwODQw
+M0UxOUI0NSZhbXA7dWk9MzFBOEU5OEQ4RDYwNjU0OEM0QTBDMTZDNzRCMjJBRDImYW1wO2k9MjU1
+RTVDM0JFMjA1REE5NDQyMjlFMjAwOTI1N0UyQjUxM0IzMjg1QzQ3NjYwMDlFNzc2M0I5QjcyMTVE
+NEM3OA0KSWYgeW91ciBlLW1haWwgYWRkcmVzcyBpcyBjaGFuZ2luZyBwbGVhc2Ugc2VuZCB1cyB5
+b3VyIG5ldyBlbWFpbCBhZGRyZXNzIGhlcmU6DQpodHRwOi8vbGluay5jaGFiYWQub3JnL2dvLmFz
+cD9saT05NTBGODBDRDEyRTRFQUQ1OURDNzI3ODQzMTI0NUQ0NSZhbXA7dWk9MzFBOEU5OEQ4RDYw
+NjU0OEM0QTBDMTZDNzRCMjJBRDImYW1wO2k9MjU1RTVDM0JFMjA1REE5NDQyMjlFMjAwOTI1N0Uy
+QjUxM0IzMjg1QzQ3NjYwMDlFNzc2M0I5QjcyMTVENEM3OA==
+
+
+--cdo97ee13ed312c4feba281af04581316fb
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+DQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9u
+YWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlv
+bmFsLmR0ZCI+DQo8aHRtbCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCI+DQo8
+aGVhZD4NCjxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgi
+IC8+DQo8bWV0YSBjb250ZW50PSJ0ZXh0L2h0bWw7IGNoYXJzZXQ9dXRmLTgiIGh0dHAtZXF1aXY9
+IkNvbnRlbnQtVHlwZSIgLz4NCjx0aXRsZT5DYW1wYWlnbjwvdGl0bGU+DQo8c3R5bGUgdHlwZT0i
+dGV4dC9jc3MiPg0KQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LWRldmljZS13aWR0aDogNDgw
+cHgpew0KIC5jb250YWluZXItdGFibGUgcCwgLmNvbnRhaW5lci10YWJsZSBhew0KZm9udC1mYW1p
+bHk6QXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjsNCmZvbnQtc2l6ZToxNXB4Ow0KfQ0KIC5j
+b250YWluZXItdGFibGUgew0Kd2lkdGg6MTAwJSFpbXBvcnRhbnQNCn0NCnAuc21hbGxlci10ZXh0
+LHAuc21hbGxlci10ZXh0IGEsIC5zbWFsbGVyLXRleHQgYSB7DQpmb250LXNpemU6MTJweDsNCn0N
+CnAuZm9vdGVyLXRleHQsIC5mb290ZXItdGV4dCBhIHsNCmZvbnQtc2l6ZToxMXB4Ow0KfQ0KfQ0K
+IC5jb250YWluZXItdGFibGUgew0KZm9udC1zaXplOjE0cHg7DQp9DQogLmNvbnRhaW5lci10YWJs
+ZSBhIHsNCnRleHQtZGVjb3JhdGlvbjp1bmRlcmxpbmU7DQpjb2xvcjogIzA3NzFCMjsNCmZvbnQt
+d2VpZ2h0OiA3MDA7DQp9DQpwLnNtYWxsZXItdGV4dCB7DQpmb250LXNpemU6MTJweDsNCn0NCnAu
+Zm9vdGVyLXRleHQgew0KZm9udC1zaXplOjExcHg7DQp9DQo8L3N0eWxlPg0KPC9oZWFkPg0KPGJv
+ZHk+PGRpdiBzdHlsZT0ibWFyZ2luOjBweDt3aWR0aDoxMDAlO3Bvc2l0aW9uOmFic29sdXRlOyI+
+PGltZyBzcmM9Imh0dHA6Ly9saW5rLmNoYWJhZC5vcmcvc2NyaXB0cy9pbWFnZV9jZG8vYS9lL2kv
+OEEzNUQ5MTc0MDIzNDVBMjo2MTNBNkIzQzBGNDQ5RDM0REVENkM3NDVGMjEwQTc1MUUxOTc2ODVF
+MkJERTQzNDAxQjE2NUUzRjIxQjRFQzNELmdpZiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgYm9yZGVy
+PSIwIiBhbGlnbj0ibGVmdCIgaHNwYWNlPSIwIiB2c3BhY2U9IjAiIGFsdD0iIiAvPjwvZGl2Pg0K
+PGRpdiBzdHlsZT0iZGlzcGxheTpub25lO2ZvbnQtc2l6ZToxcHg7Y29sb3I6IzMzMzMzMztsaW5l
+LWhlaWdodDoxcHg7bWF4LWhlaWdodDowcHg7bWF4LXdpZHRoOjBweDtvcGFjaXR5OjA7b3ZlcmZs
+b3c6aGlkZGVuOyI+DQpXb3VsZCB5b3UgcGxlYXNlIGhlbHAgdXMgb3V0IHdpdGggYSB5ZWFyLWVu
+ZCB0YXgtZGVkdWN0aWJsZSBkb25hdGlvbiB0byBDaGFiYWQub3JnPw0KPC9kaXY+DQo8dGFibGUg
+Y2xhc3M9ImNvbnRhaW5lci10YWJsZSIgY2VsbHBhZGRpbmc9IjAiIGJvcmRlcj0iMCIgY2VsbHNw
+YWNpbmc9IjAiIHdpZHRoPSI3MDAiIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJtYXJnaW4tYm90dG9t
+OjEycHg7bGluZS1oZWlnaHQ6MTMwJTtmb250LWZhbWlseTpBcmlhbDtmb250LXNpemU6MTRweDsg
+aGVpZ2h0OmF1dG87Ij4NCjx0cj4NCjx0ZD4NCjxhIHN0eWxlPSJjb2xvcjojMDc3MUIyIiBocmVm
+PSJodHRwOi8vbGluay5jaGFiYWQub3JnL2dvLmFzcD9saT0zMkI5ODkwQjlCMTI4MDA0MTI5NTUw
+MTRDQjdBMkUxNyZhbXA7dWk9MzFBOEU5OEQ4RDYwNjU0OEM0QTBDMTZDNzRCMjJBRDIiPjxzdHJv
+bmc+PGltZyBib3JkZXI9IjAiIHNyYz0iaHR0cDovL3cyLmNoYWJhZC5vcmcvbWVkaWEvaW1hZ2Vz
+LzEwMzgveVZlZjEwMzgxNDAyLnBuZyIgYWx0PSJDaGFiYWQub3JnIiAvPjwvc3Ryb25nPjwvYT4N
+CjxwIHN0eWxlPSJsaW5lLWhlaWdodDoxNTAlO21hcmdpbi1ib3R0b206MTVweDtmb250LWZhbWls
+eTpBcmlhbCI+QnkgdGhlIEdyYWNlIG9mDQpHLWQ8L3A+DQo8cCBzdHlsZT0ibGluZS1oZWlnaHQ6
+MTUwJTttYXJnaW4tYm90dG9tOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwiPkRlYXIgRnJpZW5kIG9m
+DQpDaGFiYWQub3JnLDwvcD4NCjxwIHN0eWxlPSJsaW5lLWhlaWdodDoxNTAlO21hcmdpbi1ib3R0
+b206MTVweDtmb250LWZhbWlseTpBcmlhbCI+QXMgd2UgcmFwaWRseQ0KYXBwcm9hY2ggdGhlIGVu
+ZCBvZiB0aGUgMjAxOCB0YXggeWVhciwgd2UgYXJlIGdyYXRlZnVsIHRvIEctZCDigJQgYW5kIHRv
+IG91cg0KcGFydG5lcnMhIOKAlCBmb3IgZW5hYmxpbmcgdXMgdG8gaGVscCBzbyBtYW55IHBlb3Bs
+ZSB3b3JsZHdpZGUgZGlzY292ZXIgdGhlDQp0cmVhc3VyZXMgb2YgdGhlIFRvcmFoLCBhbG9uZyB3
+aXRoIHNvIG1hbnkgb3RoZXIgSmV3aXNoIHJlc291cmNlcywgdmlhIHRoZQ0Kd29ybGQncyAjMSBK
+dWRhaXNtIHdlYnNpdGUsIGtub3duIHNpbXBseSBhcyAiQ2hhYmFkLm9yZy4iPC9wPg0KPHAgc3R5
+bGU9ImxpbmUtaGVpZ2h0OjE1MCU7bWFyZ2luLWJvdHRvbToxNXB4O2ZvbnQtZmFtaWx5OkFyaWFs
+Ij5UaGUgdGhvdXNhbmRzDQpvZiBlbWFpbHMgd2UgcmVjZWl2ZSBmcm9tIG91ciB1c2VycyByZXZl
+YWwgdGhhdCBDaGFiYWQub3JnIGlzIG9mdGVuIHRoZSBkZWNpZGluZw0KZmFjdG9yIGluIHRoZSBs
+aWZlIG9mIGEgdHJvdWJsZWQgdGVlbmFnZXIsIGEgbG9uZWx5IGNvbGxlZ2Ugc3R1ZGVudCwgb3Ig
+YQ0K4oCccmVndWxhcuKAnSBmYW1pbHkgaW4gc29tZSBmb3Jsb3JuIGNvcm5lciBvZiB0aGUgd29y
+bGQgd2l0aCBubyBKZXdpc2ggY29tbXVuaXR5IG9yDQpmcmllbmRzLjwvcD4NCjxwIHN0eWxlPSJs
+aW5lLWhlaWdodDoxNTAlO21hcmdpbi1ib3R0b206MTVweDtmb250LWZhbWlseTpBcmlhbCI+TmVl
+ZGxlc3MgdG8NCnNheSwgd2UgbXVzdCBjb250aW51ZSB0byBzaGFyZSBhbmQgaW5ub3ZhdGUgdW50
+aWwgZXZlcnkgbGFzdCBKZXcgaGFzIHRoZQ0Kb3Bwb3J0dW5pdHkgdG8gbGVhcm4gYWJvdXQgaGlz
+IG9yIGhlciBoZXJpdGFnZS48L3A+DQo8cCBzdHlsZT0ibGluZS1oZWlnaHQ6MTUwJTttYXJnaW4t
+Ym90dG9tOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwiPlRvIGRvIHNvDQpzdWNjZXNzZnVsbHksIGhv
+d2V2ZXIsIHdlIHJlYWxseSBuZWVkIHlvdXIgcGFydG5lcnNoaXAhPC9wPg0KPHAgc3R5bGU9Imxp
+bmUtaGVpZ2h0OjE1MCU7bWFyZ2luLWJvdHRvbToxNXB4O2ZvbnQtZmFtaWx5OkFyaWFsIj5Xb3Vs
+ZCB5b3UNCnBsZWFzZQ0KPGEgaHJlZj0iaHR0cDovL2xpbmsuY2hhYmFkLm9yZy9nby5hc3A/bGk9
+QzY4Njg1RENEMzYzQjhDMkNFQjczRkNFQjZENUExQjkmYW1wO3VpPTMxQThFOThEOEQ2MDY1NDhD
+NEEwQzE2Qzc0QjIyQUQyJmFtcDtlbWFpbD1vZmZpY2VAa2FkaW1haHRvcmFzbW9zaGUub3JnIiB0
+YXJnZXQ9Il9ibGFuayI+DQo8Yj5oZWxwIHVzIG91dCB3aXRoIGEgeWVhci1lbmQgdGF4LWRlZHVj
+dGlibGUgZG9uYXRpb248L2I+PC9hPiB0byBDaGFiYWQub3JnPzwvcD4NCjxwIGFsaWduPSJjZW50
+ZXIiPg0KPGEgaHJlZj0iaHR0cDovL2xpbmsuY2hhYmFkLm9yZy9nby5hc3A/bGk9QzY4Njg1RENE
+MzYzQjhDMkNFQjczRkNFQjZENUExQjkmYW1wO3VpPTMxQThFOThEOEQ2MDY1NDhDNEEwQzE2Qzc0
+QjIyQUQyJmFtcDtlbWFpbD1vZmZpY2VAa2FkaW1haHRvcmFzbW9zaGUub3JnIj4NCjxiPg0KPGlt
+ZyBhbHQ9IlBsZWFzZSBkb25hdGUgbm93LiIgc3R5bGU9ImZvbnQtc2l6ZToyMnB4O2NvbG9yOiMw
+NzcxQjI7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTphcmlhbCIgYm9yZGVyPSIwIiBzcmM9
+Imh0dHA6Ly93Mi5jaGFiYWQub3JnL2ltYWdlcy9FbWFpbC8yMDEyL3lrMS9oaDFfcjExX2MzLmpw
+ZyIgLz48L2I+PC9hPjwvcD4NCjx0YWJsZSB3aWR0aD0iMTAwJSIgY2VsbHBhZGRpbmc9IjE1IiBj
+ZWxsc3BhY2luZz0iMCIgYmdjb2xvcj0iI0RGRjJGQyIgYm9yZGVyPSIwIiBzdHlsZT0iYm9yZGVy
+OjFweCBzb2xpZCAjMDg1MTdCO21hcmdpbi1ib3R0b206MThweDtmb250LWZhbWlseTphcmlhbDtm
+b250LXNpemU6MTFwdCI+DQo8dGJvZHk+PHRyPg0KPHRkPg0KPGRpdiBhbGlnbj0iY2VudGVyIj4N
+CjxhIGhyZWY9Imh0dHA6Ly9saW5rLmNoYWJhZC5vcmcvZ28uYXNwP2xpPUM2ODY4NURDRDM2M0I4
+QzJDRUI3M0ZDRUI2RDVBMUI5JmFtcDt1aT0zMUE4RTk4RDhENjA2NTQ4QzRBMEMxNkM3NEIyMkFE
+MiZhbXA7ZW1haWw9b2ZmaWNlQGthZGltYWh0b3Jhc21vc2hlLm9yZyI+DQo8aW1nIHNyYz0iaHR0
+cDovL3cyLmNoYWJhZC5vcmcvbWVkaWEvaW1hZ2VzLzc5Mi9ITlFxNzkyMDkxMi5wbmciIGFsdD0i
+eDIhIiBzdHlsZT0iZGlzcGxheTpibG9jazsiIGhzcGFjZT0iMjAiIHZzcGFjZT0iMjAiIGJvcmRl
+cj0iMCIgLz48L2E+PC9kaXY+PHAgc3R5bGU9ImxpbmUtaGVpZ2h0OjE0MCU7Zm9udC1mYW1pbHk6
+YXJpYWw7Zm9udC1zaXplOjExcHQiPjxzdHJvbmc+SU1QT1JUQU5UOiBXZSd2ZSByZWNlaXZlZCB0
+aGUgZm9sbG93aW5nIGdlbmVyb3VzIGNoYWxsZW5nZSBmcm9tIG9uZSBvZg0Kb3VyIHBhcnRuZXJz
+Ojwvc3Ryb25nPjwvcD4NCjxwIHN0eWxlPSJsaW5lLWhlaWdodDoxNTAlO21hcmdpbi1ib3R0b206
+MTVweDtmb250LWZhbWlseTpBcmlhbCI+PHN0cm9uZz5BbGwgZG9uYXRpb25zDQp3ZSByZWNlaXZl
+IGZyb20geW91IGR1cmluZyB0aGUgZmluYWwgZWlnaHQgZGF5cyBvZiB0aGlzIHllYXIsIHVwIHRv
+IGEgY3VtdWxhdGl2ZQ0KdG90YWwgb2YgJDc1LDAwMCwgd2lsbCBiZSBtYXRjaGVkIGJ5IG91ciBw
+YXJ0bmVyITwvc3Ryb25nPjwvcD4NCjxkaXYgYWxpZ249ImNlbnRlciI+PHAgc3R5bGU9ImxpbmUt
+aGVpZ2h0OjE1MCU7bWFyZ2luLWJvdHRvbToxNXB4O2ZvbnQtZmFtaWx5OkFyaWFsO2ZvbnQtc2l6
+ZToxOHB4Ij48c3Ryb25nPg0KPGEgc3R5bGU9ImZvbnQtc2l6ZToxOHB4IiBocmVmPSJodHRwOi8v
+bGluay5jaGFiYWQub3JnL2dvLmFzcD9saT1DNjg2ODVEQ0QzNjNCOEMyQ0VCNzNGQ0VCNkQ1QTFC
+OSZhbXA7dWk9MzFBOEU5OEQ4RDYwNjU0OEM0QTBDMTZDNzRCMjJBRDImYW1wO2VtYWlsPW9mZmlj
+ZUBrYWRpbWFodG9yYXNtb3NoZS5vcmciPkV2ZXJ5DQpkb2xsYXIgeW91IGNvbnRyaWJ1dGUgbm93
+IGlzIHdvcnRoIHR3byE8L2E+PC9zdHJvbmc+PC9wPjwvZGl2Pg0KPC90ZD4NCjwvdHI+DQo8L3Ri
+b2R5PjwvdGFibGU+DQo8cCBzdHlsZT0ibGluZS1oZWlnaHQ6MTUwJTttYXJnaW4tYm90dG9tOjE1
+cHg7Zm9udC1mYW1pbHk6QXJpYWwiPjxiciAvPg0KWW91IGNhbg0KY29udHJpYnV0ZSBzZWN1cmVs
+eSBvbmxpbmUgYXQ6PC9wPg0KPHAgc3R5bGU9ImxpbmUtaGVpZ2h0OjE1MCU7bWFyZ2luLWJvdHRv
+bToxNXB4O2ZvbnQtZmFtaWx5OkFyaWFsIj48c3Ryb25nPg0KPGEgaHJlZj0iaHR0cDovL2xpbmsu
+Y2hhYmFkLm9yZy9nby5hc3A/bGk9QzY4Njg1RENEMzYzQjhDMkNFQjczRkNFQjZENUExQjkmYW1w
+O3VpPTMxQThFOThEOEQ2MDY1NDhDNEEwQzE2Qzc0QjIyQUQyJmFtcDtlbWFpbD1vZmZpY2VAa2Fk
+aW1haHRvcmFzbW9zaGUub3JnIj53d3cuQ2hhYmFkLm9yZy9Eb3VibGU8L2E+PC9zdHJvbmc+PC9w
+Pg0KPHAgYWxpZ249ImNlbnRlciI+DQo8YSBocmVmPSJodHRwOi8vbGluay5jaGFiYWQub3JnL2dv
+LmFzcD9saT1DNjg2ODVEQ0QzNjNCOEMyQ0VCNzNGQ0VCNkQ1QTFCOSZhbXA7dWk9MzFBOEU5OEQ4
+RDYwNjU0OEM0QTBDMTZDNzRCMjJBRDImYW1wO2VtYWlsPW9mZmljZUBrYWRpbWFodG9yYXNtb3No
+ZS5vcmciPg0KPGI+DQo8aW1nIGFsdD0iUGxlYXNlIGRvbmF0ZSBub3cuIiBzdHlsZT0iZm9udC1z
+aXplOjIycHg7Y29sb3I6IzA3NzFCMjtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OmFyaWFs
+IiBib3JkZXI9IjAiIHNyYz0iaHR0cDovL3cyLmNoYWJhZC5vcmcvaW1hZ2VzL0VtYWlsLzIwMTIv
+eWsxL2hoMV9yMTFfYzMuanBnIiAvPjwvYj48L2E+PC9wPg0KPHAgc3R5bGU9ImxpbmUtaGVpZ2h0
+OjE1MCU7bWFyZ2luLWJvdHRvbToxNXB4O2ZvbnQtZmFtaWx5OkFyaWFsIj5XaGlsZSB0aGVyZSwN
+CnBsZWFzZSBjb25zaWRlciBzZXR0aW5nIHVwIGFuIGF1dG9tYXRpYyBkb25hdGlvbiBzY2hlZHVs
+ZSBmb3IgdGhlIGNvbWluZyB5ZWFyIC0NCmF0IHJlZ3VsYXIgaW50ZXJ2YWxzLCBvciBwZXJoYXBz
+IHRvIG1hcmsgc3BlY2lhbCBkYXRlcyBpbiB5b3VyIGZhbWlseS48L3A+DQo8cCBzdHlsZT0ibGlu
+ZS1oZWlnaHQ6MTUwJTttYXJnaW4tYm90dG9tOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwiPk9yIHNp
+bXBseSBtYWlsDQphIGNoZWNrIHRvOjwvcD4NCjxibG9ja3F1b3RlPg0KPHAgc3R5bGU9ImxpbmUt
+aGVpZ2h0OjE1MCU7IG1hcmdpbi1ib3R0b206MTVweDtmb250LWZhbWlseTpBcmlhbCI+Q2hhYmFk
+Lk9SRzxiciAvPg0KNzcwIEVhc3Rlcm4gUGFya3dheSBTdWl0ZSA0MDU8YnIgLz4NCkJyb29rbHlu
+LCBOWSAxMTIxMzwvcD48L2Jsb2NrcXVvdGU+DQo8cCBzdHlsZT0ibGluZS1oZWlnaHQ6MTUwJTsg
+bWFyZ2luLWJvdHRvbToxNXB4O2ZvbnQtZmFtaWx5OkFyaWFsIj5PdGhlciBkb25hdGlvbiBvcHRp
+b25zIGluY2x1ZGU6PC9wPg0KPHVsPg0KPGxpPjxhIGhyZWY9Imh0dHA6Ly9saW5rLmNoYWJhZC5v
+cmcvZ28uYXNwP2xpPUM2ODY4NURDRDM2M0I4QzJDRUI3M0ZDRUI2RDVBMUI5JmFtcDt1aT0zMUE4
+RTk4RDhENjA2NTQ4QzRBMEMxNkM3NEIyMkFEMiZhbXA7ZW1haWw9b2ZmaWNlQGthZGltYWh0b3Jh
+c21vc2hlLm9yZyI+UGF5cGFsPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iaHR0cDovL2xpbmsuY2hh
+YmFkLm9yZy9nby5hc3A/bGk9QzY4Njg1RENEMzYzQjhDMkNFQjczRkNFQjZENUExQjkmYW1wO3Vp
+PTMxQThFOThEOEQ2MDY1NDhDNEEwQzE2Qzc0QjIyQUQyJmFtcDtlbWFpbD1vZmZpY2VAa2FkaW1h
+aHRvcmFzbW9zaGUub3JnIj5FLWNoZWNrIChBQ0gpPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iaHR0
+cDovL2xpbmsuY2hhYmFkLm9yZy9nby5hc3A/bGk9REM2ODZEM0JENUY2RDdBMUU2QjlCMzcwMzVB
+MjI2QkMmYW1wO3VpPTMxQThFOThEOEQ2MDY1NDhDNEEwQzE2Qzc0QjIyQUQyIj5CYW5rIHRyYW5z
+ZmVyIC8gd2lyZTwvYT48L2xpPg0KPC91bD4NCjxwIHN0eWxlPSJsaW5lLWhlaWdodDoxNTAlOyBt
+YXJnaW4tYm90dG9tOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwiPlBsZWFzZSBhbHNvDQo8YSBzdHls
+ZT0iY29sb3I6ICMwNzcxQjIiIGhyZWY9Imh0dHA6Ly9saW5rLmNoYWJhZC5vcmcvZ28uYXNwP2xp
+PTAzRTU5MkZBMjAyMDgzMjc0NjI1ODBDMTM0OEJBNjQzJmFtcDt1aT0zMUE4RTk4RDhENjA2NTQ4
+QzRBMEMxNkM3NEIyMkFEMiI+DQo8YiBzdHlsZT0iY29sb3I6ICMwNzcxQjIiPnJlbWVtYmVyIENo
+YWJhZC5PUkcgaW4geW91ciB3aWxsPC9iPjwvYT4uPC9wPg0KPHAgc3R5bGU9ImxpbmUtaGVpZ2h0
+OjE1MCU7IG1hcmdpbi1ib3R0b206MTVweDtmb250LWZhbWlseTpBcmlhbCI+Q29uc2lkZXI6IExl
+c3MgdGhhbiAyJSBvZiBDaGFiYWQub3JnJ3MgYnVkZ2V0IGlzIHNwZW50IG9uDQphZG1pbmlzdHJh
+dGl2ZSBjb3N0cyAtIGFuZCB0aGUgcmVzdCBpcyBwb3VyZWQgcmlnaHQgYmFjayBpbnRvIHNlcnZp
+bmcgdGhlIGdsb2JhbA0KSmV3aXNoIGNvbW11bml0eS4gSXQgaXMgeW91ciB2aXRhbCBwYXJ0bmVy
+c2hpcCB0aGF0IG1ha2VzIHRoZXNlIHNlcnZpY2VzDQpwb3NzaWJsZS4gUGxlYXNlIGNvbnRyaWJ1
+dGUgZ2VuZXJvdXNseSE8L3A+DQo8cCBzdHlsZT0ibGluZS1oZWlnaHQ6MTUwJTsgbWFyZ2luLWJv
+dHRvbToxNXB4O2ZvbnQtZmFtaWx5OkFyaWFsIj5XZSB0aGFuayB5b3UgaW1tZW5zZWx5IGZvciB5
+b3VyIGNvbnRpbnVlZCBwYXJ0aWNpcGF0aW9uIGFuZCBibGVzcyB5b3UgdGhhdCB0aGUNCmxpZ2h0
+IG9mIHRoZSByZWNlbnRseSBjb21wbGV0ZWQgQ2hhbnVrYWggaG9saWRheSBpbGx1bWluYXRlcyB5
+b3VyIGxpZmUgYW5kIHRoZQ0KbGl2ZXMgb2YgYWxsIHRob3NlIGFyb3VuZCB5b3UuPC9wPg0KPHAg
+c3R5bGU9ImxpbmUtaGVpZ2h0OjE1MCU7IG1hcmdpbi1ib3R0b206MTVweDtmb250LWZhbWlseTpB
+cmlhbCI+U2luY2VyZWx5LDwvcD4NCjxwIHN0eWxlPSJsaW5lLWhlaWdodDoxNTAlOyBtYXJnaW4t
+Ym90dG9tOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwiPlRIRSBDSEFCQUQuT1JHIFRFQU08L3A+DQo8
+cCBhbGlnbj0iY2VudGVyIj4NCjxhIGhyZWY9Imh0dHA6Ly9saW5rLmNoYWJhZC5vcmcvZ28uYXNw
+P2xpPUM2ODY4NURDRDM2M0I4QzJDRUI3M0ZDRUI2RDVBMUI5JmFtcDt1aT0zMUE4RTk4RDhENjA2
+NTQ4QzRBMEMxNkM3NEIyMkFEMiZhbXA7ZW1haWw9b2ZmaWNlQGthZGltYWh0b3Jhc21vc2hlLm9y
+ZyI+DQo8Yj4NCjxpbWcgYWx0PSJQbGVhc2UgZG9uYXRlIG5vdy4iIHN0eWxlPSJmb250LXNpemU6
+MjJweDtjb2xvcjojMDc3MUIyO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6YXJpYWwiIGJv
+cmRlcj0iMCIgc3JjPSJodHRwOi8vdzIuY2hhYmFkLm9yZy9pbWFnZXMvRW1haWwvMjAxMi95azEv
+aGgxX3IxMV9jMy5qcGciIC8+PC9iPjwvYT48L3A+DQo8cCBzdHlsZT0ibGluZS1oZWlnaHQ6MTUw
+JTsgbWFyZ2luLWJvdHRvbToxNXB4O2ZvbnQtZmFtaWx5OkFyaWFsIj5QLlMuIOKAkyBZb3VyIHBh
+cnRpY2lwYXRpb24gY2FuIG1ha2UgYWxsIHRoZSBkaWZmZXJlbmNlLiBQbGVhc2UNCjxhIGhyZWY9
+Imh0dHA6Ly9saW5rLmNoYWJhZC5vcmcvZ28uYXNwP2xpPUM2ODY4NURDRDM2M0I4QzJDRUI3M0ZD
+RUI2RDVBMUI5JmFtcDt1aT0zMUE4RTk4RDhENjA2NTQ4QzRBMEMxNkM3NEIyMkFEMiZhbXA7ZW1h
+aWw9b2ZmaWNlQGthZGltYWh0b3Jhc21vc2hlLm9yZyI+am9pbiB0aGlzIHllYXItZW5kDQpjYW1w
+YWlnbjwvYT4hPGJyIC8+DQo8L3A+DQo8YnIgLz48YnIgLz48aHIgbm9zaGFkZT0ibm9zaGFkZSIg
+c3R5bGU9ImhlaWdodDogMXB4OyB3aWR0aDogNzAlOyB0ZXh0LWFsaWduOiBsZWZ0IiAvPjxwIHN0
+eWxlPSJsaW5lLWhlaWdodDogMTQwJTsgZm9udC1mYW1pbHk6IGFyaWFsOyBtYXJnaW4tYm90dG9t
+OiAxOHB4IiBjbGFzcz0iZm9vdGVyLXRleHQiPllvdSBhcmUgcmVjZWl2aW5nIHRoaXMgZW1haWwg
+YXQgb2ZmaWNlQGthZGltYWh0b3Jhc21vc2hlLm9yZyBiZWNhdXNlIHlvdSBoYXZlIGluZGljYXRl
+ZCB0aGF0IHlvdSB3b3VsZCBsaWtlIHRvIHJlY2VpdmUgcGVyaW9kaWMgY29tbXVuaWNhdGlvbnMg
+ZnJvbSBDaGFiYWQub3JnLCBvciBoYXZlIHJlY2VudGx5IHVzZWQgb25lIG9mIG91ciBzZXJ2aWNl
+cy4gDQo8YSBzdHlsZT0iY29sb3I6IzA3NzFCMiIgaHJlZj0iaHR0cDovL2xpbmsuY2hhYmFkLm9y
+Zy9nby5hc3A/bGk9MkVEMEI4NjhBQjA5QjVCQTlCMzMwQzNGQTdFNTlGNzgmYW1wO3VpPTMxQThF
+OThEOEQ2MDY1NDhDNEEwQzE2Qzc0QjIyQUQyJmFtcDtpPTI1NUU1QzNCRTIwNURBOTQ0MjI5RTIw
+MDkyNTdFMkI1MTNCMzI4NUM0NzY2MDA5RTc3NjNCOUI3MjE1RDRDNzgiIHN0eWxlPSJ0ZXh0LWRl
+Y29yYXRpb246IG5vbmU7IGNvbG9yOiAjMDc3MUIyOyI+R28gaGVyZTwvYT4gaWYgeW91IHdpc2gg
+dG8gYmUgcmVtb3ZlZC4gSWYNCnlvdXIgZS1tYWlsIGFkZHJlc3MgaXMgY2hhbmdpbmcgcGxlYXNl
+IHNlbmQgdXMgeW91ciBuZXcgZW1haWwgYWRkcmVzcyA8YSBzdHlsZT0iY29sb3I6IzA3NzFCMiIg
+aHJlZj0iaHR0cDovL2xpbmsuY2hhYmFkLm9yZy9nby5hc3A/bGk9OTUwRjgwQ0QxMkU0RUFENUI5
+MkQxODAxOTE3RjI1MDkmYW1wO3VpPTMxQThFOThEOEQ2MDY1NDhDNEEwQzE2Qzc0QjIyQUQyJmFt
+cDtpPTI1NUU1QzNCRTIwNURBOTQ0MjI5RTIwMDkyNTdFMkI1MTNCMzI4NUM0NzY2MDA5RTc3NjNC
+OUI3MjE1RDRDNzgiIHN0eWxlPSJ0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsiPg0KPHNwYW4g
+c3R5bGU9ImNvbG9yOiAjMDc3MUIyOyI+aGVyZTwvc3Bhbj48L2E+LjwvcD4NCjwvdGQ+DQo8L3Ry
+Pg0KPC90YWJsZT4NCjwvYm9keT4NCjwvaHRtbD4=
+
+--cdo97ee13ed312c4feba281af04581316fb--
+
+
+
+
+#######################
+
+
+)
+
+
+#######################
+
+
+190 (RFC822 {30907}
+Delivered-To: kadimahtorasmoshe@gmail.com
+Received: by 2002:a2e:4506:0:0:0:0:0 with SMTP id s6-v6csp5550593lja;
+        Tue, 25 Dec 2018 11:02:42 -0800 (PST)
+X-Google-Smtp-Source: ALg8bN6aV88IUAyPOpsusCLZW8iU/4u0D/pJ/UK3s+a0uNe8xjB77j5EhMQW+9b5eM2xwisfnqcw
+X-Received: by 2002:a17:902:784d:: with SMTP id e13mr17503535pln.188.1545764562598;
+        Tue, 25 Dec 2018 11:02:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1545764562; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Y5SAh6mFsxWDmcIfLWOJDOaoPsTEcinI9O7LXeN9RLVrNmt9sJlIC6wrL5Dzcfbwa4
+         Z9PfgZ0qwB7O7hHW6DJzsAzu7EHNEIR/vpQDJZd6G+VTOwpqU0B9QUmp+uMcuEAm+M2U
+         8yjNKj9rHenkaPmTue2i1ypLtsvESGv3LdR7x8YzMzcg28BDgWpCr6QA752pzfnGNXOm
+         Bv/lsQgucz9H6+cl/ufYmnaz5oJUfqJKCdbAgJw56sYTwnIhBz7VbpxFh1nCTRfkLmGY
+         tpYVs0aB9LLO8JRILe6n+gT3e027pf05OdBii+So0jLxfCiuadXl5blFvLJ1GxlaW57u
+         If8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:to:subject:reply-to:mime-version:from:date
+         :dkim-signature:delivered-to;
+        bh=qTD+JprbJJWRmdBG2GvJoy0SbLd7A3LPHWOKhy1BBOw=;
+        b=d4G8pLZWP8HiZzUKSOwCBOfQG+7Zjvahv+LuNBkDdvsfP2x71TGsC78r3mraLpf+LE
+         MOeWOFT/lwooNgm7g9PC8TsZqHWKiNrdEc4E8ujcYSizVaO508CeJcZvVHcfRB7fUPTR
+         6FMU0zcipqXYBNky0OMBHr4iJ4OrGLuBv/53yeo81gTg/m4Uglf9SXqw3uwSsFJvnJmk
+         CIJyyxA+N3vRZWCC7/bO9G1Z6TlKOEuBvoc6OJMyDGyqmi1m/zkWae53waYKRn8kc4+M
+         WI/YToUq6rIuO+amojIb6lx8edDT3HuS7bgZG6OCbpZWpGSIcGSoJCfoziVoDv8JuQRo
+         eT1A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@artscroll.com header.s=s1 header.b=Wi0wLIRh;
+       spf=pass (google.com: best guess record for domain of x13319044@pdx1-sub0-mail-mx44.g.dreamhost.com designates 64.90.62.164 as permitted sender) smtp.mailfrom=x13319044@pdx1-sub0-mail-mx44.g.dreamhost.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=artscroll.com
+Return-Path: <x13319044@pdx1-sub0-mail-mx44.g.dreamhost.com>
+Received: from pdx1-sub0-mail-mx44.g.dreamhost.com (mx2.dreamhost.com. [64.90.62.164])
+        by mx.google.com with ESMTPS id a81si31256827pfj.195.2018.12.25.11.02.42
+        for <kadimahtorasmoshe@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 25 Dec 2018 11:02:42 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of x13319044@pdx1-sub0-mail-mx44.g.dreamhost.com designates 64.90.62.164 as permitted sender) client-ip=64.90.62.164;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@artscroll.com header.s=s1 header.b=Wi0wLIRh;
+       spf=pass (google.com: best guess record for domain of x13319044@pdx1-sub0-mail-mx44.g.dreamhost.com designates 64.90.62.164 as permitted sender) smtp.mailfrom=x13319044@pdx1-sub0-mail-mx44.g.dreamhost.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=artscroll.com
+Received: by pdx1-sub0-mail-mx44.g.dreamhost.com (Postfix, from userid 13319044)
+	id 1E2CA9259C; Tue, 25 Dec 2018 11:02:42 -0800 (PST)
+X-Original-To: office@ktmshul.org
+Delivered-To: x13319044@pdx1-sub0-mail-mx44.g.dreamhost.com
+Received: from o1.email.artscroll.com (o1.email.artscroll.com [192.254.124.159])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by pdx1-sub0-mail-mx44.g.dreamhost.com (Postfix) with ESMTPS id A04C29259A
+	for <office@ktmshul.org>; Tue, 25 Dec 2018 11:02:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=artscroll.com; 
+	h=content-type:from:mime-version:reply-to:subject:to; s=s1; 
+	bh=LZftXgkqP83YCcSU/MxeHRMwKCo=; b=Wi0wLIRhB5/HR2M678nMl62tDTCE0
+	b/eB+liX5lrWbWXsxUoorPpA9sOqLM/MHyFk/hhmvKVlgZIvq5/rbbLvNV1q9FS9
+	6o/SGmLjwFHIgBabrk7W8AHSmvmU+yl357EODGK4vw0bOLuZtM8KXeESQhK6bRmB
+	I3Rhp1cPDRa3+M=
+Content-Type: multipart/alternative; boundary=58e8891afd9e57ddc8fdbf0a8d3962ab386313fd439404934e989344c9eb
+Date: Tue, 25 Dec 2018 19:02:40 +0000 (UTC)
+From: "ArtScroll BookNews" <emailupdates@artscroll.com>
+Mime-Version: 1.0
+Reply-to: emailupdates@artscroll.com
+Subject: New! Sefer Shemos Chumash with Talmud 
+To: office@ktmshul.org
+Message-ID: <1eojtcYZQpeTOEVsl2mFqQ@ismtpd0045p1mdw1.sendgrid.net>
+X-SG-EID: ksO4keNU1K1970AALGd1n9Ne5/8OdUuwkSDjydcUB2SZxTBflS+scywps2nQk3tm1vhTo5Wfx5fubD
+ kEVv6nIrOd80uUrt/7F1fKUMv/rufLLHh/trj4c99KG8Ezs7Ppwcgax1n/erGdwifYsPEcdFKaPUJX
+ MMPepOtV+rQAX4Mnjy/3NsPZJmlTHy6ZoMGq4ELEUoO0lgfN5TTYvbc5JYj+3lDLJ1ANeMDuGxycxI
+ OlD6cI86Dq0jW5JlZsbu34
+X-SG-ID: Z2FxZazunBjVeNuNdzHDqrF8mxuCpi0krmont6YQrP1milwXEjIxxa2MPRBGADi/Lv4TLvxB04FgzH
+ 7WdbawxoLST/X7JYl34SwX1LemSwTDCpy2hRQgg/+s1dYS5PQFuOmKdh38844K+M0kayrs9tMcJFvn
+ c0nfn09I5jaaY9mpde/bjWmAPWE8NQfk6RnLp+j2Sqcalj0IpVHGXhidB7vd1CZ+NuWNVi1ebsAsXs
+ w=
+X-Loop: office@kadimahtorasmoshe.org 0
+
+--58e8891afd9e57ddc8fdbf0a8d3962ab386313fd439404934e989344c9eb
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+shop artscroll.com
+
+Shemos now available in Chumash with Talmud=20
+
+http://www.artscroll.com?lac_guid=3D607A6C3D-6D08-E911-89F8-00155D015801
+						 http://www.artscroll.com?lac_guid=3D607A6C3D-6D08-E911-89F8-00155D01=
+5801
+								 http://www.artscroll.com?lac_guid=3D607A6C3D-6D08-E911-89F8-00155D=
+015801
+
+You have $0 ready to use,=20
+								 POINTS TO NEXT REWARD: 175 http://www.artscroll.com/Account/MyLoya=
+ltypoints.aspx?lac_guid=3D607A6C3D-6D08-E911-89F8-00155D015801
+
+http://www.artscroll.com?lac_guid=3D607A6C3D-6D08-E911-89F8-00155D015801
+
+http://artscroll.com/books/ct2h.html?lac_guid=3D607A6C3D-6D08-E911-89F8-001=
+55D015801
+
+https://artscroll.files.wordpress.com/2018/12/Chumash-with-Talmud-Shemos-do=
+wnload.pdf=20
+
+http://artscroll.com/books/cth.html?lac_guid=3D607A6C3D-6D08-E911-89F8-0015=
+5D015801=20
+
+*Everyday Complimentary Shipping is valid in the Continental U.S. only on p=
+urchases of $49 or more in the same order shipping to the same address. Tax=
+es and prior purchases do not qualify toward the minimum purchase requireme=
+nt. Eligible customers must select Saver Shipping during checkout to receiv=
+e complimentary shipping.=20
+
+To make sure you continue receiving our emails to your inbox (not bulk or j=
+unk folders), please add (emailupdates@artscroll.com) to your address book =
+or safe sender list.
+
+If you would like to unsubscribe, please Click Here to Unsubscribe http://a=
+rtscroll.com/EmailLists.aspx?Unsubscribe=3Doffice%40ktmshul.org or call us =
+at 1-800-637-6724. You may also contact us by postal mail at ArtScroll/ Mes=
+orah Publications, 4401 2nd Avenue, Brooklyn, NY 11232.=
+
+--58e8891afd9e57ddc8fdbf0a8d3962ab386313fd439404934e989344c9eb
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+		<html>
+		<head>
+		<title>shop artscroll.com</title>
+		<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-885=
+9-1">
+		<style type=3D"text/css">
+		<!--
+		.description {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			line-height: normal;
+			list-style-position: inside;
+			list-style-type: square;
+		; color: #000000; font-weight: normal; text-align: left}
+		.bordervert {
+			border-right-width: 1px;
+			border-right-style: dotted;
+			border-right-color: #999999;
+		}
+		.borderhor {
+			border-bottom-width: 1px;
+			border-bottom-style: dotted;
+			border-bottom-color: #999999;
+			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Con=
+densed", Helvetica, Arial, sans-serif;
+			color: #982D23;
+			text-align: center;
+		}
+		.borderhorver {
+			border-bottom-width: 1px;
+			border-bottom-style: dotted;
+			border-bottom-color: #999999;
+			border-right-width: 1px;
+			border-right-style: dotted;
+			border-right-color: #999999;
+		}
+		.bordergold {
+			border-right-width: 1px;
+			border-right-style: solid;
+			border-right-color: #D8BA6B;
+			border-left-width: 1px;
+			border-left-style: solid;
+			border-left-color: #D8BA6B;
+			}.borderred {
+			border-right-width: 1px;
+			border-bottom-width: 1px;
+			border-right-style: solid;
+			border-bottom-style: solid;
+			border-right-color: #990000;
+			border-bottom-color: #990000;
+			border-left-width: 1px;
+			border-top-width: 1px;
+			border-left-style: solid;
+			border-top-style: solid;
+			border-left-color: #990000;
+			border-top-color: #990000;
+		}.version {
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Cond=
+ensed", Helvetica, Arial, sans-serif;
+		font-size: 18px;
+		font-weight: normal;
+		color: #093485;
+		;
+		text-align: center;
+		font-style: normal;=20=20=20=20
+		}
+
+		.subtitle_small {  font-family: Arial, Helvetica, sans-serif; font-size: =
+4px; font-style: normal; color: #FFFFFF; text-align: center; font-weight: n=
+ormal; line-height: normal}
+		.title_big {
+			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Con=
+densed", Helvetica, Arial, sans-serif;
+			font-size: 16px;
+			line-height: normal;
+			color: #990000;
+			text-align: center;
+			font-weight: bold;
+			font-style: normal;
+		}
+		.unsub {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 19px;
+			color: #CF0205;
+			line-height: normal;
+			;
+			font-weight: normal
+		}
+		.header7 {
+			font-size: 21px;
+			font-weight: normal;
+			color: #41733E;
+			text-align: center;
+			line-height: normal;
+			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Con=
+densed", Helvetica, Arial, sans-serif;
+		}
+
+		.subtitle2 {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 15px;
+			font-style: normal;
+			line-height: normal;
+			color: #346F36;
+			text-align: center;
+			font-weight: bold
+		}
+		.version21 {font-family: Arial, Helvetica, sans-serif;
+			font-size: 18px;
+			font-weight: normal;
+			color: #000000;
+		; text-align: center}
+		.subtitle_small1 {
+			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Con=
+densed", Helvetica, Arial, sans-serif;
+			font-size: 22px;
+			font-style: normal;
+			color: #484242;
+			text-align: center;
+			font-weight: bold;
+			line-height: normal
+		}
+		.header11 {
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Cond=
+ensed", Helvetica, Arial, sans-serif;
+		font-size: 35px;
+		font-weight: bolder;
+		color: rgba(255,255,255,1.00);
+		text-align: center
+		}
+		.header22 {
+			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Con=
+densed", Helvetica, Arial, sans-serif;
+			font-size: 22px;
+			font-weight: normal;
+			color: #000033;
+			text-align: center;
+			line-height: normal;
+		}
+		.subtitle_small3 {font-family: Arial, Helvetica, sans-serif; font-size: 1=
+4px; font-style: normal; color: #000000; text-align: center; font-weight: n=
+ormal; line-height: normal}
+		.titlehuge {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 36px;
+			font-style: normal;
+			line-height: normal;
+			font-weight: normal;
+			color: #990000;
+			text-align: center;
+		}
+		.author {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 11px;
+		line-height: normal;
+		color: #000066;
+		text-align: right;
+		font-weight: bold
+	}
+		.price_grey {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 13px;
+			font-style: normal;
+			line-height: normal;
+			font-weight: bold;
+			color: #666666;
+			text-align: center;
+		}
+		.price_small {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 44px;
+			font-style: normal;
+			line-height: normal;
+			font-weight: normal;
+			color: #233B21;
+			text-align: center;
+		}
+		.author1 {	font-family: Arial, Helvetica, sans-serif;
+			font-size: 14px;
+			line-height: inherit;
+			color: #000099;
+			text-align: center;
+			font-weight: bold;
+			text-decoration: none;
+		}
+		.price {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 13px;
+			font-style: normal;
+			line-height: normal;
+			font-weight: bold;
+			color: #000000;
+			text-align: left;
+		}
+		.version2 {
+			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Con=
+densed", Helvetica, Arial, sans-serif;
+			font-size: 11px;
+			font-weight: bold;
+			color: #990000;
+			;
+			text-align: center;
+			font-variant: normal;
+			text-transform: uppercase;
+		}
+		.subtitle_small31 {font-family: Arial, Helvetica, sans-serif; font-size: =
+11px; font-style: normal; color: #000000; text-align: center; font-weight: =
+normal; line-height: normal}
+		.style2 {
+			font-style: italic;
+			text-align: center;
+		}
+		.price3 {font-family: Verdana;
+			font-size: 12px;
+			font-weight: bold;
+			text-align: center;
+			line-height: 16px;
+		}
+		.price3 {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+			line-height: normal;
+			color: #98090E;
+		}
+		.author11 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size:=
+ 12.5px; line-height: 14px; color: #000099; text-align: center; font-weight=
+: bold}
+		.subtitle31 {font-family: Verdana, Arial, Helvetica, sans-serif; font-siz=
+e: 12px; font-style: italic; line-height: normal; color: #000000; text-alig=
+n: center; font-weight: bold}
+		.bordervertnew {	border-right-width: 2px;
+			border-left-width: 2px;
+			border-right-style: solid;
+			border-left-style: solid;
+			border-right-color: #E67028;
+			border-left-color: #E67028;
+		}
+		.description11 {font-family: Arial, Helvetica, sans-serif;
+			font-size: 11px;
+			line-height: normal;
+			list-style-position: inside;
+			list-style-type: square;
+		; color: #000000; font-weight: normal; text-align: left}
+		.header21 {
+			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times =
+New Roman", serif;
+			font-size: 16px;
+			font-weight: bold;
+			color: #000000;
+			text-align: center;
+			line-height: normal;
+		}
+		.signup {
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Cond=
+ensed", Helvetica, Arial, sans-serif;
+		font-size: 15px;
+		font-weight: normal;
+		color: #093586;
+		text-align: center;
+		}
+		.subtitle311 {font-family: Verdana, Arial, Helvetica, sans-serif; font-si=
+ze: 11px; font-style: normal; line-height: 12.5px; color: #000000; text-ali=
+gn: center; font-weight: bold}
+		.titles7 {font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			line-height: normal;
+			font-weight: bold;
+			color: #990000;
+			text-align: center
+		}
+		.unsub1 {	font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #000000;
+			line-height: 14px;
+		; font-weight: normal}
+		.version1 {font-family: Verdana;
+			font-size: 13px;
+			font-weight: bold;
+			color: #990000;
+		; text-align: center}
+		.version1 {
+		font-family: Verdana;
+		font-size: 15px;
+		font-weight: bold;
+		color: #990000;
+		}
+		.version111 {font-family: Verdana;
+			font-size: 13px;
+			font-weight: bold;
+			color: #006633;
+		; text-align: center}
+		.version111 {
+			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Con=
+densed", Helvetica, Arial, sans-serif;
+			font-size: 13.5px;
+			font-weight: normal;
+			color: #000000;
+			text-align: center;
+		}
+		.style4 {font-weight: bold}
+		.subtitle1 {
+			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Con=
+densed", Helvetica, Arial, sans-serif;
+			font-size: 18px;
+			font-style: normal;
+			line-height: 12px;
+			color: #000000;
+			text-align: center;
+			font-weight: normal
+		}
+		.unsub11 {font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #666666;
+			line-height: normal;
+		; font-weight: normal}
+		.header71 {
+		font-size: 33px;
+		font-weight: bold;
+		color: #271C22;
+		text-align: center;
+		line-height: normal;
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Cond=
+ensed", Helvetica, Arial, sans-serif;
+		}
+		.author21 {font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			line-height: normal;
+			color: #000000;
+			text-align: center;
+			font-weight: bold;
+			font-style: normal;
+		}
+		.version22 {	font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			font-weight: bold;
+			color: #990000;
+			;
+			text-align: center
+		}
+		.subtitle21 {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 14px;
+			font-style: normal;
+			line-height: normal;
+			color: #990000;
+			text-align: center;
+			font-weight: bold
+		}
+		.title_big1 {font-family: Arial, Helvetica, sans-serif; font-size: 18px; =
+line-height: normal; color: #990000; text-align: center; font-weight: bold}
+		.price_grey1 {	font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 11px;
+			font-style: normal;
+			line-height: normal;
+			font-weight: bold;
+			color: #666666;
+			text-align: center;
+		}
+		.version211 {font-family: Arial, Helvetica, sans-serif;
+			font-size: 14px;
+			font-weight: bold;
+			color: #990000;
+		; text-align: center}
+		.version3 {	font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			font-weight: bold;
+			color: #990000;
+		; text-align: center}
+		.bordervert1 {	border-right-width: 1px;
+			border-right-style: dashed;
+			border-right-color: #999999;
+		}
+		.subtitle_small11 {	font-family: Arial, Helvetica, sans-serif;
+			font-size: 10px;
+			font-style: normal;
+			color: #666666;
+			text-align: center;
+			font-weight: bold;
+			line-height: normal
+		}
+		.subtitle_small32 {font-family: Verdana, Arial, Helvetica, sans-serif; fo=
+nt-size: 9px; font-style: normal; color: #000000; text-align: center; font-=
+weight: bold; line-height: normal}
+		.borderhor1 {	border-bottom-width: 1px;
+			border-bottom-style: dashed;
+			border-bottom-color: #999999;
+		}
+		.description1 {	font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			line-height: normal;
+			list-style-position: inside;
+			list-style-type: square;
+		; color: #000000; font-weight: normal; text-align: left}
+		.subtitle22 {	font-family: Arial, Helvetica, sans-serif;
+			font-size: 20px;
+			font-style: normal;
+			line-height: normal;
+			color: #000000;
+			text-align: center;
+			font-weight: normal
+		}
+		.subtitle_small2 {font-family: Arial, Helvetica, sans-serif; font-size: 8=
+px; font-style: normal; color: #000000; text-align: center; font-weight: no=
+rmal; line-height: normal}
+		.author2 {
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Cond=
+ensed", Helvetica, Arial, sans-serif;
+		font-size: 33px;
+		line-height: normal;
+		color: #FFFFFF;
+		text-align: center;
+		font-weight: bold
+		}
+		.version11 {
+		font-family: Arial, Verdana;
+		font-size: 21px;
+		line-height: normal;
+		color: #EEF0FF;
+		text-align: center;
+		font-weight: bold;
+		font-style: normal;
+		}
+		.header111 {
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Cond=
+ensed", Helvetica, Arial, sans-serif;
+		font-size: 40px;
+		font-weight: bold;
+		color: hsla(0,0%,0%,0%);
+		text-align: center
+		}
+		.version4 {	font-family: Arial, Helvetica, sans-serif;
+			font-size: 15px;
+			font-weight: bold;
+			color: #990000;
+		; text-align: center}
+		.subtitle11 {font-family: Verdana, Arial, Helvetica, sans-serif; font-siz=
+e: 11px; font-style: normal; line-height: 12px; color: #000000; text-align:=
+ center; font-weight: normal}
+		.unsub2 {	font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #666666;
+			line-height: 14px;
+		; font-weight: normal}
+
+		-->
+		</style>
+		</head>
+
+		  <body leftmargin=3D"0" topmargin=3D"0" marginwidth=3D"0" marginheight=
+=3D"0" bgcolor=3D"#FFFFFF">
+		<br>
+		 <table width=3D"600" border=3D"0" align=3D"center" cellpadding=3D"0" cel=
+lspacing=3D"0"><tr> <td style=3D"display:none !important;
+				   visibility:hidden;
+				   mso-hide:all;
+				   font-size:1px;
+				   color:#ffffff;
+				   line-height:1px;
+				   max-height:0px;
+				   max-width:0px;
+				   opacity:0;
+				   overflow:hidden;">
+		 Shemos now available in Chumash with Talmud=20
+		</td></tr> </table>
+			   <!-- <table width=3D"600" border=3D"0" align=3D"center" cellpadding=
+=3D"0" cellspacing=3D"0">
+				  <tr bgcolor=3D"#FFFFFF">
+					<td width=3D"600" align=3D"center" bgcolor=3D"#FFFFFF" class=3D"versio=
+n1"><p><strong>   20% off Back- to-School Essentials  </strong></p></td>
+				  </tr>
+				</table> -->
+			<table width=3D"620" border=3D"0" align=3D"center" cellpadding=3D"0" cel=
+lspacing=3D"0">
+						<tr>
+						<td  align=3D"center" class=3D"header11"><a href=3D"http://emaillinks=
+.artscroll.com/wf/click?upn=3DxRGr0qUNgHCVUfbegFSWzSlsWA-2F4OA-2FPd0jWu-2BD=
+Qlhs0Oxi1mp8blZLJ36L3CTYTKKmJcSCVb3X0tFHg9QBhzzj-2Fddiw2SoDqyhSxFALm1w-3D_c=
+-2B65x-2FvrzK8hJf7RY2Q909GnTviqB7p64GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7HCB5=
+jMtBvmMUcHx0Aa-2Fbca7ZmM5-2F62NTI12LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOXnnF-=
+2Fk0Gu6z0c-2Bv1ae3sxIDfe87i6gZhHFTWlpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZVwdWP=
+xKDwzgziIkcHBY8lZEitOSFCfDPJkRoBq-2F0dBYe7hvtQ43TybGj-2FexOH9CUmusBGCixropF=
+iixAZGrkrGVNplySR6nZsEo-2B4UGv5K-2BwV6-2Bp544ERUIGV2NL6RTlxWak5AwfhcUL8-2Fs=
+pr5txphtDioQAIY8I31taYTpgmsd5IH-2FnujvdyGNuGiqIzGWLQBWBoh40e2Z8ENZ-2B-2BlLL=
+yS1w97mMQye-2BkFqLvM2X1vsWGnu"><img src=3D"http://www.artscroll.com/images/=
+siteimages/E-mail-header_left_top.jpg"   vspace=3D"0" border=3D"0" align=3D=
+"middle"></a></td>
+						  <td  align=3D"center" class=3D"header11"><a href=3D"http://emaillin=
+ks.artscroll.com/wf/click?upn=3DxRGr0qUNgHCVUfbegFSWzSlsWA-2F4OA-2FPd0jWu-2=
+BDQlhs0Oxi1mp8blZLJ36L3CTYTKKmJcSCVb3X0tFHg9QBhzzj-2Fddiw2SoDqyhSxFALm1w-3D=
+_c-2B65x-2FvrzK8hJf7RY2Q909GnTviqB7p64GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7HC=
+B5jMtBvmMUcHx0Aa-2Fbca7ZmM5-2F62NTI12LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOXnn=
+F-2Fk0Gu6z0c-2Bv1ae3sxIDfe87i6gZhHFTWlpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZVwd=
+WPxKDwzgziIkcHBY8lZEitOSFCfDPJkRoBq-2F0dBYe7hvsVgHDvw1D-2FsZDTa7PTG5zh3TLQK=
+6uJFCUjhqfhX69MNp1uqpLkPUtAgqGL1TeIBYefja6q1lsVfc7DIwLh-2FYk7DA8pLBsqUd5gX8=
+ylScFfN4RMucXyvB9jLm9WsWEpnCixPJtmWBqy-2BQqkxTlrlGHGsORTegdYIw-2BWtWC-2BRq5=
+E5-2BN-2Bfvwt2MoKg4-2BPJXCB8Y"><img src=3D"http://www.mesorah.com/images/si=
+teimages/Email_header_freeship_new.jpg"   vspace=3D"0" border=3D"0" align=
+=3D"middle"></a></td>
+								  <td  align=3D"center" class=3D"header11"><a href=3D"http://emaill=
+inks.artscroll.com/wf/click?upn=3DxRGr0qUNgHCVUfbegFSWzSlsWA-2F4OA-2FPd0jWu=
+-2BDQlhs0Oxi1mp8blZLJ36L3CTYTKKmJcSCVb3X0tFHg9QBhzzj-2Fddiw2SoDqyhSxFALm1w-=
+3D_c-2B65x-2FvrzK8hJf7RY2Q909GnTviqB7p64GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7=
+HCB5jMtBvmMUcHx0Aa-2Fbca7ZmM5-2F62NTI12LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOX=
+nnF-2Fk0Gu6z0c-2Bv1ae3sxIDfe87i6gZhHFTWlpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZV=
+wdWPxKDwzgziIkcHBY8lZEitOSFCfDPJkRoBq-2F0dBYe7hv62w5N6L-2BYZaVtNlrQAyV1AHIT=
+YfmQSBxCloVsKF0u-2FIu9jl8ZMKZqNqXg6uOR1MVu3hgOfRY4ohzIKuxsP9H9EwNa-2BkZPi-2=
+Bkq7MmArhwHymMHgyaJJhWuIpMjs4MNdjsTWR6Wwiyw9aYWI9IDQtXd5DuwIejZlvQEJ9-2F-2B=
+muhwmfalsahOy5H35U-2BttpdcWLb"><img src=3D"http://www.artscroll.com/images/=
+siteimages/E-mail-header_loyalty.jpg"   vspace=3D"0" border=3D"0" align=3D"=
+middle"></a></td>
+						</tr>
+						   <tr>
+
+								  <td colspan=3D"3"  align=3D"right" ><a href=3D"http://emaillinks.=
+artscroll.com/wf/click?upn=3DxRGr0qUNgHCVUfbegFSWzSlsWA-2F4OA-2FPd0jWu-2BDQ=
+lhv19sjRKMtQ6kkBpNwVx3u4eqTaCKBw84tmG-2FsQwmWIDPdWpl6M9CCljivKuOYqVvNlMAmzd=
+YlqPuZA-2F9oOCDyGX-2FeT486oYkMr2ThodEWPfw-3D-3D_c-2B65x-2FvrzK8hJf7RY2Q909G=
+nTviqB7p64GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7HCB5jMtBvmMUcHx0Aa-2Fbca7ZmM5-=
+2F62NTI12LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOXnnF-2Fk0Gu6z0c-2Bv1ae3sxIDfe87=
+i6gZhHFTWlpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZVwdWPxKDwzgziIkcHBY8lZEitOSFCfD=
+PJkRoBq-2F0dBYe7hv30NcPrEMU1uG7RQVtwVl8i6dHViyD2P5svIwSQZQ0n1N9Mkq6eGu4ckLj=
+pryywJCDISdywOKNjMQhIfrHEWGGt46Zgtu14FCsXY-2Fsdyd9P-2FftI5J-2F7CkWLmJJrlVua=
+Z-2B734jWqhJE1kvGmJpzgosoCl5ebFT0w3CqO0ahiriup1Yq34wIem23PadBmnNjdxz" class=
+=3D"author">=20
+								 You have $0 ready to use, <br>
+								 POINTS TO NEXT REWARD: 175</a></td>
+			  </tr>
+									<tr>
+
+								  <td colspan=3D"3"  align=3D"right" ><a href=3D"http://emaillinks.=
+artscroll.com/wf/click?upn=3DxRGr0qUNgHCVUfbegFSWzSlsWA-2F4OA-2FPd0jWu-2BDQ=
+lhs0Oxi1mp8blZLJ36L3CTYTKKmJcSCVb3X0tFHg9QBhzzj-2Fddiw2SoDqyhSxFALm1w-3D_c-=
+2B65x-2FvrzK8hJf7RY2Q909GnTviqB7p64GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7HCB5j=
+MtBvmMUcHx0Aa-2Fbca7ZmM5-2F62NTI12LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOXnnF-2=
+Fk0Gu6z0c-2Bv1ae3sxIDfe87i6gZhHFTWlpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZVwdWPx=
+KDwzgziIkcHBY8lZEitOSFCfDPJkRoBq-2F0dBYe7hvCj53RNIIjoYBU6VO4MY7hHszbkDrqEMU=
+rygeJyrLd4cLsz6jh70l-2B2qMgmqp0WdDC9hpBJZvTzvYi87B-2FWJ24Ob0BXyvqZKFZ4zjOBM=
+o8EIcam-2F5Wd897WjupaiCHW16mYDY3MzIhGZ0xgcVN9LvfF67ngDiJjqgI4sg2qGTAMNdnaBe=
+nUZ2XOgKlW8BblaE" class=3D"author"></a></td>
+				 </tr>
+
+
+
+
+
+=09=09=20
+
+
+
+
+	</table>
+		   <table width=3D"620" border=3D"0" align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0">
+		  <tr>
+
+		  <td ><a href=3D"http://emaillinks.artscroll.com/wf/click?upn=3Djc1Ln6mo=
+wOJMTGm9m59oqJIHCA-2FHawZote7gWB6CIZ6gnyk2Yvlz-2F-2FuH-2BCLaCUQjc81d3W-2F8r=
+rWHnTmhI96PIq0OW-2FchiraLA1iBpPlhQwzHyCfazkRafF6jeY7-2Febt-2F_c-2B65x-2Fvrz=
+K8hJf7RY2Q909GnTviqB7p64GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7HCB5jMtBvmMUcHx0=
+Aa-2Fbca7ZmM5-2F62NTI12LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOXnnF-2Fk0Gu6z0c-2=
+Bv1ae3sxIDfe87i6gZhHFTWlpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZVwdWPxKDwzgziIkcH=
+BY8lZEitOSFCfDPJkRoBq-2F0dBYe7hvD086IUhZq0mWqZeQjq8H-2FnMdF9Fr7w4QHtzXw87m-=
+2BjkufQD5jZYTt1u84w18hlYf5m7vzOsw-2FDF4dT30UBmSID6jQXLzzrjwnHlY9NBrIfHD218l=
+jx6MwySwBcUTqHiuFBBfqlMcxOSLdi9vkdo5Lhl4ZqERhch8Tx45Q2A7uf9vg2ry1njJIkM-2FJ=
+mRgXMFs"><img src=3D"http://www.artscroll.com/images/siteimages/Chumash_wit=
+h_Talmud_shemos_email.jpg" align=3D"middle" border=3D"0"></a></td>
+	   </tr>
+	</table>
+
+=09
+		<table width=3D"620" border=3D"0" align=3D"center" cellpadding=3D"0" cell=
+spacing=3D"0">
+<tr>
+			   <td ><a href=3D"http://emaillinks.artscroll.com/wf/click?upn=3DZqlaXp=
+xNkzhvkoyMGDBM6bmHLXl4Tybr5Pwrlhc3-2F08P7OzaZZ4JXVqahT8mXJWlyHyxc3tLsMgx0jd=
+MJ4R7jqjGhgs2Xr1Egqm5WGLy5x-2FSPg0CDcWw7rBNdaP3ZFMe_c-2B65x-2FvrzK8hJf7RY2Q=
+909GnTviqB7p64GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7HCB5jMtBvmMUcHx0Aa-2Fbca7Z=
+mM5-2F62NTI12LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOXnnF-2Fk0Gu6z0c-2Bv1ae3sxID=
+fe87i6gZhHFTWlpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZVwdWPxKDwzgziIkcHBY8lZEitOS=
+FCfDPJkRoBq-2F0dBYe7hvraIkxn5A8Q5rueBL2C89jKknmYhcqP9s0xv3SCy9VJedyE2mPpB3U=
+GqlwXkhDPjf97Lj9no9lPOXlECID8IijCApmkvrIRSrTYbczxclMIf5n8pa0OZVEwv2bEFMQftO=
+NrUdsTz77QujDTd80RBQBCEi86KCa9EKBBjAU4bTlWEJLJqz7TWYqWpZxrTUYtvF"><img src=
+=3D"http://www.artscroll.com/images/siteimages/Chumash_with_Talmud_shemos_e=
+mail2.jpg" align=3D"middle"></a></td>=20
+	      </tr>
+			<tr>
+			   <td ><a href=3D"http://emaillinks.artscroll.com/wf/click?upn=3Djc1Ln6=
+mowOJMTGm9m59oqJIHCA-2FHawZote7gWB6CIZ6cu5eP-2FO1pCvUgjmyJGHdzgPWoVHnWEr-2F=
+wwXroZvH8Xq-2F8Kl-2BNFkxHvlEgb81y2tXOX3uM-2FqEPj-2BoboXVrfY81_c-2B65x-2Fvrz=
+K8hJf7RY2Q909GnTviqB7p64GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7HCB5jMtBvmMUcHx0=
+Aa-2Fbca7ZmM5-2F62NTI12LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOXnnF-2Fk0Gu6z0c-2=
+Bv1ae3sxIDfe87i6gZhHFTWlpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZVwdWPxKDwzgziIkcH=
+BY8lZEitOSFCfDPJkRoBq-2F0dBYe7hv2RRDK9l6QeE7nzQB5Lnwk8vQZTXMDj-2FhIP8dlG0Qu=
+3AOb9TtLyoGRzG5NiTJcu0DTP0gjnv5Q4ARiZ6ljL64rPNZOi9ADsn25iyRKr73CoHXffsS5P2t=
+f6gLZSeCKkFSMrHAUd339ZAQXj3o-2F0E4voHlc-2FURraHOIyAb7jyXDzCa-2BYs3On1NdLeLr=
+zuzGTjE"><img src=3D"http://www.artscroll.com/images/siteimages/Chumash_wit=
+h_Talmud_shemos_email3.jpg" align=3D"middle"></a></td> </tr>
+=09=09=09
+=09=09=09
+=09=09=09=20=20=20
+			  </table>
+=09=09=09=20
+
+		<table width=3D"610" border=3D"0" align=3D"center" cellpadding=3D"1">
+		  <tr>
+			<td><p class=3D"unsub11"><span class=3D"unsub2">*<strong>Everyday Compli=
+mentary Shipping</strong> is valid in the Continental U.S. only on purchase=
+s of $49 or more in the same order shipping to the same address. Taxes and =
+prior purchases do not qualify toward the minimum purchase requirement. Eli=
+gible customers must select Saver Shipping during checkout to receive compl=
+imentary shipping. </span><br>
+			  <br>
+		To make sure you continue receiving our emails to your inbox (not bulk or=
+ junk folders), please add <span class=3D"style4"> (<span class=3D"style2">=
+emailupdates@artscroll.com</span>)</span> to your address book or safe send=
+er list.</p>
+			<p class=3D"unsub11"><font color=3D"#666666">If you would like to unsubs=
+cribe, please <a href=3D'http://emaillinks.artscroll.com/wf/click?upn=3Djc1=
+Ln6mowOJMTGm9m59oqP1zM5-2BGsYBjMnZv2CxprCWM25g-2FJpOfeV8RfVNP2tkcPucfyiT-2F=
+yzWgIAdiw4MDx6XjdiNCdcMMph6ogMiqGj8-3D_c-2B65x-2FvrzK8hJf7RY2Q909GnTviqB7p6=
+4GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7HCB5jMtBvmMUcHx0Aa-2Fbca7ZmM5-2F62NTI12=
+LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOXnnF-2Fk0Gu6z0c-2Bv1ae3sxIDfe87i6gZhHFTW=
+lpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZVwdWPxKDwzgziIkcHBY8lZEitOSFCfDPJkRoBq-2=
+F0dBYe7hv8AwZCIQbXehXz4wsEPkpHm4SSV8G4ytfNa6eaR-2FFNctnGld8dcDsz-2FpH1QSAxA=
+8j2HJZNqgYq35hp1ZrmpF9DneNKT9RG4kzuuFQaT2nkwqXPxY-2BHmqVptYrwA9Ey803rLOFjg0=
+Le7syOgSx2F58eQSIYC-2FVi836ValXLijgk-2B6XN2wSHXQMDu16QyNUmi9I'>Click Here t=
+o Unsubscribe</a> or call us at 1-800-637-6724. You may also contact us by =
+postal mail at ArtScroll/ Mesorah Publications, 4401 2nd Avenue, Brooklyn, =
+NY 11232</font>.</p></td>
+		  </tr>
+		</table>
+		<blockquote>
+		  <blockquote>
+			<blockquote>
+			  <p><img src=3D"http://artscroll.com/Sources/LAC.aspx?[pixel]" width=3D=
+"1" height=3D"1"/>
+			  </p>
+			</blockquote>
+		  </blockquote>
+		</blockquote>
+=09=20=20=20=20
+<img src=3D"http://emaillinks.artscroll.com/wf/open?upn=3Dc-2B65x-2FvrzK8hJ=
+f7RY2Q909GnTviqB7p64GOOuhNtZAVrkSlnEnqMkbm4M6SggAnfJ9L7HCB5jMtBvmMUcHx0Aa-2=
+Fbca7ZmM5-2F62NTI12LMqBui0DQrF0560tsRPkc2rS8awvgq9sIPOXnnF-2Fk0Gu6z0c-2Bv1a=
+e3sxIDfe87i6gZhHFTWlpAUTy8cTPpDSlDOAYTZKgiTPJtiIqXDWRZVwdWPxKDwzgziIkcHBY8l=
+ZEitOSFCfDPJkRoBq-2F0dBYe7hv6N3cREi99eaVHdLRtleuAGBJLBiMK9KcRYPB2IDQL3dDOLB=
+uIwewicwsL6Hx-2F6CwnLhr2FG4vn-2FLkDyHU-2FS8OJIhN-2BH0-2BBGWeS9eykmqE0Vug5CW=
+PZaBn-2BlSmZhBawJ5qGTHoaTNDvL9zoanAMjTRF0ixscXUW24crJlV57HnHt5HlRSj-2F4rmnH=
+EohPXbux-2F" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height=
+:1px !important;width:1px !important;border-width:0 !important;margin-top:0=
+ !important;margin-bottom:0 !important;margin-right:0 !important;margin-lef=
+t:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding=
+-right:0 !important;padding-left:0 !important;"/>
+</body>
+		</html>
+
+
+--58e8891afd9e57ddc8fdbf0a8d3962ab386313fd439404934e989344c9eb--
+
+
+
+
+#######################
+
+
+)
+
+
+#######################
+
+
+189 (RFC822 {29208}
+Delivered-To: kadimahtorasmoshe@gmail.com
+Received: by 2002:a2e:4506:0:0:0:0:0 with SMTP id s6-v6csp5512934lja;
+        Tue, 25 Dec 2018 10:06:42 -0800 (PST)
+X-Google-Smtp-Source: ALg8bN7Nlg4h0oNPmiT1mAO3zYpGsbJujuj/JTGd+8zOdPghIe4zEMH8NAzawkn0s2250PNUCut9
+X-Received: by 2002:a17:902:8f83:: with SMTP id z3mr13731778plo.328.1545761202250;
+        Tue, 25 Dec 2018 10:06:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1545761202; cv=none;
+        d=google.com; s=arc-20160816;
+        b=o5b3RjvH+LTVYn2xKDtYKrQez8jUShpHX+APQVHQE0dCvzzvDB5GWQGzxatKRERA7M
+         ksFXIokLl5NMcNn/iysxKJQeBDRk9kmGHMDt8B8JMJ9I5L400wPrzL5az1+Vm2jqT31I
+         IMlrJRqggdaanXEV6lC8SGQ5Wt/VHdO/AGWUDTb0bLhe5BDscBwe2Pl/qOI/zDcAKq7i
+         UKcTQ1toiKAvC8dFAc1fpq4LIID8l+nKiNYrSpsH+mxzENxDDtxZea/rNQoVVng0o+Ey
+         7IQyaDlibm0xJpDEEiJj0KhNVTzpf4A4M3fVZ/KW8iGXiohnyQvLVQHbBFihrofYAol1
+         xDag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:in-reply-to:to:references:date:subject:mime-version:from
+         :dkim-signature:delivered-to;
+        bh=zfne4Mpz0rJaWwpMjVrUKehkLyeSFJqH+b5/wC5l82Y=;
+        b=w8WQZXSC7OuS0pT0Mv752H76pM0V2eY7oNA5fnc4CaPD6vp6ty6HUFE2JumDtNnWYC
+         nMpuAlPCyrpTpqePpfoExtsBOSdx/oASZkMklVen4jXpGiLU5box0bBg6ukCvujA8zOv
+         OHAecEvFQDTpN2sbK9NVJBYpK0726S3NGjRTWWgDadWX1ICa/bqQZyJ3Xk5oxG5nk/OF
+         wtvHaLXsiEaAEPJCpuUtgIosTUVEhXehHEnYGriNUtgyjTHImvscNl+Av8Kl0j4/skJt
+         BWmToJN3xnd7iBU+jIGDNNf/LVEEMNgMUSNKZyPJ2a+q2izp+M2dar/ch+BzGqBrc2ic
+         Y+kw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@me.com header.s=04042017 header.b="UM/2Dnnf";
+       spf=pass (google.com: best guess record for domain of x13319044@pdx1-sub0-mail-mx47.g.dreamhost.com designates 64.90.62.163 as permitted sender) smtp.mailfrom=x13319044@pdx1-sub0-mail-mx47.g.dreamhost.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=me.com
+Return-Path: <x13319044@pdx1-sub0-mail-mx47.g.dreamhost.com>
+Received: from pdx1-sub0-mail-mx47.g.dreamhost.com (mx1.dreamhost.com. [64.90.62.163])
+        by mx.google.com with ESMTPS id s2si28979589pgj.60.2018.12.25.10.06.41
+        for <kadimahtorasmoshe@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 25 Dec 2018 10:06:42 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of x13319044@pdx1-sub0-mail-mx47.g.dreamhost.com designates 64.90.62.163 as permitted sender) client-ip=64.90.62.163;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@me.com header.s=04042017 header.b="UM/2Dnnf";
+       spf=pass (google.com: best guess record for domain of x13319044@pdx1-sub0-mail-mx47.g.dreamhost.com designates 64.90.62.163 as permitted sender) smtp.mailfrom=x13319044@pdx1-sub0-mail-mx47.g.dreamhost.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=me.com
+Received: by pdx1-sub0-mail-mx47.g.dreamhost.com (Postfix, from userid 13319044)
+	id B523492923; Tue, 25 Dec 2018 10:06:41 -0800 (PST)
+X-Original-To: office@kadimahtorasmoshe.org
+Delivered-To: x13319044@pdx1-sub0-mail-mx47.g.dreamhost.com
+Received: from vade-backend10.dreamhost.com (fltr-in2.mail.dreamhost.com [66.33.205.213])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by pdx1-sub0-mail-mx47.g.dreamhost.com (Postfix) with ESMTPS id 9028092920
+	for <office@kadimahtorasmoshe.org>; Tue, 25 Dec 2018 10:06:41 -0800 (PST)
+Received: from st43p00im-ztbu10063601.me.com (st43p00im-ztbu10063601.me.com [17.58.63.174])
+	by vade-backend10.dreamhost.com (Postfix) with ESMTPS id 17EEB40002015
+	for <office@kadimahtorasmoshe.org>; Tue, 25 Dec 2018 10:06:41 -0800 (PST)
+Authentication-Results: vade-backend10.dreamhost.com; dkim=pass
+	reason="2048-bit key; unprotected key"
+	header.d=me.com header.i=@me.com header.b=UM/2Dnnf; dkim-adsp=pass;
+	dkim-atps=neutral
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=me.com; s=04042017;
+	t=1545761199; bh=zfne4Mpz0rJaWwpMjVrUKehkLyeSFJqH+b5/wC5l82Y=;
+	h=From:Content-Type:Mime-Version:Subject:Date:To:Message-Id;
+	b=UM/2DnnfphuFCOWaouUxH5x9d70ENYNcDLiXEkkSv4Wa08Pm8X4lZpMWq7o+moHyb
+	 DYcu7BoELExzDDG5VrY0pz7Rs9+LMj/ud7jRKY20PmqqrpRBILeKyML46sqS6xn93u
+	 bQCu7CV/QHsRpzDWdemRwgcmcY+FjrvNluEDbUCrLgeHBqB0h9TTWjS67/7r/8RsO2
+	 UYHKaLMznKb/26hxHhg77ecBjqaSvWM2V6CV0zYALL0+0cS5T2RSclM89XUkTmbbBK
+	 NG6c4ARoWKGbe7mNUJtbHqh9eQpTNiOJPDnqXRjyUJSj5M4PUSo9t/kXm+uU1HI+nR
+	 4qFinO6M1ftBA==
+Received: from [192.168.0.10] (cpe-74-71-94-234.nyc.res.rr.com [74.71.94.234])
+	by st43p00im-ztbu10063601.me.com (Postfix) with ESMTPSA id 8B132700147
+	for <office@kadimahtorasmoshe.org>; Tue, 25 Dec 2018 18:06:39 +0000 (UTC)
+From: Ashley Blaker <a.blaker@me.com>
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_FE244288-F437-41CE-876C-C283BCC9F2FB"
+Mime-Version: 1.0 (Mac OS X Mail 12.2 \(3445.102.3\))
+Subject: Re: question for ashley...
+Date: Tue, 25 Dec 2018 13:06:38 -0500
+References: <093501d480e7$89ec4330$9dc4c990$@kadimahtorasmoshe.org>
+ <739B58DB-8E67-4D4F-A0B4-1D80C2E292DF@me.com>
+ <09dd01d480fa$9f2fdb40$dd8f91c0$@kadimahtorasmoshe.org>
+ <577DFE9C-6C85-462B-905F-981040D84C53@me.com>
+ <000001d4957e$c9603390$5c209ab0$@kadimahtorasmoshe.org>
+To: "Office @ KTM" <office@kadimahtorasmoshe.org>
+In-Reply-To: <000001d4957e$c9603390$5c209ab0$@kadimahtorasmoshe.org>
+Message-Id: <58425B63-B2BD-486E-A4DB-74D982589EA5@me.com>
+X-Mailer: Apple Mail (2.3445.102.3)
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:,, definitions=2018-12-25_11:,,
+ signatures=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 malwarescore=0
+ phishscore=0 bulkscore=0 spamscore=0 clxscore=1015 mlxscore=0
+ mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1807170000 definitions=main-1812250164
+X-VR-STATUS: OK
+X-VR-SCORE: -100
+X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedtkedrudekfedgudduvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucggtfgfnhhsuhgsshgtrhhisggvpdfftffgtefojffquffvnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhtggguffffhfvjgfkofesrgdtmherhhdtjeenucfhrhhomheptehshhhlvgihuceulhgrkhgvrhcuoegrrdgslhgrkhgvrhesmhgvrdgtohhmqeenucfkphepudejrdehkedrieefrddujeegpdejgedrjedurdelgedrvdefgeenucfrrghrrghmpehmohguvgepshhmthhppdhhvghlohepshhtgeefphdttdhimhdqiihtsghuuddttdeifeeitddurdhmvgdrtghomhdpihhnvghtpedujedrheekrdeifedrudejgedprhgvthhurhhnqdhprghthheptehshhhlvgihuceulhgrkhgvrhcuoegrrdgslhgrkhgvrhesmhgvrdgtohhmqedpmhgrihhlfhhrohhmpegrrdgslhgrkhgvrhesmhgvrdgtohhmpdhnrhgtphhtthhopehofhhfihgtvgeskhgrughimhgrhhhtohhrrghsmhhoshhhvgdrohhrghenucevlhhushhtvghrufhiiigvpedt
+X-Loop: office@kadimahtorasmoshe.org 0
+
+
+--Apple-Mail=_FE244288-F437-41CE-876C-C283BCC9F2FB
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+Hi
+
+Apologies for the slow response.=20
+
+What kind of event did you have in mind? What day of the week etc? How =
+many people would you hope to attract etc.
+
+I am here until Pesach.
+
+Regards
+
+Ashley
+
+> On 16 Dec 2018, at 15:34, Office @ KTM <office@kadimahtorasmoshe.org> =
+wrote:
+>=20
+> Hi Ashley =E2=80=93=20
+> =20
+> A couple more questions for you:
+> =20
+> What does it take for you to perform in Boston =E2=80=93 regarding=20
+> both money and audience size =E2=80=93 and any other requirements.
+> =20
+> And, how long are you in the US =E2=80=93 or on the East Coast =E2=80=93=
+ or however
+> that becomes relevant?
+> =20
+> BTW, it turns out that a number of other people agree with me =E2=80=93 =
+they
+> also think you=E2=80=99re funny=E2=80=A6
+> =20
+> Thanks!
+> ~Efraim
+> =20
+> From: Ashley Blaker <a.blaker@me.com <mailto:a.blaker@me.com>>=20
+> Sent: Tuesday, November 20, 2018 1:00 PM
+> To: Office @ KTM <office@kadimahtorasmoshe.org =
+<mailto:office@kadimahtorasmoshe.org>>
+> Subject: Re: question for ashley...
+> =20
+> Many thanks.=20
+> =20
+> And do let me know if you would like to organise something for your =
+community.=20
+> =20
+> Warm regards
+> =20
+> Ashley
+>=20
+>=20
+>> On 20 Nov 2018, at 12:58, Office @ KTM <office@kadimahtorasmoshe.org =
+<mailto:office@kadimahtorasmoshe.org>> wrote:
+>> =20
+>> Hi Ashley =E2=80=93=20
+>> =20
+>> Thanks for the response =E2=80=93 and I never meant to suggest you =
+were attacking=E2=80=A6 clearly =E2=80=93 you are frum, and delightful.
+>> I would never have written otherwise! There=E2=80=99s a big place in =
+the world for good Jewish comedy=E2=80=A6 when you start=20
+>> counting your fans (but I know you would only count using pasukim=E2=80=
+=A6 you should be zoche to get well into devarim!)
+>> you can count one more in Boston=E2=80=A6
+>> =20
+>> Best of the best,
+>> ~Efraim
+>> =20
+>> From: Ashley Blaker <a.blaker@me.com <mailto:a.blaker@me.com>>=20
+>> Sent: Tuesday, November 20, 2018 11:54 AM
+>> To: Office @ KTM <office@kadimahtorasmoshe.org =
+<mailto:office@kadimahtorasmoshe.org>>
+>> Subject: Re: question for ashley...
+>> =20
+>> Hi Efraim
+>> =20
+>> Thanks very much for the email and glad you enjoyed the videos.
+>> =20
+>> Re the NY and Xmas ones, they=E2=80=99ve been seen by over half a =
+million people and I=E2=80=99ve not had that feedback before. I think =
+context is everything: I=E2=80=99m clearly not denigrating yiddishkeit =
+as I=E2=80=99m a frum man and it=E2=80=99s part of a show that a frum =
+man talking about his life. So very far removed from an attack on =
+yiddishkeit.=20
+>> =20
+>> In fact I am frequently booked by outreach groups all over the world =
+including Aish, Ohr Sameach, JLE, JET (in Canada) and Project Inspire. I =
+definitely don=E2=80=99t view myself as working in outreach =E2=80=93 =
+I=E2=80=99m a comedian =E2=80=93 but I am proud that people always tell =
+me they leave my shows feeling more proud to be Jewish than they did =
+before.=20
+>> =20
+>> Hope that helps.
+>> =20
+>> Regards
+>> =20
+>> Ashley
+>>=20
+>>=20
+>>=20
+>>> On 20 Nov 2018, at 10:41, Office @ KTM <office@kadimahtorasmoshe.org =
+<mailto:office@kadimahtorasmoshe.org>> wrote:
+>>> =20
+>>> Hi Ashley =E2=80=93=20
+>>> =20
+>>> Responding to your email, I just watched the videos on your website =
+=E2=80=93 and
+>>> had the great pleasure of laughing out loud =E2=80=93 even sitting =
+by myself=E2=80=A6 so really,
+>>> Thanks for that! It=E2=80=99s really good comedy and there is not =
+nearly enough in the
+>>> world right now. Again, thanks.
+>>> =20
+>>> When I listened to your pieces on New Year and Christmas =E2=80=93 =
+it seems like
+>>> you denigrating Yiddishkeit in some way in comparison to =E2=80=93 =
+if not vadai,=20
+>>> probable, avoda zara.
+>>> =20
+>>> If I had an answer to that =E2=80=93 I would so recommend you and =
+your show
+>>> to my kehillah and the rest of my town.
+>>> =20
+>>> Thanks so much,
+>>> ~Efraim
+
+
+--Apple-Mail=_FE244288-F437-41CE-876C-C283BCC9F2FB
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D"">Hi<div class=3D""><br class=3D""></div><div =
+class=3D"">Apologies for the slow response.&nbsp;</div><div class=3D""><br=
+ class=3D""></div><div class=3D"">What kind of event did you have in =
+mind? What day of the week etc? How many people would you hope to =
+attract etc.</div><div class=3D""><br class=3D""></div><div class=3D"">I =
+am here until Pesach.<br class=3D""><div><br =
+class=3D""></div><div>Regards</div><div><br =
+class=3D""></div><div>Ashley</div><div><br class=3D""><blockquote =
+type=3D"cite" class=3D""><div class=3D"">On 16 Dec 2018, at 15:34, =
+Office @ KTM &lt;<a href=3D"mailto:office@kadimahtorasmoshe.org" =
+class=3D"">office@kadimahtorasmoshe.org</a>&gt; wrote:</div><br =
+class=3D"Apple-interchange-newline"><div class=3D""><div =
+class=3D"WordSection1" style=3D"page: WordSection1; caret-color: rgb(0, =
+0, 0); font-family: HelveticaNeue; font-size: 17px; font-style: normal; =
+font-variant-caps: normal; font-weight: normal; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;"><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D"">Hi Ashley =
+=E2=80=93<span class=3D"Apple-converted-space">&nbsp;</span><o:p =
+class=3D""></o:p></div><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><o:p =
+class=3D"">&nbsp;</o:p></div><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D"">A couple =
+more questions for you:<o:p class=3D""></o:p></div><div style=3D"margin: =
+0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D""><o:p class=3D"">&nbsp;</o:p></div><div style=3D"margin: 0in =
+0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">What does it take for you to perform in Boston =E2=80=93 =
+regarding<span class=3D"Apple-converted-space">&nbsp;</span><br =
+class=3D"">both money and audience size =E2=80=93 and any other =
+requirements.<o:p class=3D""></o:p></div><div style=3D"margin: 0in 0in =
+0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D""><o:p class=3D"">&nbsp;</o:p></div><div style=3D"margin: 0in =
+0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">And, how long are you in the US =E2=80=93 or on the East =
+Coast =E2=80=93 or however<br class=3D"">that becomes relevant?<o:p =
+class=3D""></o:p></div><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><o:p =
+class=3D"">&nbsp;</o:p></div><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D"">BTW, it =
+turns out that a number of other people agree with me =E2=80=93 they<br =
+class=3D"">also think you=E2=80=99re funny=E2=80=A6<o:p =
+class=3D""></o:p></div><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><o:p =
+class=3D"">&nbsp;</o:p></div><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D"">Thanks!<o:p=
+ class=3D""></o:p></div><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D"">~Efraim<o:p=
+ class=3D""></o:p></div><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><o:p =
+class=3D"">&nbsp;</o:p></div><div class=3D""><div style=3D"border-style: =
+solid none none; border-top-width: 1pt; border-top-color: rgb(225, 225, =
+225); padding: 3pt 0in 0in;" class=3D""><div style=3D"margin: 0in 0in =
+0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D""><b class=3D"">From:</b><span =
+class=3D"Apple-converted-space">&nbsp;</span>Ashley Blaker &lt;<a =
+href=3D"mailto:a.blaker@me.com" style=3D"color: purple; text-decoration: =
+underline;" class=3D"">a.blaker@me.com</a>&gt;<span =
+class=3D"Apple-converted-space">&nbsp;</span><br class=3D""><b =
+class=3D"">Sent:</b><span =
+class=3D"Apple-converted-space">&nbsp;</span>Tuesday, November 20, 2018 =
+1:00 PM<br class=3D""><b class=3D"">To:</b><span =
+class=3D"Apple-converted-space">&nbsp;</span>Office @ KTM &lt;<a =
+href=3D"mailto:office@kadimahtorasmoshe.org" style=3D"color: purple; =
+text-decoration: underline;" =
+class=3D"">office@kadimahtorasmoshe.org</a>&gt;<br class=3D""><b =
+class=3D"">Subject:</b><span =
+class=3D"Apple-converted-space">&nbsp;</span>Re: question for =
+ashley...<o:p class=3D""></o:p></div></div></div><div style=3D"margin: =
+0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D""><o:p class=3D"">&nbsp;</o:p></div><div style=3D"margin: 0in =
+0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">Many thanks.&nbsp;<o:p class=3D""></o:p></div><div =
+class=3D""><div style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; =
+font-family: Calibri, sans-serif;" class=3D""><o:p =
+class=3D"">&nbsp;</o:p></div></div><div class=3D""><div style=3D"margin: =
+0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">And do let me know if you would like to organise something =
+for your community.&nbsp;<o:p class=3D""></o:p></div></div><div =
+class=3D""><div style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; =
+font-family: Calibri, sans-serif;" class=3D""><o:p =
+class=3D"">&nbsp;</o:p></div></div><div class=3D""><div style=3D"margin: =
+0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">Warm regards<o:p class=3D""></o:p></div></div><div =
+class=3D""><div style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; =
+font-family: Calibri, sans-serif;" class=3D""><o:p =
+class=3D"">&nbsp;</o:p></div></div><div class=3D""><div style=3D"margin: =
+0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">Ashley<o:p class=3D""></o:p></div><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D""><br class=3D""><br class=3D""><o:p =
+class=3D""></o:p></div><blockquote style=3D"margin-top: 5pt; =
+margin-bottom: 5pt;" class=3D"" type=3D"cite"><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">On 20 Nov 2018, at 12:58, Office @ KTM =
+&lt;<a href=3D"mailto:office@kadimahtorasmoshe.org" style=3D"color: =
+purple; text-decoration: underline;" =
+class=3D"">office@kadimahtorasmoshe.org</a>&gt; wrote:<o:p =
+class=3D""></o:p></div></div><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><o:p =
+class=3D"">&nbsp;</o:p></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">Hi Ashley =E2=80=93<span =
+class=3D"apple-converted-space">&nbsp;</span><o:p =
+class=3D""></o:p></div></div><div class=3D""><div style=3D"margin: 0in =
+0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">&nbsp;<o:p class=3D""></o:p></div></div><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">Thanks for the response =E2=80=93 and I =
+never meant to suggest you were attacking=E2=80=A6 clearly =E2=80=93 you =
+are frum, and delightful.<o:p class=3D""></o:p></div></div><div =
+class=3D""><div style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; =
+font-family: Calibri, sans-serif;" class=3D"">I would never have written =
+otherwise! There=E2=80=99s a big place in the world for good Jewish =
+comedy=E2=80=A6 when you start<span =
+class=3D"apple-converted-space">&nbsp;</span><br class=3D"">counting =
+your fans (but I know you would only count using pasukim=E2=80=A6 you =
+should be zoche to get well into devarim!)<br class=3D"">you can count =
+one more in Boston=E2=80=A6<o:p class=3D""></o:p></div></div><div =
+class=3D""><div style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; =
+font-family: Calibri, sans-serif;" class=3D"">&nbsp;<o:p =
+class=3D""></o:p></div></div><div class=3D""><div style=3D"margin: 0in =
+0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">Best of the best,<br class=3D"">~Efraim<o:p =
+class=3D""></o:p></div></div><div class=3D""><div style=3D"margin: 0in =
+0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">&nbsp;<o:p class=3D""></o:p></div></div><div class=3D""><div =
+style=3D"border-style: solid none none; border-top-width: 1pt; =
+border-top-color: rgb(225, 225, 225); padding: 3pt 0in 0in;" =
+class=3D""><div class=3D""><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><b =
+class=3D"">From:</b><span =
+class=3D"apple-converted-space">&nbsp;</span>Ashley Blaker &lt;<a =
+href=3D"mailto:a.blaker@me.com" style=3D"color: purple; text-decoration: =
+underline;" class=3D""><span style=3D"color: purple;" =
+class=3D"">a.blaker@me.com</span></a>&gt;<span =
+class=3D"apple-converted-space">&nbsp;</span><br class=3D""><b =
+class=3D"">Sent:</b><span =
+class=3D"apple-converted-space">&nbsp;</span>Tuesday, November 20, 2018 =
+11:54 AM<br class=3D""><b class=3D"">To:</b><span =
+class=3D"apple-converted-space">&nbsp;</span>Office @ KTM &lt;<a =
+href=3D"mailto:office@kadimahtorasmoshe.org" style=3D"color: purple; =
+text-decoration: underline;" class=3D""><span style=3D"color: purple;" =
+class=3D"">office@kadimahtorasmoshe.org</span></a>&gt;<br class=3D""><b =
+class=3D"">Subject:</b><span =
+class=3D"apple-converted-space">&nbsp;</span>Re: question for =
+ashley...<o:p class=3D""></o:p></div></div></div></div><div =
+class=3D""><div style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; =
+font-family: Calibri, sans-serif;" class=3D"">&nbsp;<o:p =
+class=3D""></o:p></div></div><div class=3D""><div style=3D"margin: 0in =
+0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">Hi Efraim<o:p class=3D""></o:p></div></div><div class=3D""><div=
+ class=3D""><div style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; =
+font-family: Calibri, sans-serif;" class=3D"">&nbsp;<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">Thanks very much for the email and glad =
+you enjoyed the videos.<o:p class=3D""></o:p></div></div></div><div =
+class=3D""><div class=3D""><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D"">&nbsp;<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">Re the NY and Xmas ones, they=E2=80=99ve =
+been seen by over half a million people and I=E2=80=99ve not had that =
+feedback before. I think context is everything: I=E2=80=99m clearly not =
+denigrating yiddishkeit as I=E2=80=99m a frum man and it=E2=80=99s part =
+of a show that a frum man talking about his life. So very far removed =
+from an attack on yiddishkeit.&nbsp;<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">&nbsp;<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">In fact I am frequently booked by =
+outreach groups all over the world including Aish, Ohr Sameach, JLE, JET =
+(in Canada) and Project Inspire. I definitely don=E2=80=99t view myself =
+as working in outreach =E2=80=93 I=E2=80=99m a comedian =E2=80=93 but I =
+am proud that people always tell me they leave my shows feeling more =
+proud to be Jewish than they did before.&nbsp;<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">&nbsp;<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">Hope that helps.<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">&nbsp;<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">Regards<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">&nbsp;<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D"">Ashley<o:p =
+class=3D""></o:p></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D""><br class=3D""><br class=3D""><br =
+class=3D""><o:p class=3D""></o:p></div></div><blockquote =
+style=3D"margin-top: 5pt; margin-bottom: 5pt;" class=3D"" =
+type=3D"cite"><div class=3D""><div class=3D""><div style=3D"margin: 0in =
+0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">On 20 Nov 2018, at 10:41, Office @ KTM &lt;<a =
+href=3D"mailto:office@kadimahtorasmoshe.org" style=3D"color: purple; =
+text-decoration: underline;" class=3D""><span style=3D"color: purple;" =
+class=3D"">office@kadimahtorasmoshe.org</span></a>&gt; wrote:<o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div style=3D"margin: =
+0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;" =
+class=3D"">&nbsp;<o:p class=3D""></o:p></div></div><div class=3D""><div =
+class=3D""><div class=3D""><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><span =
+style=3D"font-size: 12pt;" class=3D"">Hi Ashley =E2=80=93<span =
+class=3D"apple-converted-space">&nbsp;</span></span><o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D""><span style=3D"font-size: 12pt;" =
+class=3D"">&nbsp;</span><o:p class=3D""></o:p></div></div></div><div =
+class=3D""><div class=3D""><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><span =
+style=3D"font-size: 12pt;" class=3D"">Responding to your email, I just =
+watched the videos on your website =E2=80=93 and<br class=3D"">had the =
+great pleasure of laughing out loud =E2=80=93 even sitting by myself=E2=80=
+=A6 so really,</span><o:p class=3D""></o:p></div></div></div><div =
+class=3D""><div class=3D""><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><span =
+style=3D"font-size: 12pt;" class=3D"">Thanks for that! It=E2=80=99s =
+really good comedy and there is not nearly enough in the<br =
+class=3D"">world right now. Again, thanks.</span><o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D""><span style=3D"font-size: 12pt;" =
+class=3D"">&nbsp;</span><o:p class=3D""></o:p></div></div></div><div =
+class=3D""><div class=3D""><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><span =
+style=3D"font-size: 12pt;" class=3D"">When I listened to your pieces on =
+New Year and Christmas =E2=80=93 it seems like<br class=3D"">you =
+denigrating Yiddishkeit in some way in comparison to =E2=80=93 if not =
+vadai,<span class=3D"apple-converted-space">&nbsp;</span><br =
+class=3D"">probable, avoda zara.</span><o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D""><span style=3D"font-size: 12pt;" =
+class=3D"">&nbsp;</span><o:p class=3D""></o:p></div></div></div><div =
+class=3D""><div class=3D""><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><span =
+style=3D"font-size: 12pt;" class=3D"">If I had an answer to that =E2=80=93=
+ I would so recommend you and your show<br class=3D"">to my kehillah and =
+the rest of my town.</span><o:p class=3D""></o:p></div></div></div><div =
+class=3D""><div class=3D""><div style=3D"margin: 0in 0in 0.0001pt; =
+font-size: 11pt; font-family: Calibri, sans-serif;" class=3D""><span =
+style=3D"font-size: 12pt;" class=3D"">&nbsp;</span><o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D""><span style=3D"font-size: 12pt;" =
+class=3D"">Thanks so much,</span><o:p =
+class=3D""></o:p></div></div></div><div class=3D""><div class=3D""><div =
+style=3D"margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: =
+Calibri, sans-serif;" class=3D""><span style=3D"font-size: 12pt;" =
+class=3D"">~Efraim</span></div></div></div></div></blockquote></div></div>=
+</div></blockquote></div></div></div></div></blockquote></div><br =
+class=3D""></div></body></html>=
+
+--Apple-Mail=_FE244288-F437-41CE-876C-C283BCC9F2FB--
+
+
+
+
+#######################
+
+
+)

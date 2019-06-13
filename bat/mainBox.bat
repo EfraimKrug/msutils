@@ -1,3 +1,4 @@
 @echo off
 cd C:\Users\KTM\python\msutils
-python MainBox\mainBox.py
+REM python MainBox\mainBox.py
+.\MainBox\dist\mainBox\mainBox

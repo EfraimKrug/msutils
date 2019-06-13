@@ -170,7 +170,10 @@ def stripMonth(wbook):
     mName = getNextMonthName().lower()
     if mName == "iyar":
         mName = "iyyar"
-        
+
+    if mName == "tamuz":
+        mName = "tammuz"
+
     if mName.find("adar") > -1:
         mName = "adar"
         sheetNewII = wbook.create_sheet(title = 'OneMonthII')
@@ -181,8 +184,8 @@ def stripMonth(wbook):
         else:
             if mName[-1] == 't' or mName[-1] == 's':
                 mName = mName[0:-1]
-
     for r in range(2, sheet.max_row):
+        # print(mName + ":" + sheet.cell(row=r,column=8).value)
         if mName.find("adar") > -1:
             if sheet.cell(row=r,column=8).value.lower().find("ii") > -1:
                 for s in range(1, 40):

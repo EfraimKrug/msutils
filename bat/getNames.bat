@@ -9,7 +9,9 @@ del .\newFiles\temp.txt
 
 echo processing 'yahrzeits.xlsx'
 if EXIST .\shulCloud\yahrzeits.xlsx (
-.\py\dist\getNames\getNames
+cd GetNames
+REM python getNames.py
+..\GetNames\dist\getNames\getNames
 goto endall
 )
 
@@ -17,8 +19,8 @@ echo yahrzeits.xlsx file does not exist in .\shulCloud
 goto enderror
 
 :endall
-"C:\Program Files\Microsoft Office\Root\Office16\WINWORD.EXE" .\newFiles\NamesWeek01.txt
-"C:\Program Files\Microsoft Office\Root\Office16\WINWORD.EXE" .\newFiles\NamesWeek02.txt
+"C:\Program Files\Microsoft Office\Root\Office16\WINWORD.EXE" ..\newFiles\NamesWeek01.txt
+REM "C:\Program Files\Microsoft Office\Root\Office16\WINWORD.EXE" ..\newFiles\NamesWeek02.txt
 goto endclean
 
 :enderror

@@ -18,29 +18,36 @@ class checkDisplay04:
         self.master = master
         self.fullHeight = self.master.winfo_screenheight()
         self.fullWidth = self.master.winfo_screenwidth()
-        #self.master.configure(bg="teal", pady=34, padx=17)
+
         self.master.configure(bg="teal", pady=3, padx=1)
         self.master.geometry('530x700')
-        #self.master.geometry('700x%s' % (self.fullHeight))
         self.master.title(depositName)
 
 
         self.frame = tk.Frame(self.master, width=310, height=self.fullHeight)
-        #self.frame = tk.Frame(self.master, width=460, height=360)
         self.frame.configure(bg="teal", pady=2, padx=2)
         self.frame.grid(row=1, column=1)
 
         self.people = []
         self.pages = []
-        self.tkvar = ''
+        # self.tkvar = ''
         self.checkTotal = 0
         self.cashTotal = 0
 
         self.depositWB = ""
         self.newDepositSheet = ""
-        self.CDCommonCode = CDCommonCode()
+        self.CDCommonCode = CDCommonCode(self.master)
         self.runProcess(self.depositName)
 
+    ########################################################################################
+    # Gathering all the cash data for a new row in our new spread sheet
+    # The data is placed into and array,
+    # which is placed in the array: self.cdata
+    # @param month, day: date from the work sheet we are working with...
+    # @param sheet: name of the sheet - for convenience (actually the same as month-day)
+    # @param current_row: the row we are reading from...
+    # @sideEffect: loading the data onto self.cdata (cash data)
+    ########################################################################################
     def loadRowCash(self, month, day, sheet, current_row):
         arr = []
         if(sheet.cell(row=current_row, column=2).value in self.ds):
@@ -59,13 +66,24 @@ class checkDisplay04:
 
         self.cdata.append(newRow)
 
-
+    ########################################################################################
+    # Gathering all the check data for a new row in our new spread sheet
+    # The data is placed into and array,
+    # which is placed in the array: self.cdata
+    # @param month, day: date from the work sheet we are working with...
+    # @param sheet: name of the sheet - for convenience (actually the same as month-day)
+    # @param current_row: the row we are reading from...
+    # @sideEffect: loading the data onto self.cdata (cash data)
+    ########################################################################################
     def loadRow(self, month, day, sheet, current_row):
+        # new array for each row
         arr = []
+        # if we have seen this name before, get the data we have already gathered
         if(sheet.cell(row=current_row, column=2).value in self.ds):
             arr = self.ds[sheet.cell(row=current_row, column=2).value]
 
         name = month+day
+        # person's name (on check)
         peep = sheet.cell(row=current_row, column=2).value
 
         newRow = [sheet.cell(row=current_row, column=1).value,
@@ -75,11 +93,14 @@ class checkDisplay04:
                   sheet.cell(row=current_row, column=5).value,
                   sheet.cell(row=current_row, column=6).value,
                   name]
-
+        # gather a list of all the unique people names
         if not peep in self.people:
             self.people.append(peep)
 
+        # this array will now be all the data for this name we have seen so far
         arr.append(newRow)
+
+        # ds is a dictionary key: person's name/value list of arrays one array / row 
         self.ds[sheet.cell(row=current_row, column=2).value] = arr
         if not name in self.sdata:
             self.sdata[name] = dict()

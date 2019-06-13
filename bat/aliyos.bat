@@ -26,4 +26,7 @@ exit 0
 
 :skiperror2
 echo Running aliyos and sending email...
-dist\aliyos\aliyos.exe > C:\Users\KTM\python\msutils\out\aliyosOut
+REM dist\aliyos\aliyos.exe > C:\Users\KTM\python\msutils\out\aliyosOut
+cd Aliyos
+REM python aliyos.py
+..\Aliyos\dist\aliyos\aliyos

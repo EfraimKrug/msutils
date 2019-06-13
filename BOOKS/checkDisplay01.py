@@ -33,7 +33,7 @@ class checkDisplay01:
         #self.EXCELEXE = ''
 
         self.dropInit = True
-        self.CDCommonCode = CDCommonCode()
+        self.CDCommonCode = CDCommonCode(self.master)
         self.runProcess()
 
 
@@ -126,6 +126,9 @@ class checkDisplay01:
     #     self.workingFile = self.tkvar.get()
 
 
+    #
+    # get display for specific excel page...
+    #
     def change_dropdown2(self, *args):
         if self.dropInit:
             self.dropInit = False
@@ -182,15 +185,18 @@ class checkDisplay01:
         # self.tkvar.trace('w', self.change_dropdown)
         # self.tkvar.set(fileList[0]) # set the default option
         #
-        self.tkvar2 = tk.StringVar(self.master)
-        self.tkvar2.trace('w', self.change_dropdown2)
-        self.tkvar2.set(self.pages[0][0]) # set the default option
 
         # pagesPopup = tk.OptionMenu(self.frame, self.tkvar, *fileList)
         # pagesPopup.grid(row = 1, column =6, padx=10, pady=10, sticky=tk.EW)
         pages = []
         for a in self.pages:
             pages.append(a[0])
+
+        pages = sorted(pages, key=self.CDCommonCode.compareMonths)
+        #pages = sorted(pages)
+        self.tkvar2 = tk.StringVar(self.master)
+        self.tkvar2.trace('w', self.change_dropdown2)
+        self.tkvar2.set(pages[len(pages)-1]) # set the default option
 
         pagesPopup2 = tk.OptionMenu(self.frame, self.tkvar2, *pages)
         pagesPopup2.grid(row = 1, column =5, padx=10, pady=10, sticky=tk.EW)

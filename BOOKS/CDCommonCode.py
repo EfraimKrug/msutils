@@ -1,11 +1,23 @@
 from CDCommon import *
 
 class CDCommonCode:
-    def __init__(self):
+    def __init__(self, master):
+        self.master = master
         self.cashcheckSwitch = ''
         self.ds = dict()        # {check_name: [check_number, memo, check_date, arrival_date, check_amount, check_image],
         self.workbooks = dict()
 
+    ############################################
+    # error display...
+    ############################################
+    def error_window(self, message):
+        self.newWindow = tk.Toplevel(self.master)
+        self.app = errorDisplay(self.newWindow, "Crash & Burn: " + message)
+
+
+    ############################################
+    # windows: find the excel program
+    ############################################
     def getExcel(self):
         handle = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE,
             r"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\excel.exe")
@@ -16,6 +28,9 @@ class CDCommonCode:
                 if(str(x).find("EXCEL") > -1):
                     self.EXCELEXE = x
 
+    #############################################
+    # dealing with files and directories
+    #############################################
     def getFiles(self, files):
         files = []
         file_list=os.listdir(dailyLogDir)
@@ -24,10 +39,6 @@ class CDCommonCode:
                 files.append(fileN[0:-5])
 
         return files
-
-    def error_window(self, message):
-        self.newWindow = tk.Toplevel(self.master)
-        self.app = errorDisplay(self.newWindow, "Crash & Burn: " + message)
 
     def show_image(self, img):
         try:
@@ -39,21 +50,9 @@ class CDCommonCode:
         except:
             self.error_window("Sorry, that file can not be found!")
 
-    # open up the excel files
-    # side effect - sets CDCommonCode.workbooks to workbook list
-    # param: files array of file names from directory
-    # return workbook list
-    def openDailyLog(self, files):
-        for file in files:
-            self.workbooks[file] = load_workbook(dailyLogDir + '\\' + file + '.xlsx')
-        return self.workbooks
-
-    def openOneDailyLog(self, fileName):
-        wb = load_workbook(dailyLogDir + '\\' + fileName + '.xlsx')
-        return wb
-
-    def getCurrentWorkbook(self, workingFile):
-        return self.workbooks[workingFile]
+####################################################
+# Working with internally with excel files
+####################################################
 
     def buildPage(self, newSheet):
         al = Alignment(horizontal='center', vertical='center')
@@ -93,29 +92,27 @@ class CDCommonCode:
         newSheet.column_dimensions['F'].width = 19
         newSheet.column_dimensions['G'].width = 11
 
+####################################################
+# Working with externally with excel files
+####################################################
     def createSheet(self, workingFile):
         sheetNameNew = True
         dt = datetime.today().strftime('%B-%d')
         da = dt.split('-')
         sheetName = da[0] + str(da[1])
 
+        # search for the new sheet name...
         for wb in self.workbooks:
             for name in self.workbooks[wb].sheetnames:
                 if name == sheetName:
                     sheetNameNew = False
+        # new sheet name is not there, create new one...
+        if sheetNameNew:
+            newSheet = self.getCurrentWorkbook(workingFile).create_sheet(title = sheetName)
+            newSheet = self.getCurrentWorkbook(workingFile)[sheetName]
+            self.buildPage(newSheet)
+            self.getCurrentWorkbook(workingFile).save(dailyLogDir + '\\' + workingFile + '.xlsx')
 
-        # for name in dailyLog.sheetnames:
-        #     if name == sheetName:
-        #         sheetNameNew = False
-
-        if not sheetNameNew:
-            return
-
-        newSheet = self.getCurrentWorkbook(workingFile).create_sheet(title = sheetName)
-
-        newSheet = self.getCurrentWorkbook(workingFile)[sheetName]
-        self.buildPage(newSheet)
-        self.getCurrentWorkbook(workingFile).save(dailyLogDir + '\\' + workingFile + '.xlsx')
 
     def parseName(self, name):
         day = name[-2:]
@@ -171,3 +168,37 @@ class CDCommonCode:
         wb.remove_sheet(firstSheet)
         dailyLog.save(newFileName)
         wb.save(workingFile)
+
+    # open up the excel files
+    # side effect - sets CDCommonCode.workbooks to workbook list
+    # param: files array of file names from directory
+    # return workbook list
+    # emk
+    def openDailyLog(self, files):
+        if len(files) == 0:
+            self.workbooks['DailyLog'] = Workbook()
+            dt = datetime.today().strftime('%B-%d')
+            da = dt.split('-')
+            sheetName = da[0] + str(da[1])
+            #newSheet = self.workbooks['dailyLog'].create_sheet(title = sheetName)
+            newSheet = self.workbooks['DailyLog']['Sheet']
+            self.workbooks['DailyLog']['Sheet'].title = sheetName
+            self.buildPage(newSheet)
+            #self.workbooks['dailyLog'].remove_sheet('Sheet')
+            self.workbooks['DailyLog'].save(filename = dailyLogDir + '\\DailyLog.xlsx')
+        else:
+            for file in files:
+                self.workbooks[file] = load_workbook(dailyLogDir + '\\' + file + '.xlsx')
+
+        return self.workbooks
+
+    def openOneDailyLog(self, fileName):
+        wb = load_workbook(dailyLogDir + '\\' + fileName + '.xlsx')
+        return wb
+
+    def getCurrentWorkbook(self, workingFile):
+        return self.workbooks[workingFile]
+
+    def compareMonths(self, m):
+        monthOrder = {'january': 1, 'february':2, 'march':3, 'april':4, 'may':5, 'june':6, 'july':7, 'august':8, 'september':9, 'october':10, 'november':11, 'december':12}
+        return monthOrder[m.lower()[:-2]]

@@ -52,6 +52,8 @@ def getTrx(sheet):
     global paymentLines
     global aliyahCount
     global totalLines
+    now_dt = datetime.today()
+    td = timedelta(days=-10)
 
     for r in range(2, sheet.max_row + 1):
         #must be logged as 'Aliyah'
@@ -70,6 +72,11 @@ def getTrx(sheet):
         #skip if the line item is payment
         if sheet.cell(row=r, column=2).value[0] == "P":
             paymentLines += 1
+            continue
+
+        #check_dt = datetime.strptime(sheet.cell(row=r, column=1).value , '%m/%d/%Y')
+        check_dt = sheet.cell(row=r, column=1).value
+        if check_dt > now_dt + td:
             continue
 
         if sheet.cell(row=r, column=14).value in accountArray[last]:
@@ -143,10 +150,10 @@ def sendTo(account):
 
 def fire(fromaddr, toaddrs, msg):
     global server
-    server.sendmail(fromaddr, toaddrs, msg)
+    # server.sendmail(fromaddr, toaddrs, msg)
     print("#"*45)
-    print(msg)
-    print("#"*45)
+    # print(msg)
+    # print("#"*45)
 
 def sendItAll():
     global server
@@ -160,6 +167,7 @@ def sendItAll():
             #print(accounts[a])
             msgTxt = writeEmail(accounts[a])
             list = sendTo(accounts[a])
+            # print(list)
             usedAddressList = []
             #if(len(list) < 1):
             #    print("Not Sent: " + str(a))
@@ -187,10 +195,10 @@ def printCounts():
     print("#############################################################")
     print("### Counts                                                ###")
     print("### Lines that were not Aliyah: " + str(notAliyah) + "                ###")
-    print("### Lines that were public: " + str(notAliyah) + "                    ###")
-    print("### Lines that were closed: " + str(notAliyah) + "                    ###")
-    print("### Lines that were payments: " + str(notAliyah) + "                  ###")
-    print("### Lines that were Aliyahs: " + str(notAliyah) + "                   ###")
+    print("### Lines that were public: " + str(publicLines) + "                    ###")
+    print("### Lines that were closed: " + str(closedLines) + "                    ###")
+    print("### Lines that were payments: " + str(paymentLines) + "                  ###")
+    print("### Lines that were Aliyahs: " + str(aliyahCount) + "                   ###")
     print("### Total: " + str(totalLines) + "                                    ###")
     print("#############################################################")
 

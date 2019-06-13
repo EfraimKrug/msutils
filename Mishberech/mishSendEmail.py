@@ -26,10 +26,15 @@ import smtplib
 from Profile import *
 from AlefBet import *
 from periodProcess import *
+import string
 
 fromaddr = 'KadimahTorasMoshe@gmail.com'
 toaddrs  = 'EfraimMKrug@gmail.com'
 server = ''
+fileName = "MishBerech.xlsx"
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 ####################################################
 #username = 'KadimahTorasMoshe@gmail.com'
 #password = 'August7Brachas'
@@ -42,12 +47,12 @@ accountArray.append(dict())
 def downloadXLSX():
     url = "https://images.shulcloud.com/616/uploads/mishberech/MishBerech.xlsx"
     response = requests.get(url, stream=True)
-    with open('MishBerech.xlsx', 'wb') as out_file:
+    with open(fileName, 'wb') as out_file:
         shutil.copyfileobj(response.raw, out_file)
     del response
 
 def openTrx():
-    wb = load_workbook('MishBerech.xlsx')
+    wb = load_workbook(fileName)
     return wb
 
 def fixName(name):
@@ -98,16 +103,27 @@ def writeEmail(account):
 
 def fire(fromaddr, toaddrs, msg):
     global server
+    p = set(string.printable)
+
     try:
-        server.sendmail(fromaddr, toaddrs, msg)
-    except:
-        print("#OUCH"*9)
-    print("#"*45)
-    print(str(msg))
-    print("#"*45)
+        server.sendmail(fromaddr, filter(lambda x: x in p, toaddrs), msg)
+        print("Successful Send: " + filter(lambda x: x in p, toaddrs))
+        return True
+    except Exception as e:
+        print("#OUCH" + ":[" + filter(lambda x: x in p, toaddrs) + "]: " + str(e))
+
+    return False
+
+def updateExcel(sheet, account):
+        today_dt = datetime.now()
+        for r in range(4, sheet.max_row + 1):
+            if account[0] == sheet.cell(row=r, column=2).value and account[4] == sheet.cell(row=r, column=6).value:
+                sheet.cell(row=r, column=5).value = today_dt
+                return
 
 
-def sendItAll():
+
+def sendItAll(sheet):
     global server
     global fromaddr
     global toaddrs
@@ -128,9 +144,11 @@ def sendItAll():
               "",
               msgTxt
               ])
+
             #print("FROM: " + fromaddr)
             #print("TO: " + x.encode('ascii', 'ignore'))
-            fire(fromaddr, toaddrs, msg)
+            if fire(fromaddr, toaddrs, msg):
+                updateExcel(sheet, accounts[a])
 
 
 #######################################################\
@@ -144,7 +162,8 @@ def runProcess():
     server.ehlo()
     server.starttls()
     server.login(username,password)
-    sendItAll()
+    sendItAll(trx[trx.sheetnames[0]])
     server.quit()
+    trx.save(fileName)
 
 runMonthly(runProcess)

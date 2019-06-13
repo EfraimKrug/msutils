@@ -25,7 +25,7 @@ class checkDisplay03:
         self.files = []
 
         self.tkvar = ''
-        self.CDCommonCode = CDCommonCode()
+        self.CDCommonCode = CDCommonCode(self.master)
         self.runProcess(self.personName)
 
     def loadRowCash(self, month, day, sheet, current_row):
@@ -81,7 +81,6 @@ class checkDisplay03:
         (day, month) = self.CDCommonCode.parseName(name)
         if not name in self.pages:
             self.pages.append(name)
-        #print("checking: " + name + "::" + personName)
         for r in range(3, sheet.max_row):
             if(str(sheet.cell(row=r,column=1).value).lower() == 'cash'):
                 self.cashcheckSwitch = 'cash'
@@ -190,7 +189,6 @@ class checkDisplay03:
         self.workbooks = self.CDCommonCode.openDailyLog(self.files)
         for wb in self.workbooks:
             for name in self.workbooks[wb].sheetnames:
-                print(name)
                 self.total = 0
                 self.getSheet(name, self.workbooks[wb][name], wb, personName)
         self.showData()

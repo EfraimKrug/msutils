@@ -1,18 +1,31 @@
-###################################################################
-# This is a python routine, ready for running on a linux machine. #
-# It can not be run on windows if Hebrew is used in some of the   #
-# names. Windows can not seem to handle the discrepency!          #
-#-----------------------------------------------------------------#
-# This does require an excel spread sheet called:                 #
-#         MishBerech.xlsx                                         #
-#     set up as follows:                                          #
-# Column 1: Blank                                                 #
-# Column 2: Addressee (email)                                     #
-# Column 3: Person who needs the MishBerech                       #
-# Column 4: Date in dd-MMM-yy format (e.g. 28-Aug-15)             #
-#           We keep this as the 'date requested' and we keep      #
-#           saying the mishBerech for 45 days. Then we send       #
-#           an email to check on the choleh and change the date.  #
-# Column 5: comments (ignored)                                    #
-# Column 6: Email Address                                         #
-###################################################################
+Mishberech
+
+There is a excel file on the (ktm) shul cloud website which holds all Mishberech
+information. This file is laid out like:
+
+Column #1: Empty
+Column #2: Requesting person
+Column #3: Choleh Name
+Column #4: Date added
+Column #5: Comments
+Column #6: email address
+
+The idea is that every month, we will run a process. This process will look
+through the list, and send email to all the people requesting help.
+
+If the record is more than 45 days old, we will send an email asking them
+if they want to keep the name on the list, or not.
+
+When we send the email, we update the comments columns - with the current date.
+If people answer the email - great. If they ask them to stay on, you change
+the date to the current date.
+
+If they do not answer, you can delete their person after a few days (whatever
+you determine.)
+
+===================================================================
+mishSendEmail.py:
+1) Download file
+2) Scan file and send email to all the possibilities
+3) Update the file
+4) User's needs to upload the file again.

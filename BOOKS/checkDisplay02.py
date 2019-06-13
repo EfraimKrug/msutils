@@ -1,7 +1,7 @@
 from CDCommonCode import *
 from checkDisplay03 import *
 from checkDisplay04 import *
-
+#import PyPDF2
 ####################################################################################################
 class checkDisplay02:
     def __init__(self, master, oSheetName, oWBName):
@@ -27,52 +27,8 @@ class checkDisplay02:
         self.pages = []
         self.tkvar = ''
 
-        self.CDCommonCode = CDCommonCode()
+        self.CDCommonCode = CDCommonCode(self.master)
         self.runProcess(self.oSheetName)
-
-    # def getEachKeyStroke(self, key):
-    #     print("here")
-    #
-    # def setOutlabel(self, newLabel):
-    #     self.OutLabel['text'] = newLabel
-    #
-    # def upArrow(self, key):
-    #     print("here")
-    #
-    # def downArrow(self, key):
-    #     print("here")
-    #
-    # def pre_new_window(self, key):
-    #     self.new_window()
-    #
-    # def new_empty_window(self):
-    #     self.newWindow = tk.Toplevel(self.master)
-    #
-    # def new_config_window(self):
-    #     self.newWindow = tk.Toplevel(self.master)
-    #
-    # def error_window(self, message):
-    #     self.newWindow = tk.Toplevel(self.master)
-    #     self.app = errorDisplay(self.newWindow, "Crash & Burn: " + message)
-    #
-    # def show_image(self, img):
-    #     try:
-    #         fileName = checkDir + img + ".pdf"
-    #         path_to_pdf = os.path.abspath(fileName)
-    #         path_to_acrobat = os.path.abspath(AcrobatPath)
-    #         process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
-    #         process.wait()
-    #     except:
-    #         self.error_window("Sorry, that file can not be found!")
-
-    # def openDailyLog(self):
-    #     wb = load_workbook(dailyLogDir + '\\' + self.oWBName + '.xlsx')
-    #     return wb
-
-    # def parseName(self, name):
-    #     day = name[-2:]
-    #     month = name[0:-2]
-    #     return (day, month)
 
     def loadRowCash(self, month, day, sheet, current_row):
         arr = []
@@ -160,21 +116,40 @@ class checkDisplay02:
         self.app = checkDisplay03(self.newWindow, name)
 
     def showDeposit(self, name, args):
-        #print(name)
         self.newWindow = tk.Toplevel(self.master)
         self.app = checkDisplay04(self.newWindow, name)
 
-# on change dropdown value
-    # def change_dropdown(self, *args):
-    #     print( self.tkvar.get() )
-    #
-    # def change_dropdown2(self, *args):
-    #     #self.ds = self.sdata[ self.tkvar2.get() ]
-    #     #self.frame = None
-    #     #self.showData()
-    #     print( self.tkvar2.get() )
-    #
-    # link function to change change_dropdown
+    def printSheet(self, sheetName, args):
+        dailyLog = self.CDCommonCode.openOneDailyLog(self.oWBName)
+        daySheet = dailyLog[sheetName]
+        wb = Workbook()
+        #printSheet = wb.create_sheet(title = 'printSheet')
+        printSheet = wb['Sheet']
+        printSheet.column_dimensions['C'].width = 32
+        printSheet.column_dimensions['D'].width = 20
+        printSheet.column_dimensions['F'].width = 20
+        printSheet.page_setup.orientation = printSheet.ORIENTATION_LANDSCAPE
+        printSheet.page_setup.fitToWidth = True
+
+        for r in range(1, daySheet.max_row + 1):
+            for c in range(1, 15):
+                printSheet.cell(row=r,column=c).value = daySheet.cell(row=r,column=c).value
+
+        wb.save(dailyLogDir + '\\print.xlsx')
+        fPath = dailyLogDir + "\\print.xlsx"
+        os.startfile(fPath, "print")
+
+        # Theoretically this would print the check images... but it's not
+        # there yet... whatever.
+        
+        # for i in range (1, 50):
+        #     if printSheet.cell(row=i, column=6).value:
+        #         if printSheet.cell(row=i, column=6).value.find("Checks") > -1:
+        #             cPath = checkDir + printSheet.cell(row=i, column=6).value + ".pdf"
+        #             self.CDCommonCode.show_image(cPath)
+
+        os.remove(fPath)
+
     def showData(self):
         total = 0
         self.label01 = []
@@ -210,6 +185,10 @@ class checkDisplay02:
 
         self.headline07 = tk.Label(self.frame, text="Image", bg="teal", fg="yellow")
         self.headline07.grid(row=3, column=16, padx=4, pady=2, sticky=tk.W)
+
+        self.headline08 = tk.Label(self.frame, text="Print", bg="yellow", fg="teal")
+        self.headline08.grid(row=3, column=18, padx=4, pady=4, sticky=tk.W)
+        self.headline08.bind("<Button-1>", partial(self.printSheet, self.oSheetName))
 
 
         sortedKeys = []

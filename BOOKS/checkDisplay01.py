@@ -129,10 +129,12 @@ class checkDisplay01:
     #
     # get display for specific excel page...
     #
-    def change_dropdown2(self, *args):
-        if self.dropInit:
-            self.dropInit = False
-            return
+    #def change_dropdown2(self, *args):
+    def change_dropdown2(self, event):
+        print("change_dropdown2")
+        # if self.dropInit:
+        #     self.dropInit = False
+        #     return
         wb = ""
         name = self.tkvar2.get()
         for a in self.pages:
@@ -195,12 +197,19 @@ class checkDisplay01:
 
         pages = sorted(pages, key=self.CDCommonCode.compareMonths)
         #pages = sorted(pages)
-        self.tkvar2 = tk.StringVar(self.master)
-        self.tkvar2.trace('w', self.change_dropdown2)
-        self.tkvar2.set(pages[len(pages)-1]) # set the default option
 
-        pagesPopup2 = tk.OptionMenu(self.frame, self.tkvar2, *pages)
+        self.tkvar2 = tk.StringVar()
+        # self.tkvar2 = tk.StringVar(self.master)
+        # self.tkvar2.trace('w', self.change_dropdown2)
+        # self.tkvar2.set(pages[len(pages)-1]) # set the default option
+        #
+        # pagesPopup2 = tk.OptionMenu(self.frame, self.tkvar2, *pages)
+        # pagesPopup2.grid(row = 1, column =5, padx=10, pady=10, sticky=tk.EW)
+        # print(pages)
+        pagesPopup2 = ttk.Combobox(self.frame, textvariable=self.tkvar2, values=pages)
         pagesPopup2.grid(row = 1, column =5, padx=10, pady=10, sticky=tk.EW)
+        pagesPopup2.current(1)
+        pagesPopup2.bind("<<ComboboxSelected>>", self.change_dropdown2)
 
         self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.CDCommonCode.shiftWBook, self.files, self.workingFile))
         self.button01.grid(row=1, column=2, columnspan=1, padx=10, pady=10, sticky=tk.EW)

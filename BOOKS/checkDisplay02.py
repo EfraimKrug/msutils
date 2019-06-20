@@ -117,9 +117,15 @@ class checkDisplay02:
 
     def showDeposit(self, name, args):
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay04(self.newWindow, name)
+        self.app = checkDisplay04(self.newWindow, name, '', self.oWBName)
 
     def printSheet(self, sheetName, args):
+        fPath = dailyLogDir + "\\\\print.xlsx"
+        try:
+            os.remove(fPath)
+        except:
+            print("could not find " + fPath)
+
         dailyLog = self.CDCommonCode.openOneDailyLog(self.oWBName)
         daySheet = dailyLog[sheetName]
         wb = Workbook()
@@ -135,20 +141,19 @@ class checkDisplay02:
             for c in range(1, 15):
                 printSheet.cell(row=r,column=c).value = daySheet.cell(row=r,column=c).value
 
-        wb.save(dailyLogDir + '\\print.xlsx')
-        fPath = dailyLogDir + "\\print.xlsx"
+        wb.save(fPath)
+        #print("saving: " + fPath)
         os.startfile(fPath, "print")
 
         # Theoretically this would print the check images... but it's not
         # there yet... whatever.
-        
+
         # for i in range (1, 50):
         #     if printSheet.cell(row=i, column=6).value:
         #         if printSheet.cell(row=i, column=6).value.find("Checks") > -1:
         #             cPath = checkDir + printSheet.cell(row=i, column=6).value + ".pdf"
         #             self.CDCommonCode.show_image(cPath)
 
-        os.remove(fPath)
 
     def showData(self):
         total = 0

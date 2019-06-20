@@ -35,6 +35,8 @@ class CDCommonCode:
         files = []
         file_list=os.listdir(dailyLogDir)
         for  fileN in file_list:
+            if fileN.find('print') == 0:
+                continue
             if fileN.find('xlsx') > 0:
                 files.append(fileN[0:-5])
 

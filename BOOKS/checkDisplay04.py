@@ -100,7 +100,7 @@ class checkDisplay04:
         # this array will now be all the data for this name we have seen so far
         arr.append(newRow)
 
-        # ds is a dictionary key: person's name/value list of arrays one array / row 
+        # ds is a dictionary key: person's name/value list of arrays one array / row
         self.ds[sheet.cell(row=current_row, column=2).value] = arr
         if not name in self.sdata:
             self.sdata[name] = dict()
@@ -137,7 +137,7 @@ class checkDisplay04:
 
     def showPerson(self, name, args):
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay03(self.newWindow, name)
+        self.app = checkDisplay03(self.newWindow, name, '', self.oWBName)
 
     def showCash(self):
         total = 0
@@ -271,11 +271,18 @@ class checkDisplay04:
         return row_num
 
     def runProcess(self, depositName):
-        dailyLog = self.CDCommonCode.openOneDailyLog(self.wb)
+        fileList = self.CDCommonCode.getFiles([])
+        workbooks = self.CDCommonCode.openDailyLog(fileList)
+        for wb in workbooks:
+            for name in workbooks[wb].sheetnames:
+                self.total = 0
+                self.getSheet(name, workbooks[wb][name], depositName)
+        ###########################################################
+        # dailyLog = self.CDCommonCode.openOneDailyLog(self.wb)
         self.total = 0
         row_num = 6
-        for name in dailyLog.sheetnames:
-            self.getSheet(name, dailyLog[name], depositName)
+        # for name in dailyLog.sheetnames:
+        #     self.getSheet(name, dailyLog[name], depositName)
 
         row_num = self.showData(row_num)
         row_num = row_num + 3

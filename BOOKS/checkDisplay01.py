@@ -166,7 +166,8 @@ class checkDisplay01:
                 wb = depArr[2]
 
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay04(self.newWindow, dName, sName, wb)
+        #self.app = checkDisplay04(self.newWindow, dName, sName, wb)
+        self.app = checkDisplay04(self.newWindow, dName, '', wb)
 
     # link function to change change_dropdown
     def showData(self):

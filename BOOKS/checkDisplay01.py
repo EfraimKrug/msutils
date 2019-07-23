@@ -131,7 +131,7 @@ class checkDisplay01:
     #
     #def change_dropdown2(self, *args):
     def change_dropdown2(self, event):
-        print("change_dropdown2")
+        #print("change_dropdown2")
         # if self.dropInit:
         #     self.dropInit = False
         #     return
@@ -196,6 +196,37 @@ class checkDisplay01:
             pages.append(a[0])
 
         pages = sorted(pages, key=self.CDCommonCode.compareMonths)
+###################################################################################
+        # try sorting pages better...
+        tempDict = dict()
+        mth = []
+        #print(pages)
+        for nm in pages:
+            fnm = nm[:-2]
+            num = nm[-2:]
+            if fnm not in mth:
+                tempDict[fnm] = []
+                mth.append(fnm)
+
+            tempDict[fnm].append(num)
+
+        pages = []
+        mth = sorted(mth, key=self.CDCommonCode.compareMonths)
+        # print(mth)
+        for nm in mth:
+            tempDict[nm].sort()
+
+        for nm in mth:
+            for num in tempDict[nm]:
+                x = str(nm) + str(num)
+                if x not in pages:
+                    pages.append(str(nm) + str(num))
+
+
+
+
+###################################################################################
+
         #pages = sorted(pages)
 
         self.tkvar2 = tk.StringVar()

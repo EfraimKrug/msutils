@@ -150,8 +150,8 @@ def sendTo(account):
 
 def fire(fromaddr, toaddrs, msg):
     global server
-    # server.sendmail(fromaddr, toaddrs, msg)
-    print("#"*45)
+    server.sendmail(fromaddr, toaddrs, msg)
+    #print("#"*45)
     # print(msg)
     # print("#"*45)
 

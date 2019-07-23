@@ -34,6 +34,7 @@ def runMonthly(runProcess):
         storeThisRun(str(getThisRun()))
         runProcess()
     else:
+        storeThisRun(str(getThisRun()) + " WAIT... Deal with yourself...")
         print ("This program has been run within the last month")
 
 def runWeekly(runProcess):
@@ -41,6 +42,7 @@ def runWeekly(runProcess):
         storeThisRun(str(getThisRun()))
         runProcess()
     else:
+        storeThisRun(str(getThisRun()) + " WAIT... Deal with yourself...")
         print ("This program has been run within the last week")
 
 def runWhatever(runProcess, delay=15):
@@ -48,6 +50,7 @@ def runWhatever(runProcess, delay=15):
         storeThisRun(str(getThisRun()))
         runProcess()
     else:
+        storeThisRun(str(getThisRun()) + " WAIT... Deal with yourself...")
         print ("This program has been run within the last " + str(delay) + " days")
 
 

@@ -52,6 +52,16 @@ class CDCommonCode:
         except:
             self.error_window("Sorry, that file can not be found!")
 
+    def showDepositImage(self, img, args):
+        try:
+            fileName = depositDir + '\\' + img + ".pdf"
+            path_to_pdf = os.path.abspath(fileName)
+            path_to_acrobat = os.path.abspath(AcrobatPath)
+            process = subprocess.Popen([path_to_acrobat, '/A', 'page=1', path_to_pdf], shell=False, stdout=subprocess.PIPE)
+            process.wait()
+        except:
+            self.error_window("Sorry, that file can not be found!")
+
 ####################################################
 # Working with internally with excel files
 ####################################################
@@ -137,10 +147,12 @@ class CDCommonCode:
         for name in dailyLog.sheetnames:
             sheetNames.append(name)
 
-        if len(sheetNames) > 4:
-            newBookName = sheetNames[4][0:-2]
+        if len(sheetNames) > 10:
+            #print("length > 10")
+            newBookName = sheetNames[10][0:-2]
 
         if len(newBookName) < 3:
+            #print("length < 3 - crash and burn: " + newBookName)
             return
 
         newFileName = dailyLogDir + "\\" + newBookName + '.xlsx'
@@ -148,7 +160,7 @@ class CDCommonCode:
 
         try:
             fh = open(newFileName, 'r')
-            print("Sorry - we have already cycled the files")
+            print("Sorry - we have already cycled the files: " + newFileName)
             return
         except FileNotFoundError:
             print("Processing new file...")
@@ -187,15 +199,23 @@ class CDCommonCode:
             self.workbooks['DailyLog']['Sheet'].title = sheetName
             self.buildPage(newSheet)
             #self.workbooks['dailyLog'].remove_sheet('Sheet')
+            print(dailyLogDir + '\\DailyLog.xlsx')
             self.workbooks['DailyLog'].save(filename = dailyLogDir + '\\DailyLog.xlsx')
         else:
             for file in files:
-                self.workbooks[file] = load_workbook(dailyLogDir + '\\' + file + '.xlsx')
+                print(dailyLogDir + '\\' + file + '.xlsx')
+                self.workbooks[file] = load_workbook(dailyLogDir + '\\' + file + '.xlsx', data_only=True)
 
         return self.workbooks
 
     def openOneDailyLog(self, fileName):
-        wb = load_workbook(dailyLogDir + '\\' + fileName + '.xlsx')
+        print(dailyLogDir + '\\' + fileName + '.xlsx')
+        wb = load_workbook(dailyLogDir + '\\' + fileName + '.xlsx', data_only=True)
+        return wb
+
+    def openDepositLog(self, fileName):
+        print(depositDir + '\\' + fileName + '.xlsx')
+        wb = load_workbook(depositDir + '\\' + fileName + '.xlsx', data_only=True)
         return wb
 
     def getCurrentWorkbook(self, workingFile):
@@ -203,4 +223,7 @@ class CDCommonCode:
 
     def compareMonths(self, m):
         monthOrder = {'january': 1, 'february':2, 'march':3, 'april':4, 'may':5, 'june':6, 'july':7, 'august':8, 'september':9, 'october':10, 'november':11, 'december':12}
-        return monthOrder[m.lower()[:-2]]
+        if m.lower()[:-2] in monthOrder:
+            return monthOrder[m.lower()[:-2]]
+        return 0
+        #return monthOrder[m.lower()]

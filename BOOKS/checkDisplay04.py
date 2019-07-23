@@ -137,7 +137,8 @@ class checkDisplay04:
 
     def showPerson(self, name, args):
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay03(self.newWindow, name, '', self.oWBName)
+        #self.app = checkDisplay03(self.newWindow, name, '', self.wb)
+        self.app = checkDisplay03(self.newWindow, name)
 
     def showCash(self):
         total = 0

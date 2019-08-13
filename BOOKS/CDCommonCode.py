@@ -49,7 +49,7 @@ class CDCommonCode:
 
     def getFiles(self, files):
         files = []
-        print('getFiles: ' + str(self.allHistory))
+        # print('getFiles: ' + str(self.allHistory))
         if self.allHistory:
             files = self.getOldFiles(files)
 
@@ -177,7 +177,7 @@ class CDCommonCode:
                 workbooks[wb].save(dailyLogDir + wb + '.xlsx')
 
         self.cleanOnce = True
-        
+
     def shiftWBook(self, files, workingFile):
         sheetNames = []
         lastThree = []

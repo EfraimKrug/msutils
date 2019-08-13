@@ -208,23 +208,23 @@ class checkDisplay04:
         self.button01 = []
         fileNames = []
 
-        self.title = tk.Label(self.frame, text=self.depositName, bg="teal", fg="yellow", font='Helvetica 10 bold')
+        self.title = tk.Label(self.frame, text=self.depositName, bg="teal", fg="blue", font='Helvetica 10 bold')
         self.title.grid(row=1, column=1, padx=1, pady=4, sticky=tk.NW)
         self.title.bind("<Button-1>", partial(self.makeDeposit, self.depositName))
 
-        self.headline01 = tk.Label(self.frame, text="Name", bg="teal", fg="yellow")
+        self.headline01 = tk.Label(self.frame, text="Name", bg="teal", fg="blue")
         self.headline01.grid(row=3, column=2, padx=1, pady=2, sticky=tk.W)
 
-        self.headline02 = tk.Label(self.frame, text=" Date ", bg="teal", fg="yellow")
+        self.headline02 = tk.Label(self.frame, text=" Date ", bg="teal", fg="blue")
         self.headline02.grid(row=3, column=4, padx=1, pady=2, sticky=tk.W)
 
-        self.headline03 = tk.Label(self.frame, text="Check #", bg="teal", fg="yellow")
+        self.headline03 = tk.Label(self.frame, text="Check #", bg="teal", fg="blue")
         self.headline03.grid(row=3, column=6, padx=1, pady=2, sticky=tk.W)
 
-        self.headline04 = tk.Label(self.frame, text="Amount", bg="teal", fg="yellow")
+        self.headline04 = tk.Label(self.frame, text="Amount", bg="teal", fg="blue")
         self.headline04.grid(row=3, column=8, padx=1, pady=2, sticky=tk.W)
 
-        self.headline07 = tk.Label(self.frame, text="Image", bg="teal", fg="yellow")
+        self.headline07 = tk.Label(self.frame, text="Image", bg="teal", fg="blue")
         self.headline07.grid(row=3, column=14, padx=1, pady=2, sticky=tk.W)
 
 

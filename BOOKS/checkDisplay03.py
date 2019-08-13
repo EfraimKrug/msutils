@@ -114,29 +114,30 @@ class checkDisplay03:
         self.label04 = []
         self.label05 = []
         self.label06 = []
+        self.label06n = []
         self.button01 = []
         fileNames = []
 
         row_num = 6
-        self.title = tk.Label(self.frame, text=self.personName, bg="teal", fg="yellow", font='Helvetica 10 bold')
+        self.title = tk.Label(self.frame, text=self.personName, bg="teal", fg="blue", font='Helvetica 10 bold')
         self.title.grid(row=1, column=1, padx=4, pady=4, sticky=tk.NW)
 
-        self.headline01 = tk.Label(self.frame, text="Name", bg="teal", fg="yellow")
+        self.headline01 = tk.Label(self.frame, text="Name", bg="teal", fg="blue")
         self.headline01.grid(row=3, column=2, padx=4, pady=2, sticky=tk.W)
 
-        self.headline02 = tk.Label(self.frame, text=" Date ", bg="teal", fg="yellow")
+        self.headline02 = tk.Label(self.frame, text=" Date ", bg="teal", fg="blue")
         self.headline02.grid(row=3, column=4, padx=4, pady=2, sticky=tk.W)
 
-        self.headline03 = tk.Label(self.frame, text="Check #", bg="teal", fg="yellow")
+        self.headline03 = tk.Label(self.frame, text="Check #", bg="teal", fg="blue")
         self.headline03.grid(row=3, column=6, padx=4, pady=2, sticky=tk.W)
 
-        self.headline04 = tk.Label(self.frame, text="Amount", bg="teal", fg="yellow")
+        self.headline04 = tk.Label(self.frame, text="Amount", bg="teal", fg="blue")
         self.headline04.grid(row=3, column=8, padx=4, pady=2, sticky=tk.W)
 
-        self.headline06 = tk.Label(self.frame, text="Sheet Total", bg="teal", fg="yellow")
-        self.headline06.grid(row=3, column=12, padx=4, pady=2, sticky=tk.W)
+        # self.headline06 = tk.Label(self.frame, text="Sheet Total", bg="teal", fg="yellow")
+        # self.headline06.grid(row=3, column=12, padx=4, pady=2, sticky=tk.W)
 
-        self.headline07 = tk.Label(self.frame, text="Image", bg="teal", fg="yellow")
+        self.headline07 = tk.Label(self.frame, text="Image", bg="teal", fg="blue")
         self.headline07.grid(row=3, column=14, padx=4, pady=2, sticky=tk.W)
 
 
@@ -148,7 +149,7 @@ class checkDisplay03:
         pEnt = ''
         totals = dict()
 
-        self.showCash()
+        # self.showCash()
 
         for ent in sortedKeys:
             for e in self.ds[ent]:
@@ -174,15 +175,24 @@ class checkDisplay03:
                 else:
                     totals[e[6]] = e[4]
 
-                fAmt2 = "{:.2f}".format(float(totals[e[6]]))
-                self.label06.append(tk.Label(self.frame, text="$" + str(fAmt2), bg="teal", fg="yellow"))
-                self.label06[len(self.label06)-1].grid(row=row_num, column=12, padx=4, pady=4, sticky=tk.NW)
+                # fAmt2 = "{:.2f}".format(float(totals[e[6]]))
+                # self.label06.append(tk.Label(self.frame, text="$" + str(fAmt2), bg="teal", fg="yellow"))
+                # self.label06[len(self.label06)-1].grid(row=row_num, column=12, padx=4, pady=4, sticky=tk.NW)
 
                 self.button01.append(tk.Button(self.frame, text="View", command=partial(self.CDCommonCode.show_image, e[5])))
                 self.button01[len(self.button01)-1].grid(row=row_num, column=14, columnspan=2, padx=4, pady=4, sticky=tk.EW)
                 total = total + e[4]
                 row_num += 1
                 line = ''
+
+        # print total given
+        # fAmt2 = "{:.2f}".format(float(totals[e[6]]))
+        fAmt2 = "{:.2f}".format(float(total))
+        self.label06.append(tk.Label(self.frame, text="Total: ", bg="teal", fg="blue"))
+        self.label06[len(self.label06)-1].grid(row=row_num + 2, column=7, padx=4, pady=4, sticky=tk.NW)
+        self.label06n.append(tk.Label(self.frame, text="$" + str(fAmt2), bg="teal", fg="blue"))
+        self.label06n[len(self.label06n)-1].grid(row=row_num + 2, column=8, padx=4, pady=4, sticky=tk.NW)
+
 
     def runProcess(self, personName):
         self.files = self.CDCommonCode.getFiles(self.files)

@@ -168,28 +168,28 @@ class checkDisplay02:
         fileNames = []
 
         row_num = 6
-        self.title = tk.Label(self.frame, text=self.oSheetName, bg="teal", fg="yellow", font='Helvetica 10 bold')
+        self.title = tk.Label(self.frame, text=self.oSheetName, bg="teal", fg="blue", font='Helvetica 10 bold')
         self.title.grid(row=1, column=1, padx=4, pady=4, sticky=tk.NW)
 
-        self.headline01 = tk.Label(self.frame, text="Name", bg="teal", fg="yellow")
+        self.headline01 = tk.Label(self.frame, text="Name", bg="teal", fg="blue")
         self.headline01.grid(row=3, column=2, padx=4, pady=2, sticky=tk.W)
 
-        self.headline02 = tk.Label(self.frame, text=" Date ", bg="teal", fg="yellow")
+        self.headline02 = tk.Label(self.frame, text=" Date ", bg="teal", fg="blue")
         self.headline02.grid(row=3, column=4, padx=4, pady=2, sticky=tk.W)
 
-        self.headline03 = tk.Label(self.frame, text=" Deposit ", bg="teal", fg="yellow")
+        self.headline03 = tk.Label(self.frame, text=" Deposit ", bg="teal", fg="blue")
         self.headline03.grid(row=3, column=6, padx=4, pady=2, sticky=tk.W)
 
-        self.headline04 = tk.Label(self.frame, text="Check #", bg="teal", fg="yellow")
+        self.headline04 = tk.Label(self.frame, text="Check #", bg="teal", fg="blue")
         self.headline04.grid(row=3, column=8, padx=4, pady=2, sticky=tk.W)
 
-        self.headline05 = tk.Label(self.frame, text="Amount", bg="teal", fg="yellow")
+        self.headline05 = tk.Label(self.frame, text="Amount", bg="teal", fg="blue")
         self.headline05.grid(row=3, column=10, padx=4, pady=2, sticky=tk.W)
 
-        self.headline06 = tk.Label(self.frame, text="Sheet Total", bg="teal", fg="yellow")
-        self.headline06.grid(row=3, column=14, padx=4, pady=2, sticky=tk.W)
+        # self.headline06 = tk.Label(self.frame, text="Sheet Total", bg="teal", fg="yellow")
+        # self.headline06.grid(row=3, column=14, padx=4, pady=2, sticky=tk.W)
 
-        self.headline07 = tk.Label(self.frame, text="Image", bg="teal", fg="yellow")
+        self.headline07 = tk.Label(self.frame, text="Image", bg="teal", fg="blue")
         self.headline07.grid(row=3, column=16, padx=4, pady=2, sticky=tk.W)
 
         self.headline08 = tk.Label(self.frame, text="Print", bg="yellow", fg="teal")
@@ -236,9 +236,9 @@ class checkDisplay02:
                 else:
                     totals[e[7]] = e[5]
 
-                fAmt2 = "{:.2f}".format(float(totals[e[7]]))
-                self.label06.append(tk.Label(self.frame, text="$" + str(fAmt2), bg="teal", fg="yellow"))
-                self.label06[len(self.label06)-1].grid(row=row_num, column=14, padx=4, pady=4, sticky=tk.NW)
+                # fAmt2 = "{:.2f}".format(float(totals[e[7]]))
+                # self.label06.append(tk.Label(self.frame, text="$" + str(fAmt2), bg="teal", fg="yellow"))
+                # self.label06[len(self.label06)-1].grid(row=row_num, column=14, padx=4, pady=4, sticky=tk.NW)
 
                 self.button01.append(tk.Button(self.frame, text="View", command=partial(self.CDCommonCode.show_image, e[6])))
                 self.button01[len(self.button01)-1].grid(row=row_num, column=16, columnspan=2, padx=4, pady=4, sticky=tk.EW)

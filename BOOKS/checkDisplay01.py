@@ -13,13 +13,19 @@ class checkDisplay01:
         self.cdata = []     # cash
         #self.searchObj = ''
         self.depositName = []
+        self.allHistory = allHistory
 
         self.master = master
         self.master.configure(bg="teal", pady=34, padx=17)
-        self.master.geometry('400x300')
+        if self.allHistory:
+            self.master.geometry('400x600')
+            self.frame = tk.Frame(self.master, width=360, height=560)
+        else:
+            self.master.geometry('400x300')
+            self.frame = tk.Frame(self.master, width=360, height=260)
+
         self.master.title('Kadima Toras-Moshe Check Tracking')
 
-        self.frame = tk.Frame(self.master, width=360, height=260)
         self.frame.configure(bg="teal", pady=2, padx=2)
         self.frame.grid(row=1, column=1)
 
@@ -29,7 +35,6 @@ class checkDisplay01:
         self.workbooks = dict()
         self.workingFile = 'DailyLog'
 
-        self.allHistory = allHistory
         #self.tkvar = ''
         #self.EXCELEXE = ''
 
@@ -251,7 +256,7 @@ class checkDisplay01:
         self.button02.grid(row=1, column=3, columnspan=1, padx=10, pady=10, sticky=tk.EW)
 
         row_num = 6
-        self.headline03 = tk.Label(self.frame, text=" Deposits ", bg="teal", fg="yellow")
+        self.headline03 = tk.Label(self.frame, text=" Deposits ", bg="teal", fg="blue")
         self.headline03.grid(row=3, column=3, padx=4, pady=2, sticky=tk.W)
 
         for e1 in self.ds:

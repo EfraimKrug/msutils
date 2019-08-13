@@ -6,6 +6,8 @@ class CDCommonCode:
         self.cashcheckSwitch = ''
         self.ds = dict()        # {check_name: [check_number, memo, check_date, arrival_date, check_amount, check_image],
         self.workbooks = dict()
+        self.allHistory = False
+        self.cleanOnce = False
 
     ############################################
     # error display...
@@ -14,7 +16,9 @@ class CDCommonCode:
         self.newWindow = tk.Toplevel(self.master)
         self.app = errorDisplay(self.newWindow, "Crash & Burn: " + message)
 
-
+    # val is true or false
+    def setAllHistory(self, val):
+        self.allHistory = val
     ############################################
     # windows: find the excel program
     ############################################
@@ -31,8 +35,24 @@ class CDCommonCode:
     #############################################
     # dealing with files and directories
     #############################################
+    def getOldFiles(self, files):
+        oldFiles = []
+        file_list=os.listdir(dailyLogDir + "\\Backup")
+        for  fileN in file_list:
+            #print(fileN)
+            if fileN.find('print') == 0:
+                continue
+            if fileN.find('xlsx') > 0:
+                oldFiles.append("\\Backup\\" + fileN[0:-5])
+        self.cleanupFiles(oldFiles)
+        return oldFiles
+
     def getFiles(self, files):
         files = []
+        print('getFiles: ' + str(self.allHistory))
+        if self.allHistory:
+            files = self.getOldFiles(files)
+
         file_list=os.listdir(dailyLogDir)
         for  fileN in file_list:
             if fileN.find('print') == 0:
@@ -136,13 +156,28 @@ class CDCommonCode:
         self.getExcel()
         os.system("start  \"" + self.EXCELEXE + "\" \"" + dailyLogDir + "\\" + workingFile + ".xlsx\"")
 
-    def cleanUp(self, files):
+    #
+    # note - this gets a list of (backup) files, and removes all
+    # worksheets that do not have the same name as the workbook...
+    #
+    def cleanupFiles(self, files):
+        if self.cleanOnce:
+            return
+
+        workbooks = dict()
         sheetNames = []
         lastThree = []
-        wbList = self.openDailyLog(files)
-        for wb in wbList:
-            print(wb)
 
+        for wb in files:
+            workbooks[wb] = load_workbook(dailyLogDir + wb + '.xlsx', data_only=True)
+            for name in workbooks[wb].sheetnames:
+                if not wb[wb.rfind('\\')+1:] in name:
+                    ws = workbooks[wb][name]
+                    workbooks[wb].remove(ws)
+                workbooks[wb].save(dailyLogDir + wb + '.xlsx')
+
+        self.cleanOnce = True
+        
     def shiftWBook(self, files, workingFile):
         sheetNames = []
         lastThree = []
@@ -195,6 +230,7 @@ class CDCommonCode:
     # return workbook list
     # emk
     def openDailyLog(self, files):
+        # print("openDailyLog")
         if len(files) == 0:
             self.workbooks['DailyLog'] = Workbook()
             dt = datetime.today().strftime('%B-%d')
@@ -215,12 +251,12 @@ class CDCommonCode:
         return self.workbooks
 
     def openOneDailyLog(self, fileName):
-        print(dailyLogDir + '\\' + fileName + '.xlsx')
+        # print(dailyLogDir + '\\' + fileName + '.xlsx')
         wb = load_workbook(dailyLogDir + '\\' + fileName + '.xlsx', data_only=True)
         return wb
 
     def openDepositLog(self, fileName):
-        print(depositDir + '\\' + fileName + '.xlsx')
+        # print(depositDir + '\\' + fileName + '.xlsx')
         wb = load_workbook(depositDir + '\\' + fileName + '.xlsx', data_only=True)
         return wb
 

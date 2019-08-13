@@ -2,7 +2,7 @@ from CDCommonCode import *
 
 ####################################################################################################
 class checkDisplay03:
-    def __init__(self, master, personName):
+    def __init__(self, master, personName, CDCommonCode):
         self.cashcheckSwitch = ''
         self.ds = dict()
         self.personName = personName
@@ -25,7 +25,7 @@ class checkDisplay03:
         self.files = []
 
         self.tkvar = ''
-        self.CDCommonCode = CDCommonCode(self.master)
+        self.CDCommonCode = CDCommonCode
         self.runProcess(self.personName)
 
     def loadRowCash(self, month, day, sheet, current_row):

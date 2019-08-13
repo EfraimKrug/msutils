@@ -5,7 +5,7 @@ from checkDisplay02 import *
 ### in all workbooks in the directory
 ####################################################################################################
 class checkDisplay01:
-    def __init__(self, master):
+    def __init__(self, master, allHistory=False):
         self.cashcheckSwitch = ''
         self.ds = dict()        # {check_name: [check_number, memo, check_date, arrival_date, check_amount, check_image],
         self.sdata = dict()     # sheet by sheet...
@@ -29,6 +29,7 @@ class checkDisplay01:
         self.workbooks = dict()
         self.workingFile = 'DailyLog'
 
+        self.allHistory = allHistory
         #self.tkvar = ''
         #self.EXCELEXE = ''
 
@@ -142,7 +143,7 @@ class checkDisplay01:
                 wb = a[1]
 
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay02(self.newWindow, name, wb)
+        self.app = checkDisplay02(self.newWindow, name, wb, self.CDCommonCode)
 
     def showCash(self):
         total = 0
@@ -155,7 +156,7 @@ class checkDisplay01:
 
     def showPerson(self, name, args):
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay03(self.newWindow, name)
+        self.app = checkDisplay03(self.newWindow, name, self.CDCommonCode)
 
     def showDeposit(self, name, args):
         wb = ""
@@ -169,7 +170,7 @@ class checkDisplay01:
 
         self.newWindow = tk.Toplevel(self.master)
         #self.app = checkDisplay04(self.newWindow, dName, sName, wb)
-        self.app = checkDisplay04(self.newWindow, dName, '', wb)
+        self.app = checkDisplay04(self.newWindow, dName, '', wb, self.CDCommonCode)
 
     # link function to change change_dropdown
     def showData(self):
@@ -242,8 +243,8 @@ class checkDisplay01:
         pagesPopup2.current(1)
         pagesPopup2.bind("<<ComboboxSelected>>", self.change_dropdown2)
 
-        #self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.CDCommonCode.shiftWBook, self.files, self.workingFile))
-        self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.CDCommonCode.cleanUp, self.files))
+        self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.CDCommonCode.shiftWBook, self.files, self.workingFile))
+        # self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.CDCommonCode.cleanUp, self.files))
         self.button01.grid(row=1, column=2, columnspan=1, padx=10, pady=10, sticky=tk.EW)
 
         self.button02 = tk.Button(self.frame, text="Open Excel", command=partial(self.CDCommonCode.openNewSheet, self.workingFile))
@@ -272,6 +273,7 @@ class checkDisplay01:
     #     return False
 
     def runProcess(self):
+        self.CDCommonCode.setAllHistory(self.allHistory)
         self.files = self.CDCommonCode.getFiles(self.files)
         self.workbooks = self.CDCommonCode.openDailyLog(self.files)
         for wb in self.workbooks:

@@ -4,7 +4,7 @@ from checkDisplay04 import *
 #import PyPDF2
 ####################################################################################################
 class checkDisplay02:
-    def __init__(self, master, oSheetName, oWBName):
+    def __init__(self, master, oSheetName, oWBName, CDCommonCode):
         self.cashcheckSwitch = ''
         self.ds = dict()
         self.oSheetName = oSheetName
@@ -27,7 +27,8 @@ class checkDisplay02:
         self.pages = []
         self.tkvar = ''
 
-        self.CDCommonCode = CDCommonCode(self.master)
+        # self.CDCommonCode = CDCommonCode(self.master)
+        self.CDCommonCode = CDCommonCode
         self.runProcess(self.oSheetName)
 
     def loadRowCash(self, month, day, sheet, current_row):
@@ -113,11 +114,11 @@ class checkDisplay02:
 
     def showPerson(self, name, args):
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay03(self.newWindow, name)
+        self.app = checkDisplay03(self.newWindow, name, self.CDCommonCode)
 
     def showDeposit(self, name, args):
         self.newWindow = tk.Toplevel(self.master)
-        self.app = checkDisplay04(self.newWindow, name, '', self.oWBName)
+        self.app = checkDisplay04(self.newWindow, name, '', self.oWBName, self.CDCommonCode)
 
     def printSheet(self, sheetName, args):
         fPath = dailyLogDir + "\\\\print.xlsx"

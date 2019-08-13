@@ -5,7 +5,7 @@ import tkinter.font as tkFont
 ### Showing the individual deposit - that will probably span across spreadsheets -
 ####################################################################################################
 class checkDisplay04:
-    def __init__(self, master, depositName, sheet, wb):
+    def __init__(self, master, depositName, sheet, wb, CDCommonCode):
         self.cashcheckSwitch = ''
         self.ds = dict()
         self.depositName = depositName
@@ -36,7 +36,7 @@ class checkDisplay04:
 
         self.depositWB = ""
         self.newDepositSheet = ""
-        self.CDCommonCode = CDCommonCode(self.master)
+        self.CDCommonCode = CDCommonCode
         self.runProcess(self.depositName)
 
     ########################################################################################
@@ -138,7 +138,7 @@ class checkDisplay04:
     def showPerson(self, name, args):
         self.newWindow = tk.Toplevel(self.master)
         #self.app = checkDisplay03(self.newWindow, name, '', self.wb)
-        self.app = checkDisplay03(self.newWindow, name)
+        self.app = checkDisplay03(self.newWindow, name, self.CDCommonCode)
 
     def showCash(self):
         total = 0

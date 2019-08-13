@@ -38,79 +38,101 @@ class DepositDisplay01:
         self.runProcess()
 
 
-    def loadRow(self, month, day, sheet, current_row):
-        arr = []
-        if(sheet.cell(row=current_row, column=2).value in self.ds):
-            arr = self.ds[sheet.cell(row=current_row, column=2).value]
+    # def loadRow(self, month, day, sheet, current_row):
+    #     arr = []
+    #     if(sheet.cell(row=current_row, column=2).value in self.ds):
+    #         arr = self.ds[sheet.cell(row=current_row, column=2).value]
+    #
+    #
+    #     name = month+day
+    #
+    #     dName = ''
+    #     for depArr in self.depositName:
+    #         if name == depArr[1]:
+    #             dName = depArr[0]
+    #
+    #     peep = sheet.cell(row=current_row, column=2).value
+    #
+    #     newRow = [sheet.cell(row=current_row, column=1).value,
+    #               dName,
+    #               sheet.cell(row=current_row, column=3).value,
+    #               str(sheet.cell(row=current_row, column=4).value)[0:10],
+    #               str(month) + "-" + str(day),
+    #               sheet.cell(row=current_row, column=5).value,
+    #               sheet.cell(row=current_row, column=6).value,
+    #               name]
+    #
+    #     if not peep in self.people:
+    #         self.people.append(peep)
+    #
+    #     arr.append(newRow)
+    #     self.ds[sheet.cell(row=current_row, column=2).value] = arr
+    #     if not name in self.sdata:
+    #         self.sdata[name] = dict()
+    #
+    #     self.sdata[name][sheet.cell(row=current_row, column=2).value] = arr
+    #     if not peep in self.pdata:
+    #         self.pdata[peep] = dict()
+    #
+    #     self.pdata[peep][sheet.cell(row=current_row, column=2).value] = arr
+    #
 
-
-        name = month+day
-
-        dName = ''
-        for depArr in self.depositName:
-            if name == depArr[1]:
-                dName = depArr[0]
-
-        peep = sheet.cell(row=current_row, column=2).value
-
-        newRow = [sheet.cell(row=current_row, column=1).value,
-                  dName,
-                  sheet.cell(row=current_row, column=3).value,
-                  str(sheet.cell(row=current_row, column=4).value)[0:10],
-                  str(month) + "-" + str(day),
-                  sheet.cell(row=current_row, column=5).value,
-                  sheet.cell(row=current_row, column=6).value,
-                  name]
-
-        if not peep in self.people:
-            self.people.append(peep)
-
-        arr.append(newRow)
-        self.ds[sheet.cell(row=current_row, column=2).value] = arr
-        if not name in self.sdata:
-            self.sdata[name] = dict()
-
-        self.sdata[name][sheet.cell(row=current_row, column=2).value] = arr
-        if not peep in self.pdata:
-            self.pdata[peep] = dict()
-
-        self.pdata[peep][sheet.cell(row=current_row, column=2).value] = arr
-
-
-    def loadRowCash(self, month, day, sheet, current_row):
-        arr = []
-        if(sheet.cell(row=current_row, column=2).value in self.ds):
-            arr = self.ds[sheet.cell(row=current_row, column=2).value]
-
-        name = month+day
-
-        dName = ''
-        for depArr in self.depositName:
-            if name == depArr[1]:
-                dName = depArr[0]
-
-        peep = sheet.cell(row=current_row, column=2).value
-
-        newRow = [sheet.cell(row=current_row, column=1).value,
-                  dName,
-                  sheet.cell(row=current_row, column=3).value,
-                  str(sheet.cell(row=current_row, column=4).value)[0:10],
-                  str(month) + "-" + str(day),
-                  sheet.cell(row=current_row, column=5).value,
-                  sheet.cell(row=current_row, column=6).value,
-                  name]
-
-        self.cdata.append(newRow)
+    # def loadRowCash(self, month, day, sheet, current_row):
+    #     print("loadRowCash")
+    #     arr = []
+    #     if(sheet.cell(row=current_row, column=2).value in self.ds):
+    #         arr = self.ds[sheet.cell(row=current_row, column=2).value]
+    #
+    #     name = month+day
+    #
+    #     dName = ''
+    #     for depArr in self.depositName:
+    #         if name == depArr[1]:
+    #             dName = depArr[0]
+    #
+    #     peep = sheet.cell(row=current_row, column=2).value
+    #
+    #     newRow = [sheet.cell(row=current_row, column=1).value,
+    #               dName,
+    #               sheet.cell(row=current_row, column=3).value,
+    #               str(sheet.cell(row=current_row, column=4).value)[0:10],
+    #               str(month) + "-" + str(day),
+    #               sheet.cell(row=current_row, column=5).value,
+    #               sheet.cell(row=current_row, column=6).value,
+    #               name]
+    #
+    #     self.cdata.append(newRow)
 
     def getSheet(self, sheet):
+        arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+        arrptr = 0
+        prev = ""
+        curr = ""
+        prevDate = ""
+        currDate = ""
+
         for r in range(5, sheet.max_row+1):
-            self.ds[sheet.cell(row=r, column=2).value] = dict()
-            self.ds[sheet.cell(row=r, column=2).value]['row'] = r
-            self.ds[sheet.cell(row=r, column=2).value]['date'] = sheet.cell(row=r, column=4).value
-            self.ds[sheet.cell(row=r, column=2).value]['cash'] = sheet.cell(row=r, column=5).value
-            self.ds[sheet.cell(row=r, column=2).value]['checks'] = sheet.cell(row=r, column=6).value
-            self.ds[sheet.cell(row=r, column=2).value]['total'] = sheet.cell(row=r, column=7).value
-            self.ds[sheet.cell(row=r, column=2).value]['image'] = sheet.cell(row=r, column=9).value
+            if (sheet.cell(row=r, column=2).value):
+                curr = sheet.cell(row=r, column=2).value
+                currDate = sheet.cell(row=r, column=4).value
+                prev = curr
+                prevDate = currDate
+                arrptr = 0
+            else:
+                curr = prev + "@@" + str(arr[arrptr])
+                currDate = prevDate
+                arrptr += 1
+
+            # print(prev + "/" + curr)
+            self.ds[curr] = dict()
+            self.ds[curr]['row'] = r
+            # self.ds[curr]['date'] = sheet.cell(row=r, column=4).value
+            self.ds[curr]['date'] = currDate
+            self.ds[curr]['cash'] = sheet.cell(row=r, column=5).value
+            self.ds[curr]['checks'] = sheet.cell(row=r, column=6).value
+            self.ds[curr]['total'] = sheet.cell(row=r, column=7).value
+            self.ds[curr]['image'] = sheet.cell(row=r, column=9).value
+            # print(self.ds[sheet.cell(row=r, column=2).value]['image'])
 
     def depositExists(self, sheet, depositName):
         for r in range(5, sheet.max_row):
@@ -154,7 +176,7 @@ class DepositDisplay01:
 
     def showDeposit(self, name, args):
         #self.CDCommonCode.showDepositImage(name)
-        print (name)
+        # print (name)
 
         wb = ""
         dName = name
@@ -183,18 +205,30 @@ class DepositDisplay01:
         # print("Saving: " + self.workingFile)
         self.workbooks.save(self.workingFile + ".xlsx")
 
+    def mySort(self, inDict):
+        # print(sorted(inDict.items()))
+        arrToSort = []
+        outDict1 = dict()
 
-    # def mySort(self, inDict):
-    #     targetVal = -1
-    #     outDict = dict()
-    #     keysHold1 = inDict.keys()
-    #     keysHold2 = keysHold1
-    #     for line in keysHold1:
-    #         for line1 in keysHold2:
-    #             if inDict[line1]['row'] == targetVal:
-    #                 outDict[line1] = inDict[line]
-    #         targetVal += 1
-    #     return outDict
+        for line in inDict:
+            arrToSort.append(str(inDict[line]['date']) + "_$_" + line)
+
+        arrToSort = sorted(arrToSort)
+        for e in arrToSort:
+            sp = e.split('_$_')
+
+        print(arrToSort)
+
+        targetVal = -1
+        outDict = dict()
+        # keysHold1 = inDict.keys()
+        # keysHold2 = keysHold1
+        # for line in keysHold1:
+        #     for line1 in keysHold2:
+        #         if inDict[line1]['row'] == targetVal:
+        #             outDict[line1] = inDict[line]
+        #     targetVal += 1
+        return inDict
 
     def showData(self):
         label00 = []
@@ -233,41 +267,54 @@ class DepositDisplay01:
 
         row_num = 3
         total_lines = len(self.ds.keys())
-        # myThing = self.mySort(self.ds)
-        for line in self.ds.keys():
-            if (total_lines - row_num > 7):
+        myThing = self.mySort(self.ds)
+        # print(myThing)
+        # for line in myThing.keys():
+        #     print(line)
+
+        # exit()
+
+        # for line in self.ds.keys():
+        for line in sorted(myThing.keys()):
+            if (total_lines - row_num > 15):
                 row_num += 1
                 continue
 
-            label00.append(tk.Label(self.frame, text=line, bg="teal", fg="yellow"))
+            lab = ''
+            if '@@' in line:
+                label = ''
+            else:
+                lab = line
+
+            label00.append(tk.Label(self.frame, text=lab, bg="teal", fg="yellow"))
             label00[len(label00)-1].grid(row=row_num, column=1, padx=4, pady=4, sticky=tk.NW)
             label00[len(label00)-1].bind("<Button-1>", partial(self.showDeposit, line))
 
-            label00.append(tk.Label(self.frame, text=str(self.ds[line]['date'])[0:10], bg="teal", fg="yellow"))
+            label00.append(tk.Label(self.frame, text=str(myThing[line]['date'])[0:10], bg="teal", fg="yellow"))
             label00[len(label00)-1].grid(row=row_num, column=3, padx=4, pady=4, sticky=tk.NW)
 
             #x = "${:0,.2f}".format(self.ds[line]['cash'])
             x = ""
-            if(self.ds[line]['cash']):
-                x = "${:0,.2f}".format(self.ds[line]['cash'])
+            if(myThing[line]['cash']):
+                x = "${:0,.2f}".format(myThing[line]['cash'])
             label00.append(tk.Label(self.frame, text=x, bg="teal", fg="yellow"))
             label00[len(label00)-1].grid(row=row_num, column=5, padx=4, pady=4, sticky=tk.NW)
 
             x = ""
-            if(self.ds[line]['checks']):
-                x = "${:0,.2f}".format(self.ds[line]['checks'])
+            if(myThing[line]['checks']):
+                x = "${:0,.2f}".format(myThing[line]['checks'])
             label00.append(tk.Label(self.frame, text=x, bg="teal", fg="yellow"))
             label00[len(label00)-1].grid(row=row_num, column=7, padx=4, pady=4, sticky=tk.NW)
 
             x = ""
-            if(self.ds[line]['total']):
-                x = "${:0,.2f}".format(self.ds[line]['total'])
+            if(myThing[line]['total']):
+                x = "${:0,.2f}".format(myThing[line]['total'])
             label00.append(tk.Label(self.frame, text=x, bg="teal", fg="yellow"))
             label00[len(label00)-1].grid(row=row_num, column=9, padx=4, pady=4, sticky=tk.NW)
 
-            label00.append(tk.Label(self.frame, text=self.ds[line]['image'], bg="teal", fg="yellow"))
+            label00.append(tk.Label(self.frame, text=myThing[line]['image'], bg="teal", fg="yellow"))
             label00[len(label00)-1].grid(row=row_num, column=11, padx=4, pady=4, sticky=tk.NW)
-            label00[len(label00)-1].bind("<Button-1>", partial(self.CDCommonCode.showDepositImage, self.ds[line]['image']))
+            label00[len(label00)-1].bind("<Button-1>", partial(self.CDCommonCode.showDepositImage, myThing[line]['image']))
 
             row_num+=1
 

@@ -136,6 +136,13 @@ class CDCommonCode:
         self.getExcel()
         os.system("start  \"" + self.EXCELEXE + "\" \"" + dailyLogDir + "\\" + workingFile + ".xlsx\"")
 
+    def cleanUp(self, files):
+        sheetNames = []
+        lastThree = []
+        wbList = self.openDailyLog(files)
+        for wb in wbList:
+            print(wb)
+
     def shiftWBook(self, files, workingFile):
         sheetNames = []
         lastThree = []
@@ -148,7 +155,6 @@ class CDCommonCode:
             sheetNames.append(name)
 
         if len(sheetNames) > 10:
-            #print("length > 10")
             newBookName = sheetNames[10][0:-2]
 
         if len(newBookName) < 3:
@@ -199,11 +205,11 @@ class CDCommonCode:
             self.workbooks['DailyLog']['Sheet'].title = sheetName
             self.buildPage(newSheet)
             #self.workbooks['dailyLog'].remove_sheet('Sheet')
-            print(dailyLogDir + '\\DailyLog.xlsx')
+            # print(dailyLogDir + '\\DailyLog.xlsx')
             self.workbooks['DailyLog'].save(filename = dailyLogDir + '\\DailyLog.xlsx')
         else:
             for file in files:
-                print(dailyLogDir + '\\' + file + '.xlsx')
+                # print(dailyLogDir + '\\' + file + '.xlsx')
                 self.workbooks[file] = load_workbook(dailyLogDir + '\\' + file + '.xlsx', data_only=True)
 
         return self.workbooks

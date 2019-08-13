@@ -1,4 +1,5 @@
 
+from functools import partial
 
 def doStuff(files, workingFile):
   for f in files:

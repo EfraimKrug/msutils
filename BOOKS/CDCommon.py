@@ -39,7 +39,7 @@ from Profile import *
 from SearchNames import *
 from checkDisplay02 import *
 from checkDisplay03 import *
-print('importing checkDisplay04')
+# print('importing checkDisplay04')
 from checkDisplay04 import *
 from errorDisplay import *
 #from AlefBet import *

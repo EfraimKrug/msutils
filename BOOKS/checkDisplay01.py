@@ -242,7 +242,8 @@ class checkDisplay01:
         pagesPopup2.current(1)
         pagesPopup2.bind("<<ComboboxSelected>>", self.change_dropdown2)
 
-        self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.CDCommonCode.shiftWBook, self.files, self.workingFile))
+        #self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.CDCommonCode.shiftWBook, self.files, self.workingFile))
+        self.button01 = tk.Button(self.frame, text="Shift", command=partial(self.CDCommonCode.cleanUp, self.files))
         self.button01.grid(row=1, column=2, columnspan=1, padx=10, pady=10, sticky=tk.EW)
 
         self.button02 = tk.Button(self.frame, text="Open Excel", command=partial(self.CDCommonCode.openNewSheet, self.workingFile))

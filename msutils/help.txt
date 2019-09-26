@@ -1,0 +1,27 @@
+ReadMe.txt
+==========
+
+This is a suite of utilities for synagogue office managers. I am
+working in an office, and it seems like some of these may be helpful
+for other people.
+
+This version is for windows.
+
+=========================================================================
+yahr: This program reformats an excel spread sheet from shulcloud, and
+produces two spread sheets I can then print and put on the bimah for the
+gabbai to read.
+
+what do you need to do before using this?
+1) go to shulcloud and download the yahrzeit list for the month
+2) save that file as yahrzeits.xlsx in this 'msutils' directory.
+3) click on .../msutils/bat/mBox.bat
+4) a window comes up with buttons...
+5) click on the button that says 'Build monthly yahrzeit list'
+
+Result: excel should come up with a workbook called 'new.xlsx'.
+This workbook will have three worksheets in it:
+1) a copy of the old 'yahrzeits.xlsx'
+2) a worksheet called 'males'
+3) a worksheet called 'females'
+=========================================================================

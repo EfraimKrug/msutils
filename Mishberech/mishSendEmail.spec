@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['mishSendEmail.py'],
-             pathex=['C:\\Users\\KTM\\python\\msutils\\Mishberech'],
+             pathex=['C:\\Users\\KTM\\KTMUtils\\msutils\\Mishberech'],
              binaries=[],
              datas=[],
              hiddenimports=[],

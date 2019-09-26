@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['mainBox.py'],
-             pathex=['C:\\Users\\KTM\\python\\msutils\\MainBox'],
+             pathex=['C:\\Users\\KTM\\KTMUtils\\msutils\\MainBox'],
              binaries=[],
              datas=[],
              hiddenimports=[],

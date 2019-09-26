@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['yahr.py'],
-             pathex=['C:\\Users\\KTM\\python\\msutils\\yahr'],
+             pathex=['C:\\Users\\KTM\\KTMUtils\\msutils\\yahr'],
              binaries=[],
              datas=[],
              hiddenimports=[],

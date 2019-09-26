@@ -36,7 +36,7 @@ missing module named Image - imported by openpyxl.drawing.image (delayed, option
 missing module named tests - imported by openpyxl.reader.excel (optional)
 missing module named _sysconfigdata - imported by distutils.sysconfig (delayed)
 missing module named grp - imported by shutil (optional), tarfile (optional)
-missing module named Profile - imported by C:\Users\KTM\python\msutils\yahr\yahr.py (top-level)
+missing module named Profile - imported by C:\Users\KTM\KTMUtils\msutils\yahr\yahr.py (top-level)
 missing module named riscosenviron - imported by os (conditional, optional)
 missing module named riscospath - imported by os (conditional)
 missing module named riscos - imported by os (conditional, optional)

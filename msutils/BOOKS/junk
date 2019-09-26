@@ -1,0 +1,662 @@
+['C:\\Users\\KTM\\KTMUtils\\msutils\\BOOKS', 'C:\\Windows\\system32\\python27.zip', 'C:\\Python27\\DLLs', 'C:\\Python27\\lib', 'C:\\Python27\\lib\\plat-win', 'C:\\Python27\\lib\\lib-tk', 'C:\\Python27', 'C:\\Python27\\lib\\site-packages', 'C:\\Python27\\lib\\site-packages\\win32', 'C:\\Python27\\lib\\site-packages\\win32\\lib', 'C:\\Python27\\lib\\site-packages\\Pythonwin', 'C:\\Users\\KTM\\KTMUtils\\msutils\\BOOKS', 'C:\\Users\\KTM\\KTMUtils\\msutils']
+basedir: C:\Users\KTM\\KTMUtils\\msutils
+batdir: C:\Users\KTM\\KTMUtils\\msutils\\bat
+downloadPath: C:\Users\KTM\Downloads
+dailyLogDir: C:\Users\KTM\\KTMUtils\\msutils\\BOOKS\\DATA
+checkDir: C:\Users\KTM\\KTMUtils\\msutils\\BOOKS\\DATA\\Checks
+depositDir: C:\Users\KTM\\KTMUtils\\msutils\\BOOKS\\DATA\\Checks\\Deposits
+current working: C:\Users\KTM\KTMUtils\msutils
+Sheet Name: August01
+Sheet Name: August05
+Sheet Name: August06
+Sheet Name: August08
+Sheet Name: August12
+Sheet Name: August13
+Sheet Name: August15
+Sheet Name: August20
+Sheet Name: August22
+Sheet Name: August27
+Adding to pageGuard: August27
+Cash: 0
+Appending: Cash
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 1
+Appending: Building Fund
+Appending: Building Fund
+Appending: 2019-08-27 00:00:00
+Appending: 50
+Appending: None
+Cash: 2
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 3
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 4
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 5
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 6
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 7
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 8
+Checks: 9
+Appending (Check):Check No.
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 10
+Appending (Check):2900
+Appending (Check):Fuchs
+Appending (Check):None
+Appending (Check):2019-08-23 00:00:00
+Appending (Check):15
+Appending (Check):Checks08272019
+Checks: 11
+Appending (Check):5639
+Appending (Check):Hashkes
+Appending (Check):grandmother
+Appending (Check):2019-08-23 00:00:00
+Appending (Check):15
+Appending (Check):Checks08272019
+Checks: 12
+Appending (Check):1055
+Appending (Check):DOI
+Appending (Check):Gas Bill
+Appending (Check):2019-08-23 00:00:00
+Appending (Check):459.32
+Appending (Check):Checks08272019
+Checks: 13
+Appending (Check):2889
+Appending (Check):Pastman
+Appending (Check):donation
+Appending (Check):2019-08-23 00:00:00
+Appending (Check):15
+Appending (Check):Checks08272019
+Checks: 14
+Appending (Check):838
+Appending (Check):Blumstein
+Appending (Check):IMO: Gisya Khozak
+Appending (Check):2019-08-23 00:00:00
+Appending (Check):18
+Appending (Check):Checks08272019
+Checks: 15
+Appending (Check):2672
+Appending (Check):Kats
+Appending (Check):Yahrzeit for my mother
+Appending (Check):2019-08-20 00:00:00
+Appending (Check):15
+Appending (Check):Checks08272019
+Checks: 16
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 17
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 18
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 19
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 20
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 21
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 22
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 23
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 24
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 25
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 26
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 27
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 28
+Sheet Name: April07
+Sheet Name: April09
+Sheet Name: April10
+Sheet Name: April11
+Sheet Name: April14
+Sheet Name: April16
+Sheet Name: April18
+Sheet Name: April22
+Sheet Name: April23
+Sheet Name: April28
+Sheet Name: April29
+Sheet Name: April30
+Sheet Name: June03
+Sheet Name: June04
+Sheet Name: June06
+Sheet Name: June07
+Sheet Name: June11
+Sheet Name: June12
+Sheet Name: June13
+Sheet Name: June16
+Sheet Name: June17
+Sheet Name: June18
+Sheet Name: June19
+Sheet Name: June20
+Sheet Name: June23
+Sheet Name: May02
+Sheet Name: May05
+Sheet Name: May06
+Sheet Name: May07
+Sheet Name: May09
+Sheet Name: May10
+Sheet Name: May13
+Sheet Name: May14
+Sheet Name: May16
+Sheet Name: May19
+Sheet Name: May20
+Sheet Name: May22
+Sheet Name: May23
+Sheet Name: May26
+Sheet Name: May29
+Sheet Name: May30
+Sheet Name: August01
+Sheet Name: August05
+Sheet Name: August06
+Sheet Name: August08
+Sheet Name: August12
+Sheet Name: August13
+Sheet Name: August15
+Sheet Name: August20
+Sheet Name: August22
+Sheet Name: August27
+Sheet Name: August29
+Adding to pageGuard: August29
+Cash: 29
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 30
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 31
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 32
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 33
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 34
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 35
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 36
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 37
+Checks: 38
+Appending (Check):Check No.
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 39
+Appending (Check):4896
+Appending (Check):Forst
+Appending (Check):yahrzeit Mary Forst
+Appending (Check):2019-25-08
+Appending (Check):18
+Appending (Check):Checks08292019
+Checks: 40
+Appending (Check):2270
+Appending (Check):Segal
+Appending (Check):IMO: Avram Segal
+Appending (Check):2019-01-09
+Appending (Check):20
+Appending (Check):Checks08292019
+Checks: 41
+Appending (Check):2109
+Appending (Check):Levenson
+Appending (Check):Mollie Yahrzeit
+Appending (Check):2019-24-08
+Appending (Check):56
+Appending (Check):Checks08292019
+Checks: 42
+Appending (Check):1170
+Appending (Check):Fischer
+Appending (Check):None
+Appending (Check):2019-24-08
+Appending (Check):36
+Appending (Check):Checks08292019
+Checks: 43
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 44
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 45
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 46
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 47
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 48
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 49
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 50
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 51
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 52
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 53
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 54
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 55
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 56
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 57
+Sheet Name: September01
+Adding to pageGuard: September01
+Cash: 58
+Appending: Cash
+Appending: Pushke
+Appending: Pushke
+Appending: 2019-01-09
+Appending: 50
+Appending: None
+Cash: 59
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 60
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 61
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 62
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 63
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 64
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 65
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Appending: None
+Cash: 66
+Checks: 67
+Appending (Check):Check No.
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 68
+Appending (Check):2576
+Appending (Check):Zilberstein
+Appending (Check):Yahrzeit
+Appending (Check):2019-26-08
+Appending (Check):50
+Appending (Check):Checks09012019
+Checks: 69
+Appending (Check):1209
+Appending (Check):Simons
+Appending (Check):Yahrzeit
+Appending (Check):2019-26-08
+Appending (Check):18
+Appending (Check):Checks09012019
+Checks: 70
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 71
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 72
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 73
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 74
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 75
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 76
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 77
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 78
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 79
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 80
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 81
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 82
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 83
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 84
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 85
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Appending (Check):None
+Checks: 86
+Sheet Name: July01
+Sheet Name: July02
+Sheet Name: July04
+Sheet Name: July08
+Sheet Name: July10
+Sheet Name: July09
+Sheet Name: July11
+Sheet Name: July15
+Sheet Name: July16
+Sheet Name: July18
+Sheet Name: July21
+Sheet Name: July22
+Sheet Name: July23
+Sheet Name: July25
+Sheet Name: July29
+Sheet Name: July30

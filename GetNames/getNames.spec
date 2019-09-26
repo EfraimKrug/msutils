@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['getNames.py'],
-             pathex=['C:\\Users\\KTM\\python\\msutils\\GetNames'],
+             pathex=['C:\\Users\\KTM\\KTMUtils\\msutils\\GetNames'],
              binaries=[],
              datas=[],
              hiddenimports=[],
